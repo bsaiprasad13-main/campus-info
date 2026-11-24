@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Campus Info · admin</title>
+  <link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#111111">
+  <script>
+    // Always load the newest admin code: GitHub Pages lets browsers keep files for 10 minutes.
+    (function () {
+      var v = Date.now();
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "admin.css?v=" + v;
+      document.head.appendChild(css);
+      ["../markdown.js", "admin.js"].forEach(function (src) {
+        var s = document.createElement("script");
+        s.src = src + "?v=" + v;
+        s.async = false;
+        document.head.appendChild(s);
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"><p class="boot">Loading the admin…</p></div>
+  <noscript>The admin needs JavaScript.</noscript>
+</body>
+</html>

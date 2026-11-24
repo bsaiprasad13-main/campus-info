@@ -1,0 +1,34 @@
+{
+  "about": "Written after the search fixes, and not tuned on. They show whether the fixes hold up on questions the search hasn't seen. Reported, not part of pass or fail.",
+  "everyday": [
+    {"q": "mess rebate kaise milega", "expect": ["mess"]},
+    {"q": "how to claim minor", "expect": ["minor-degree"]},
+    {"q": "lost my id card hostel entry", "expect": ["hostel-visitors"]},
+    {"q": "nptel exam fees", "expect": ["nptel"]},
+    {"q": "grade points for s grade", "expect": ["cgpa-calculation"]},
+    {"q": "free gym on campus", "expect": ["sports-facilities", "hostel-facilities"]},
+    {"q": "tamil club", "expect": ["independent-student-bodies"]},
+    {"q": "insurance card download", "expect": ["health-insurance"]},
+    {"q": "fellowship for research in germany", "expect": ["undergraduate-research", "going-abroad"]},
+    {"q": "book bank library", "expect": ["library-timings", "library-borrowing"]},
+    {"q": "ecell summit", "expect": ["entrepreneurship"]},
+    {"q": "coupon for my parents meal", "expect": ["mess-coupons"]},
+    {"q": "electrical complaint room", "expect": ["hostel-complaints"]},
+    {"q": "how to become a hostel secretary", "expect": ["hostel-council"]},
+    {"q": "ncc or nso", "expect": ["nso-nss-nca-ncc"]}
+  ],
+  "urgent": [
+    {"q": "accident near hostel", "expect": ["emergency-contacts", "hospital"]},
+    {"q": "anxious cant sleep", "expect": ["counselling", "mental-health"]},
+    {"q": "security guard number hostel", "expect": ["hostel-security-desks", "emergency-contacts"]},
+    {"q": "ragging complaint", "expect": ["ragging"]},
+    {"q": "ambulance number iitm", "expect": ["emergency-contacts", "hospital"]}
+  ],
+  "not_covered": [
+    {"q": "cheapest flight to delhi"},
+    {"q": "macbook student discount"},
+    {"q": "jee mains result"},
+    {"q": "how to make friends"},
+    {"q": "uber fare to airport"}
+  ]
+}

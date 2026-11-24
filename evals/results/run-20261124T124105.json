@@ -1,0 +1,111 @@
+{
+  "at": "2026-11-24T12:41:05.734Z",
+  "today": "2026-11-24",
+  "results": [
+    {
+      "name": "2 a.m. set",
+      "pass": false,
+      "summary": "5/10",
+      "details": [
+        "\"friend fainted in hostel\" → first: litsoc (0 numbers), wanted emergency-contacts or hospital",
+        "\"need to talk to someone\" → first: cocas (0 numbers), wanted counselling or mental-health",
+        "\"someone is harassing me\" → first: posh-ccash (0 numbers), wanted posh-ccash or ragging",
+        "\"suicidal thoughts helpline\" → first: ragging (2 numbers), wanted counselling or mental-health or emergency-contacts",
+        "\"panic attack\" → first: documents (0 numbers), wanted counselling or mental-health or emergency-contacts"
+      ]
+    },
+    {
+      "name": "Everyday search",
+      "pass": true,
+      "summary": "first 93% · top 3 97%",
+      "extra": {
+        "first": 65,
+        "top3": 68,
+        "n": 70,
+        "styles": {
+          "hinglish": {
+            "n": 7,
+            "first": 6
+          },
+          "typo": {
+            "n": 5,
+            "first": 4
+          },
+          "plain": {
+            "n": 46,
+            "first": 43
+          },
+          "short form": {
+            "n": 12,
+            "first": 12
+          }
+        }
+      },
+      "details": [
+        "MISS \"khana room pe chahiye bimar hu\" → wifi-router, hostel-facilities, classroom-booking; wanted sick-food",
+        "top3 \"can my friend stay in hostel at night\" → buses, hostel-visitors, late-night-food; wanted hostel-visitors",
+        "MISS \"where to eat outside mess\" → mess, mess-coupons, has; wanted restaurants or late-night-food",
+        "top3 \"places to take parents\" → cgpa-does-it-matter, places-to-visit, nirmaan-ideasprint; wanted places-to-visit",
+        "top3 \"ikolege login\" → hostel-lan, college-websites, hospital; wanted college-websites"
+      ]
+    },
+    {
+      "name": "Nothing on this yet",
+      "pass": true,
+      "summary": "12/12",
+      "details": []
+    },
+    {
+      "name": "Privacy",
+      "pass": true,
+      "summary": "0 hits",
+      "details": []
+    },
+    {
+      "name": "Freshness",
+      "pass": true,
+      "summary": "0 stale",
+      "details": []
+    },
+    {
+      "name": "Links and files",
+      "pass": true,
+      "summary": "0 broken · 73 outside links (not tried)",
+      "details": []
+    },
+    {
+      "name": "Slow network",
+      "pass": true,
+      "summary": "home 97 KB · offline 245 KB",
+      "details": [],
+      "extra": {
+        "home": [
+          "index.html",
+          "data/content.json",
+          "markdown.js",
+          "search.js",
+          "app.js",
+          "app.css"
+        ],
+        "offline": [
+          "index.html",
+          "app.css",
+          "app.js",
+          "search.js",
+          "markdown.js",
+          "manifest.webmanifest",
+          "icons/icon.svg",
+          "icons/icon-192.png",
+          "data/content.json",
+          "data/search.json"
+        ]
+      }
+    },
+    {
+      "name": "Admin end to end",
+      "pass": null,
+      "summary": "not run (add --admin)",
+      "details": []
+    }
+  ]
+}

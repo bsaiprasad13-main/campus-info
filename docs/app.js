@@ -4,8 +4,8 @@
   "use strict";
 
   const CONFIG = {
-    GA_ID: "",          // Google Analytics 4 measurement ID ("" keeps analytics off)
-    FEEDBACK_URL: "",   // the form's pre-filled link, with TOPIC where the topic or search goes ("" hides it)
+    GA_ID: "G-2QR921947Y", // Google Analytics 4 measurement ID ("" keeps analytics off)
+    FEEDBACK_URL: "https://docs.google.com/forms/d/e/1FAIpQLSe3UvvfHD-_dQ4gl2veI41cDzU9HYKkPWooc_kS1fsPoEjXXQ/viewform?usp=pp_url&entry.1442607143=Something+is+missing+(I+couldn%27t+find+it)&entry.785255351=TOPIC", // pre-filled form link; TOPIC is replaced
     ADMIN_PATH: "admin/",
   };
 

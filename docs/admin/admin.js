@@ -6,7 +6,7 @@
 
   const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   const CONFIG = {
-    API: LOCAL ? "/api" : "",     // the Catalyst function URL, ending in /server/campus_api/execute
+    API: LOCAL ? "/api" : "https://campusinfo-60086240727.development.catalystserverless.in/server/campus_api/execute",
     GOOGLE_CLIENT_ID: "699909418873-831o6gb25c2pvrgqlre3j63r5tittc0g.apps.googleusercontent.com",
   };
   const M = window.CampusMarkdown;

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Campus Info · student life at IIT Madras, searchable</title>
+  <meta name="description" content="What IIT Madras offers you, and whom to ask. Mess, hostel, scholarships, academics, health and clubs, written by IITM students from official sources. Every number taps to call. Works offline.">
+  <meta name="theme-color" content="#111111">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta property="og:title" content="Campus Info">
+  <meta property="og:description" content="What IIT Madras offers you, and whom to ask. Search in your own words; every number taps to call.">
+  <meta property="og:image" content="icons/icon-512.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="strip" id="strip" aria-label="Emergency numbers"></div>
+  <header class="top">
+    <a class="brand" href="#/" aria-label="Campus Info home"><span class="logo" aria-hidden="true">ci</span><span class="name">Campus Info</span></a>
+    <span class="where">IIT Madras</span>
+  </header>
+  <main id="main" tabindex="-1">
+    <p class="loading">Loading…</p>
+  </main>
+  <nav class="rail" id="rail" aria-label="Jump to a letter" hidden></nav>
+  <footer class="foot" id="foot"></footer>
+  <noscript><p class="loading">Campus Info needs JavaScript turned on.</p></noscript>
+  <script src="markdown.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

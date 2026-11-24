@@ -114,3 +114,26 @@ conveyed properly and clearly to whoever is opening the website. If you have any
 - Every topic ends with a "Who to contact" block, so the answer to "whom to ask" is always the last thing you read.
 - "Was this useful?" on every topic, and a link from any search that finds nothing, so seniors learn what's missing.
 - A "Share this page" button. Most answers travel through group chats.
+
+## Prompt 8: Make it something you'd want to open
+
+It works, but it isn't attractive. There's no search icon, no logo and no tagline, and the buttons don't look like
+buttons. Take "IIT Madras" off the top right; we shouldn't lean on the college's name, so say in the footer who
+builds it instead. Add some colour, but soft, not heavy. And don't add features to make up for it: fewer things,
+each one worth having. Show me two versions side by side before you touch the real site.
+
+### What Prompt 8 changed
+
+Two looks were built as a separate mock-up, next to the live site, on the same content. The warm one was picked.
+
+- A bookmark logo with "ci" (also the app icon) and the tagline "Everything a senior would tell you."
+- "IIT Madras" left the header. The footer now says "Built and kept up to date by IITM students. Not an official
+  institute website."
+- Cream paper, navy ink, the icon's yellow, and a soft colour for each group, so a topic's group shows at a glance.
+- A real search box with an icon and a clear button. It stays at the top while you scroll the index.
+- Groups became pills with small icons that you swipe sideways.
+- On a topic, a short "Whom to ask" list now sits under the title with Call buttons, instead of at the end. The three
+  topics that are mostly a list of numbers keep it at the end, with a link to it at the top.
+- The three big numbers became three small tags, and the intro is one line.
+- Nothing new was added. Ideas like "recently opened" and per-topic jump lists were dropped as not worth the extra
+  things to learn.

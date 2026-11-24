@@ -1,4 +1,4 @@
-# Campus Info checks · 24 Nov 2026, 8:11 pm
+# Campus Info checks · 25 Nov 2026, 1:38 am
 
 ## skip · Fresh questions: everyday 15/15 first · urgent 5/5 · nothing-yet 4/5
 
@@ -27,7 +27,7 @@
 
 ## PASS · Links and files: 0 broken · 73 outside links (not tried)
 
-## PASS · Slow network: home 98 KB · offline 246 KB
+## PASS · Slow network: home 100 KB · offline 251 KB
 
 ## skip · Admin end to end: not run (add --admin)
 

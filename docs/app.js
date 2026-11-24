@@ -56,7 +56,7 @@
       const raw = store.get(PREVIEW_KEY);
       if (raw) return JSON.parse(raw).content;
     }
-    const r = await fetch("data/content.json", { cache: "no-cache" });
+    const r = await fetch("data/content.json?v=" + Date.now(), { cache: "no-store" });
     if (!r.ok) throw new Error("content " + r.status);
     return r.json();
   }
@@ -70,7 +70,7 @@
     }
     if (!extra) {
       try {
-        const r = await fetch("data/search.json", { cache: "no-cache" });
+        const r = await fetch("data/search.json?v=" + Date.now(), { cache: "no-store" });
         if (r.ok) extra = await r.json();
       } catch (e) { /* offline and not cached yet */ }
     }

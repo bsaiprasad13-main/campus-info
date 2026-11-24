@@ -1,7 +1,8 @@
 /* Campus Info offline support. After one visit the app opens, shows every topic and searches without internet.
-   Pages and data: network first (so a publish shows up straight away), falling back to the saved copy after 4 s.
+   Pages and data: network first, past every cache (GitHub's CDN keeps files up to 10 minutes), so a publish
+   shows up on the next load; the saved copy is used when offline or after 4 s on a slow connection.
    Documents: saved the first time someone opens them. The admin is never cached. */
-const VERSION = "campus-info-1";
+const VERSION = "campus-info-2";
 const OFFLINE = [
   "./",
   "index.html",
@@ -51,8 +52,9 @@ self.addEventListener("fetch", (event) => {
 
 async function networkFirst(req, path) {
   const cache = await caches.open(VERSION);
-  const key = path === "" ? "./" : req;
-  const fresh = fetch(req, { cache: "no-cache" }).then((res) => {
+  // Saved under the plain address, so "content.json?v=123" and "content.json" share one offline copy.
+  const key = path === "" ? "./" : new URL(req.url).pathname;
+  const fresh = fetch(req, { cache: "no-store" }).then((res) => {
     if (res.ok && res.status === 200) cache.put(key, res.clone());
     return res;
   });

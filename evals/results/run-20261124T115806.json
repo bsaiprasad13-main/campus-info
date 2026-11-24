@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-24T11:58:06.195Z",
+  "today": "2026-11-24",
+  "results": [
+    {
+      "name": "2 a.m. set",
+      "pass": false,
+      "summary": "the app isn't built yet",
+      "details": []
+    },
+    {
+      "name": "Everyday search",
+      "pass": false,
+      "summary": "the app isn't built yet",
+      "details": []
+    },
+    {
+      "name": "Nothing on this yet",
+      "pass": false,
+      "summary": "the app isn't built yet",
+      "details": []
+    },
+    {
+      "name": "Privacy",
+      "pass": true,
+      "summary": "0 hits",
+      "details": []
+    },
+    {
+      "name": "Freshness",
+      "pass": true,
+      "summary": "0 stale",
+      "details": []
+    },
+    {
+      "name": "Links and files",
+      "pass": false,
+      "summary": "no built data yet",
+      "details": []
+    },
+    {
+      "name": "Slow network",
+      "pass": false,
+      "summary": "the app isn't built yet",
+      "details": []
+    },
+    {
+      "name": "Admin end to end",
+      "pass": null,
+      "summary": "not run (add --admin)",
+      "details": []
+    }
+  ]
+}

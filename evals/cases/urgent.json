@@ -1,0 +1,15 @@
+{
+  "about": "The 2 a.m. set: things a scared student might type. The first result must be one of the 'expect' topics and must give a number to tap and call.",
+  "cases": [
+    {"q": "ambulance", "expect": ["emergency-contacts", "hospital"]},
+    {"q": "friend fainted in hostel", "expect": ["emergency-contacts", "hospital"]},
+    {"q": "ragging helpline", "expect": ["ragging"]},
+    {"q": "need to talk to someone", "expect": ["counselling", "mental-health"]},
+    {"q": "high fever at night doctor", "expect": ["hospital", "emergency-contacts"]},
+    {"q": "security number", "expect": ["emergency-contacts", "hostel-security-desks"]},
+    {"q": "someone is harassing me", "expect": ["posh-ccash", "ragging"]},
+    {"q": "suicidal thoughts helpline", "expect": ["counselling", "mental-health", "emergency-contacts"]},
+    {"q": "panic attack", "expect": ["counselling", "mental-health", "emergency-contacts"]},
+    {"q": "doctor chahiye abhi", "expect": ["hospital", "emergency-contacts"]}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "about": "Questions the content doesn't answer. The app has to say 'Nothing on this yet' instead of passing off a loosely related topic as the answer. Pass: 11 of 12.",
+  "cases": [
+    {"q": "gre coaching"},
+    {"q": "last year placement packages", "note": "placements are mentioned, packages are not"},
+    {"q": "laptop repair shop", "note": "shops are covered, repairs are not"},
+    {"q": "best gaming laptop under 60000"},
+    {"q": "jee advanced cutoff for cse", "note": "JEE comes up in scholarships, cutoffs don't"},
+    {"q": "pg near velachery"},
+    {"q": "driving licence chennai"},
+    {"q": "tatkal train ticket"},
+    {"q": "part time job in chennai"},
+    {"q": "ipl tickets chennai"},
+    {"q": "cs50 certificate"},
+    {"q": "hackathon prize money tax"}
+  ]
+}

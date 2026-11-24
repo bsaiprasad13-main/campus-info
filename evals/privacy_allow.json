@@ -1,0 +1,13 @@
+{
+  "about": "Numbers that look like mobiles but are official helplines, so the privacy check lets them through. Anything else that looks like a mobile number fails the check.",
+  "prefixes": {
+    "9498665": "Wellness Centre and counsellor phones (institute numbers)"
+  },
+  "numbers": {
+    "9080618874": "Institute Hospital counselling helpline",
+    "8792971892": "Health insurance helpline (WhatsApp)"
+  },
+  "not_phone_numbers": {
+    "6736517283": "App Store id inside a link, not a phone number"
+  }
+}

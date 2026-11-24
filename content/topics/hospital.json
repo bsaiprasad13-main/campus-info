@@ -1,0 +1,28 @@
+{
+  "slug": "hospital",
+  "title": "Hospital on campus",
+  "summary": "24×7 hospital, free consultations and medicines, the IITM HMIS app, ambulance numbers.",
+  "group": "campus-life",
+  "tags": [
+    "hospital",
+    "doctor",
+    "sick",
+    "unwell",
+    "fever",
+    "medicine",
+    "hmis",
+    "appointment",
+    "ambulance"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pf0fcb81570",
+      "md": "The **Institute Hospital** provides **24×7 medical services** for students, faculty, staff, and eligible dependents. Most routine healthcare services are available **free of cost** for students.\n\n## IITM HMIS Mobile App\n\nThe **IITM HMIS Mobile App** allows you to access hospital services conveniently without standing in long queues.\n\n## Download the App\n\n- **Android (Google Play):** https://play.google.com/store/apps/details?id=com.cgslhealthapp2&hl=en_IN\n- **iOS (App Store):** https://apps.apple.com/in/app/iitm-hmis/id6736517283\n\n## Features\n\n### Easy Login\n- Students/Employees: Login using your **LDAP credentials**\n- Dependents: Login using **Mobile OTP**\n\n### Quick Access\nQuickly access important hospital contact numbers:\n- Reception\n- Ambulance\n- Emergency Numbers\n\n### Book Appointments\n- View doctor availability for the next **3 days**.\n- **General Doctors:** Book appointments directly through the app.\n- **Specialty Doctors:** Appointment requests (through referrals from Institute doctors) require confirmation from the Front Office.\n\n### Digital Prescriptions\n- View prescriptions issued during each hospital visit.\n\n### Electronic Medical Records (EMR)\n- Access your consultation history and doctors' notes anytime.\n\n## Emergency Ambulance\n\n**Ambulance (Available 24×7):**\n- **+91 44 2257 8333**\n- **+91 44 2257 8888**\n\n## Consultation & Medicine Charges\n\n- **Doctor consultations are completely free.** There is **no appointment fee**.\n- **Medicines prescribed by Institute Hospital doctors are generally provided free of cost.**\n- In **rare cases**, some medicines may not be available through the hospital and will need to be purchased separately.\n\n## Hospital Timings\n\n- **Open 24×7**\n>  **Tip:** Install the **IITM HMIS App** as soon as possible. It helps you check doctor availability, book appointments, access prescriptions, and view your medical records—all from your phone.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

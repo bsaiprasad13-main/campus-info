@@ -1,0 +1,55 @@
+{
+  "slug": "accessibility",
+  "title": "Accessibility support",
+  "summary": "Physical access, exam accommodations, support for visual and hearing disabilities, PwD support.",
+  "group": "campus-life",
+  "tags": [
+    "accessibility",
+    "disability",
+    "pwd",
+    "scribe",
+    "extra time",
+    "screen reader"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p9f705644a4",
+      "md": "## Accessibility at IIT Madras\n\nIIT Madras is committed to creating an inclusive campus where students with disabilities can learn, participate, and thrive independently.\n\nThe institute supports accessibility through infrastructure, academic accommodations, assistive technologies, student support systems, and continuous improvements across the campus.",
+      "files": []
+    },
+    {
+      "id": "pd6e8ef1841",
+      "md": "## Physical Accessibility\n\nTo improve accessibility across its campus, IIT Madras provides:\n\n- Ramps and support railings in most academic buildings, hostels, and common halls/auditoriums.\n- Elevators in multi-storey buildings (accessible with assistance when required).\n- Accessible washrooms in several academic and hostel blocks.\n- Battery-operated vehicles on a need basis to support easier movement across the campus.\n\nThe institute continues to improve accessibility, with newer construction projects incorporating inclusive design from the planning stage.",
+      "files": []
+    },
+    {
+      "id": "p69d26e7634",
+      "md": "## Academic Support\n\nStudents with disabilities can receive academic accommodations based on their individual requirements.\n\nThese include:\n\n- Additional examination time.\n- Scribes or laptops during examinations.\n- Assistive technologies such as screen readers and text-to-speech tools through the Central Library and the Dean of Students (DoST) Office.\n- Flexibility in deadlines, attendance, or evaluation methods where appropriate, in consultation with faculty.",
+      "files": []
+    },
+    {
+      "id": "p9c7003fb45",
+      "md": "## Support for Visual Disabilities\n\nStudents with visual disabilities have access to:\n\n- Screen-reading software such as **NVDA** and **JAWS**.\n- Digital study materials in accessible formats (such as accessible PDFs and ePub files).\n- Tactile diagrams and Braille-enabled content through collaborations with research labs and the **Accessibility Research Centre (ARC)**.\n\n## Support for Hearing Impairments\n\nSupport available includes:\n\n- Written transcripts or subtitles for recorded lectures and presentations.\n- Real-time captioning or note-taking services on request.\n- Seating arrangements that facilitate lip-reading or proximity to interpreters during in-person sessions.",
+      "files": []
+    },
+    {
+      "id": "pfff3129a72",
+      "md": "## Student Support Network\n\nStudents can seek assistance from several support systems across the institute:\n\n- **Faculty Advisors (FacAds)** help coordinate academic accommodations and communicate with instructors.\n- The **Dean of Students (DoST) Office** supports documentation and learning accommodations.\n- **MITR** and **SAATHI** provide peer support, mentorship, and emotional well-being initiatives.\n- The **Campus Hospital** provides general healthcare services.\n\nStudents often receive additional support from peers across hostels, classrooms, clubs, and samitis, contributing to an inclusive campus environment.",
+      "files": []
+    },
+    {
+      "id": "pbc6dff0409",
+      "md": "## Accessibility Research Centre (ARC)\n\nThe **Accessibility Research Centre (ARC)**, housed within the **Department of Computer Science and Engineering**, develops technologies and solutions that promote accessibility and inclusive design.\n\nIts work includes:\n\n- Tactile interfaces\n- Accessible software\n- Assistive technologies\n\nThe centre's innovations support individuals both within and beyond the IIT Madras community.",
+      "files": []
+    },
+    {
+      "id": "pfd78758c7a",
+      "md": "## Scholarships & Institute Support\n\nStudents admitted under the **PwD category** are eligible for:\n\n- Government scholarships offered through the **Department of Empowerment of Persons with Disabilities (DEPwD)** via the **National Scholarship Portal (NSP)**.\n- Fee concessions.\n- Institutional assistance provided by IIT Madras.\n\n## Growing Towards Greater Accessibility\n\nIIT Madras continues to improve accessibility across its campus.\n\nWhile some older buildings and forested pathways still require upgrades, the institute remains committed to integrating inclusive design into future infrastructure and campus services, ensuring a more accessible and supportive environment for all students.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

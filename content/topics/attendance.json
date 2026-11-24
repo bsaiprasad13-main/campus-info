@@ -1,0 +1,34 @@
+{
+  "slug": "attendance",
+  "title": "Attendance and the P grade",
+  "summary": "The 75% attendance rule and everything a P grade affects.",
+  "group": "academics",
+  "tags": [
+    "attendance",
+    "p grade",
+    "75 percent",
+    "poor attendance",
+    "shortage"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pdc2a99f639",
+      "md": "## When do you get a P?\n\nStudents are expected to maintain **100% attendance**, especially because IITM is a residential institute and academics is the core activity.\n\nHowever, a minimum of **75% attendance** is required to avoid a **P (Poor Attendance)** grade.\n\nThe 25% flexibility is intended to accommodate situations such as:\n\n- Short-term medical requirements\n- Family functions\n- Off-campus interviews\n- Exams\n- Other genuine requirements\n\n>  The 75% attendance should not be treated as the target. Students are expected to attend classes regularly.\n\n## Keep Track of Your Attendance\n\nIITM uses an app-based attendance management system that allows students to keep track of their attendance.\n\nMake sure you monitor your attendance regularly.",
+      "files": []
+    },
+    {
+      "id": "p8a1508b266",
+      "md": "## Consequences of a P Grade\n\n### POR\n\nStudents with a **P grade are excluded from applying for PORs**.\n\n### Supplementary Examination\n\nIf you have a **P attendance code in a course**, you **cannot apply for the supplementary examination for that course**.\n\n### Minor\n\nIf you have a **P grade in any course belonging to your Minor stream**, you **cannot claim the Minor**.\n\n>  **Exception:** Students in their **final semester** can still claim the Minor even if they have a P in a course belonging to the Minor stream.\n\n### Attendance as Class Participation\n\nFaculty may choose to **incentivize attendance through marks/class participation**.\n\n### Parent Alert\n\nParents may be **alerted if a student's attendance is poor**.",
+      "files": []
+    },
+    {
+      "id": "p55f11b3826",
+      "md": "## Additional Rules for P Grades\n\n### SEAT Elective Allotment\n\nStudents with **no P grades** will be considered first for elective allotment in SEAT.\n\nThen students will be considered based on the number of P grades:\n\n**0 P → 1 P → 2 P → 3 P → ...**\n\nThe SEAT rule uses a **rolling 1-year window**.\n\nThis means students are encouraged to improve their attendance over time.\n\n### IDDD Allotment\n\nStudents with **no P grades** will be considered first during IDDD allotment.\n\nThose with **1 P** will be considered after them, followed by those with 2 P, 3 P, and so on.\n\nFor IDDD allotment, **all attendance data collected up to that point** will be considered.\n\n### 3 or More P Grades\n\nStudents with **more than 3 P grades during their tenure at IITM** will not be eligible for consideration for:\n\nIDDD upgradation\nDual Degree upgradation\nMSc/MTech → PhD upgradation\nYRF\nHonours\n\n### Remember\n\nA P grade can affect your **exams, POR eligibility, Minor, elective allotment, and eligibility for certain academic opportunities**.\n\nSo, keep track of your attendance and attend classes regularly.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

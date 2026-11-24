@@ -1,0 +1,45 @@
+{
+  "slug": "minor-degree",
+  "title": "Minor degree",
+  "summary": "How minors work, available areas, how to claim one, planning and NPTEL use.",
+  "group": "academics",
+  "tags": [
+    "minor",
+    "minors list",
+    "claim minor",
+    "second field"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pc43d42c321",
+      "md": "A **Minor** is an academic credential awarded by IIT Madras that certifies your proficiency in a **secondary field of study** in addition to your major.\n\nIt appears on your **official transcript**, demonstrating that you have completed a structured set of courses in another discipline alongside your primary degree.\n\nA minor is an excellent way to explore areas beyond your core branch and build interdisciplinary knowledge.\n\n## Minor System at IIT Madras\n\nEarlier, students had to formally register for a minor in advance. However, with the introduction of a wider range of electives, the system became much more flexible.\n\nUnder the current system:\n\n- There is **no need to register for a minor beforehand.**\n- You can gradually complete the required courses while planning your electives.\n- Once all the requirements are met, you can claim the minor.\n\nEach minor consists of:\n\n- A set of mandatory (core) courses.\n- A list of elective courses.\n\nTypically, students need to complete **4 courses (approximately 36–40 credits)** to earn a minor, although the exact requirements vary depending on the discipline.\n\nSome minors may require:\n- 1 core course + 3 electives.\n- 2 core courses + 2 electives.\n- Other combinations as specified by the department.",
+      "files": []
+    },
+    {
+      "id": "p22a1a203ec",
+      "md": "## Available Minor Areas\n\nStudents can pursue minors in a wide variety of disciplines, including:\n\n- Artificial Intelligence\n- Machine Learning\n- Applied Economics\n- Mathematics\n- International Relations\n- Sociology\n\n...and many other fields offered by different departments.\n\n## How to Claim a Minor\n\nOnce you have:\n\n- Completed all the required courses, or\n- Are currently enrolled in the remaining required courses,\n\nyou can apply for the minor by **emailing the Dean (Academic Courses)** during the designated claiming period.\n\nThe minor will then be added to your academic transcript after verification.\n\n## Planning Your Minor\n\nMost B.Tech. programmes require careful academic planning to fit a minor into the available free credits.\n\nKeep in mind:\n\n- Most engineering curricula require around **72–90 unallocated credits** to comfortably accommodate a minor.\n- Humanities elective requirements also need to be considered while planning.\n- It is recommended to complete the minor requirements by the **7th semester** so that it can be officially recorded before graduation.\n\nSince course prerequisites and scheduling differ across departments, it is advisable to start planning your minor by the **3rd or 4th semester**.",
+      "files": []
+    },
+    {
+      "id": "p9b4fe53525",
+      "md": "## Can NPTEL Courses Be Used?\n\nYes.\n\nCertain **NPTEL courses** can be counted towards a minor, subject to institute regulations and credit transfer limits.\n\nSince there is a cap on the number of transferable NPTEL credits, students should plan their usage carefully.\n\nWith proper planning, it is even theoretically possible to complete **more than one minor**.\n\n## Does Your Branch Matter?\n\nNo.\n\nYour **major branch does not restrict your choice of minor**.\n\nYou are free to pursue:\n\n- A minor closely related to your branch.\n- A completely different discipline.\n\nThe only requirement is that you successfully complete all the courses specified for that minor.\n\nThere is also **no fixed order** in which minor courses must be taken, except where course prerequisites apply.",
+      "files": []
+    },
+    {
+      "id": "p823e0ba6cb",
+      "md": "## Why Pursue a Minor?\n\n## Better Career Opportunities\n\nA minor demonstrates additional expertise in a particular field, making your profile more attractive to recruiters.\n\nIt shows employers that you have invested time in developing knowledge beyond your primary discipline.\n\n## Helpful for Higher Studies\n\nA minor is particularly valuable if you plan to pursue **Master's or Ph.D. programmes** in a field different from your undergraduate branch (commonly called **cross-apping**).\n\nHaving a minor in the target field strengthens your academic profile and supports your application.\n\n## Explore Your Interests\n\nA minor allows you to study subjects that genuinely interest you, even if they are unrelated to your major.\n\nWhether you're interested in AI, Economics, Finance, Public Policy, Mathematics, or the Social Sciences, a minor provides a structured way to gain deeper knowledge.\n\n## Final Thoughts\n\nA minor is **not mandatory**, but it can significantly enhance your academic profile, broaden your skill set, and open up new career and higher education opportunities.\n\nIf you're considering pursuing one, start exploring your interests and planning your electives early so that you have enough credits to complete the requirements before graduation.",
+      "files": []
+    },
+    {
+      "id": "p93599f39a7",
+      "md": "",
+      "files": [
+        "a0983ca705"
+      ]
+    }
+  ],
+  "search_text": []
+}

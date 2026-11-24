@@ -1,0 +1,32 @@
+--- page 1 ---
+Indian Institute of Technology Madras — Academic Timetable
+
+--- page 2 --- For 1st B.Tech / Dual Degree
+Periods: 1 8.00-8.50 | 2 9.00-9.50 | 3 10.00-10.50 | 4 11.00-11.50 | Lunch recess 11.50 am - 13.00 pm | 5 13.00-13.50 | 6 14.00-14.50 | 7 15.00-15.50 | 8 16.00-16.50 | Extra Hr 17.00-17.50
+Mon: 1 A1 | 2 B1 | 3 C1 | 4 D1 (periods 2-4 also P2) | 5 G2 | 6 B2 | 7 E2 | 8 C2 (periods 6-8 also P1) | Extra XX
+Tue: 1 B1 | 2 C1 | 3 D1 | 4 E1 (periods 2-4 also Q2) | 5 A2 | 6 C2 | 7 D2 | 8 E2 (periods 6-8 also Q1) | Extra YY
+Wed: 1 C1 | 2 D1 | 3 E1 | 4 F1 (periods 2-4 also R2) | 5 B2 | 6 D2 | 7 E2 | 8 F2 (periods 6-8 also R1) | Extra XX
+Thu: 1 E1 | 2 F1 | 3 G1 | 4 A1 (periods 2-4 also S2) | 5 D2 | 6 F2 | 7 G2 | 8 A2 (periods 6-8 also S1) | Extra YY
+Fri: 1 F1 | 2 G1 | 3 A1 | 4 B1 (periods 2-4 also T2) | 5 C2 | 6 F2 | 7 A2 | 8 B2 (periods 6-8 also T1) | Extra XX
+4 hr. slots per week: A, B, C, D, E, F, G, H and J
+3 hr. slots per week: K, L and M
+
+--- page 3 --- For B.Tech / Dual Degree (Other than 1st year) & M.A.
+Times: 8.00-8.50 | 9.00-9.50 | 10.00-10.50 | 11.00-11.50 | Lunch recess 11.50 am - 13.00 pm | 13.00-13.50 | 14.00-15.15 | 15.30-16.45 | 17.00-17.50
+Mon: A | B | C | D | G | P (14.00-16.45) or H/H1 (14.00-15.15) and M/M2 (15.30-16.45) | J/J3
+Tue: B | C | D | E | A | Q or M/M1 and H/H2 | F
+Wed: C | D | E | F | B | R or J/J1 and K/K2 | G
+Thu: E | F | G | A | D | S or L/L1 and J/J2 | H/H3
+Fri: F | G | A | B | C | T or K/K1 and L/L2 | E
+4 hr. slots per week: A, B, C, D, E, F, G, H and J
+3 hr. slots per week: K, L and M
+
+--- page 4 --- For M.Tech. / M.Sc. / M.S. / Ph.D.
+Times: 8.00-8.50 | 9.00-9.50 | 10.00-10.50 | 11.00-11.50 | 12.00-12.50 | Lunch recess 12.50 am - 14.00 pm | 14.00-15.15 | 15.30-16.45 | 17.00-17.50
+Mon: A | B | C | D | G | P or H/H1 and M/M2 | J/J3
+Tue: B | C | D | E | A | Q or M/M1 and H/H2 | F
+Wed: C | D | E | F | B | R or J/J1 and K/K2 | G
+Thu: E | F | G | A | D | S or L/L1 and J/J2 | H/H3
+Fri: F | G | A | B | C | T or K/K1 and L/L2 | E
+4 hr. slots per week: A, B, C, D, E, F, G, H and J
+3 hr. slots per week: K, L and M

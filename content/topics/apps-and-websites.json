@@ -1,0 +1,26 @@
+{
+  "slug": "apps-and-websites",
+  "title": "Apps and websites for students",
+  "summary": "Insti Space, Digi Campus, Free Rooms, bus tracker, Digi Mess, Tenexis, Parallax, Nebula.",
+  "group": "essentials",
+  "tags": [
+    "apps",
+    "attendance app",
+    "mess menu",
+    "free classrooms",
+    "lost and found",
+    "cgpa calculator",
+    "elective reviews"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pc75b6d39bc",
+      "md": "If you're new to campus (or haven't explored these yet), take a few minutes to check out these useful apps and websites.\n\n### 1. Insti Space\n\nhttps://play.google.com/store/apps/details?id=com.cfi.instispace&pli=1\n\n* Campus-related information and resources.\n\n### 2. Digi Campus\n\nhttps://play.google.com/store/apps/details?id=com.butterflyinnovations.collpoll\n\n* Check your attendance for each course.\n* Access academic-related information.\n\n### 3. Free Rooms\n\nhttps://bsaiprasad13-main.github.io/free-room-finder/\n\n* Find classrooms that are empty during breaks between classes.\n* Useful for self-study, group discussions, or club meetings.\n\n### 4. Moving Mountains\n\nhttps://mm.themint.space/\n\n* Campus bus tracking app.\n\n### 5. Digi Mess\n\nhttps://digi-mess.vercel.app/\n\n* View the daily mess menu.\n\n### 6. Tenexis\n\nhttps://tenexis.in/events\n\n**Features:**\n\n* Lost & Found\n* Carpooling\n* Rentals\n* Buy & Sell Marketplace\n* Tenexis Store\n* Posts from fellow students\n\n### 7. Parallax\n\nhttps://parallax.social/\n\n* Campus social networking platform.\n\n### 8. Nebula\n\nhttps://nebula-atq.pages.dev/\n\n**Features:**\n\n* **Elective Reviews** – Course ratings, workload insights, and faculty feedback.\n* **CGPA Calculator** – Calculate SGPA/CGPA with semester projections.\n* **Placements & Internships** – Interview experiences, preparation resources, and guides.\n* **Department Resources** – Branch-specific study materials and useful Drive links.\n* **Event Tracker** – Campus events, deadlines, club activities, and reminders.\n\n## Recommendation\n\nExplore each platform at least once—you'll likely find tools that make academics and campus life much easier.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

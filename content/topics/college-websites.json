@@ -1,0 +1,31 @@
+{
+  "slug": "college-websites",
+  "title": "College websites",
+  "summary": "What iKollege, Workflow, the academic website, fee portal and Moodle are for.",
+  "group": "essentials",
+  "tags": [
+    "portals",
+    "ikollege",
+    "workflow",
+    "moodle",
+    "fee portal",
+    "academic website",
+    "firefox"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p5245add59a",
+      "md": "Several official College portals are used throughout your academic journey. Each portal serves a different purpose, from hostel management to academics and fee payments.\n\n## iKollege\n\n**Website:** https://ikollege.iitm.ac.in/iitmhostel/login\n\nThe **iKollege** portal is primarily used for hostel, mess, accommodation, and student services.\n\n## Mess Services\n\n- Register or update mess preferences.\n- Purchase mess coupons.\n- Apply for mess rebates.\n- Request sick food.\n\n## Accommodation & Rooms\n\n- Apply for hostel accommodation.\n- Submit room vacating forms.\n- Book guest rooms.\n- View room inventory.\n\n## Financials & Account Management\n\n- View student ledger.\n- Check food court transaction history.\n- Update student biodata.\n- Change roll number.\n- Reset RFID card PIN.\n\n## Events & Support\n\n- Purchase tickets or coupons for Hostel Night, Pro Shows, and merchandise.\n- Raise and track hostel or mess complaints.\n\n## Workflow\n\n**Website:** https://workflow.iitm.ac.in/student/Authenticate.aspx\n\n> ** Note:** Workflow currently works only on **Mozilla Firefox**. It does **not** work on **Google Chrome** or **Safari**.\n\nWorkflow is the primary academic portal used throughout your degree.\n\nYou can use Workflow to:\n\n- Register for semester courses.\n- Add or drop courses.\n- Check grades.\n- View scholarship details.\n- Apply for reimbursements.\n- Request supplementary or makeup examinations.\n- Update bank account details.\n- Raise course-related support tickets.\n- Apply for grade improvement.\n\n## Academic Website\n\n**Website:** https://academic.iitm.ac.in/\n\nThe **Academic Website** provides detailed academic information and official documents.\n\nYou can:\n\n- View course details, syllabus, and recommended textbooks.\n- Browse all courses offered in a semester.\n- Check the course instructor.\n- View course credits.\n- Find classroom allocations.\n- Check course slots and timetable.\n- View grades.\n\nIt also hosts important academic documents, including:\n\n- Academic Calendar\n- Academic Curriculum\n- Academic Services\n- Fees\n- Financial Support\n- Ordinances & Regulations\n- Quiz & End Semester Examination Information\n- Research Process\n- Timetable\n\n## Fee Portal\n\n**Website:** https://fees.iitm.ac.in/nav/fee\n\nThe **Fee Portal** is used to pay:\n\n- Institute Fees\n- Mess Fees",
+      "files": []
+    },
+    {
+      "id": "p4505ccc5e0",
+      "md": "## Moodle\n\n**Website:** https://courses.iitm.ac.in/\n\n**Moodle** is IIT Madras' **Learning Management System (LMS)**, where instructors share all course-related information and learning resources.\n\nYou can use Moodle to:\n\n- Access lecture notes and presentation slides shared by professors.\n- View the complete course structure and syllabus.\n- Check important announcements, quiz schedules, assignment deadlines, and exam dates.\n- Download course materials and reference resources.\n- Stay updated with all official course-related communication from instructors.\n\nFor most courses, Moodle serves as the primary platform through which professors communicate important academic information throughout the semester.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

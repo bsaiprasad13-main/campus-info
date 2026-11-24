@@ -1,0 +1,29 @@
+{
+  "slug": "wifi-router",
+  "title": "Wi-Fi router in your room",
+  "summary": "Set up a personal router: disable DHCP, use a LAN port, never the WAN port.",
+  "group": "hostel",
+  "tags": [
+    "router",
+    "wifi",
+    "wi-fi",
+    "dhcp",
+    "hostel me wifi"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pbad805fd34",
+      "md": "You can use a personal Wi-Fi router in your hostel room to connect multiple devices.\n\n## Step 1: Reset the Router (If Needed)\n\nIf the router has been used before:\n\n- Press and hold the **Reset** button for about **10 seconds**.\n- Wait until the indicator lights blink and the router restarts.\n\n## Step 2: Connect Your Laptop\n\n- Connect your laptop to one of the router's **LAN** ports using an Ethernet cable.\n- Wait for about **2 minutes**.\n\n## Step 3: Find the Router's IP Address\n\nOpen **Command Prompt** (Windows) or **Terminal** (Linux).\n\nRun:\n\n```bash\nipconfig\n```\n\nLook for the **Default Gateway**.\n\nIt is usually:\n\n- `192.168.0.1`\n- `192.168.1.1`\n\n## Step 4: Open the Router Settings\n\nOpen a web browser and enter the **Default Gateway** address.\n\nExample:\n\n```text\nhttp://192.168.0.1\n```\n\n## Step 5: Log In\n\nUse the router's **default username and password**, usually printed on the sticker at the back or bottom of the router.\n\n## Step 6: Configure Wi-Fi\n\nSet:\n\n- Wi-Fi Name (SSID)\n- A strong Wi-Fi Password\n\n## Step 7: Disable DHCP\n\nFind the **DHCP Server** setting and **disable it**.\n\nThis allows the institute network to assign IP addresses correctly.\n\nSave or apply the changes.\n\n## Step 8: Connect the Router\n\nConnect the LAN cable from your hostel room's wall socket to **one of the router's LAN ports**.\n\n**Correct setup:**\n\n```text\nWall LAN Port\n      │\n      ▼\nRouter LAN Port\n      │\n      ├── Wi-Fi Devices\n      └── LAN Devices\n```\n\n## Important\n\n**Do NOT connect the hostel LAN cable to the router's WAN/Internet port.**\n\nAlways use one of the **LAN ports** on the router.\n**Tip:** After setting up your router, you may still need to log in to **cc.iitm.ac.in** using your LDAP credentials to approve your IP before accessing the internet.",
+      "files": []
+    },
+    {
+      "id": "pce7344cead",
+      "md": "## website link:- https://cc.iitm.ac.in/network/wirelessrouterconfiguration.html",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

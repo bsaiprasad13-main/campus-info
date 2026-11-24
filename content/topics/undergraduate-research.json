@@ -1,0 +1,41 @@
+{
+  "slug": "undergraduate-research",
+  "title": "Undergraduate research (UGRP)",
+  "summary": "UGRP, mini projects, Young Research Fellowship, Mitacs/Charpak/DAAD, CFI.",
+  "group": "academics",
+  "tags": [
+    "research",
+    "ugrp",
+    "yrf",
+    "mitacs",
+    "daad",
+    "charpak",
+    "project with professor"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p4aba416e2f",
+      "md": "Apart from undertaking a project in the final year, undergraduate students can choose to pursue **Undergraduate Research Projects (UGRP)** by working under the guidance of a professor.\n\nThese projects provide students with an opportunity to gain hands-on research experience while exploring areas of interest beyond the classroom.\n\nAdditionally, the **Aerospace Engineering** and **Electrical Engineering** departments offer **Mini Projects**, giving students early exposure to research.",
+      "files": []
+    },
+    {
+      "id": "p3fbe57c0a7",
+      "md": "## Young Research Fellowship (YRF)\n\nIIT Madras offers the **Young Research Fellowship (YRF)**, a **two-semester research programme** open to **B.Tech. and Dual Degree students in their fifth semester**.\n\nStudents can apply to **professor-led research projects**, and selected fellows receive:\n\n- A monthly stipend.\n- Funding for research-related expenses during the fellowship.\n- Financial support to attend high-quality international conferences relevant to their research area.",
+      "files": []
+    },
+    {
+      "id": "p6e769ca455",
+      "md": "## Research Internships & Publications\n\nStudents at IIT Madras also participate in prestigious international research internship programmes, including:\n\n- Mitacs\n- Charpak\n- DAAD WISE\n\nMany students also publish research papers and present their work at **national and international conferences**.",
+      "files": []
+    },
+    {
+      "id": "p64aaca8746",
+      "md": "## Research Through CFI\n\nStudents can also engage in research and innovation through the **Centre for Innovation (CFI)**.\n\nSome of the CFI clubs include:\n\n- Programming Club\n- AI Club\n- iBot Club\n\nStudents can also join competition teams such as:\n\n- **Avishkar Hyperloop**, which participated in the **European Hyperloop Week 2022**.\n- **Team Anveshak**, which focuses on building a **Mars Rover**.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

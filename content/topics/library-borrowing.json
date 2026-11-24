@@ -1,0 +1,40 @@
+{
+  "slug": "library-borrowing",
+  "title": "Library: borrowing and e-resources",
+  "summary": "Finding, borrowing and renewing books, Book Bank, e-resources, off-campus access, contacts.",
+  "group": "campus-life",
+  "tags": [
+    "library",
+    "borrow book",
+    "renew",
+    "webopac",
+    "remote access",
+    "inter-library loan"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p8edc05ad35",
+      "md": "** Using the IITM Central Library**\n\nThe Central Library lets you borrow books, access e-books and research papers, and request help finding academic material.\n\n**1.  Finding a Book**\n\nVisit https://cenlib.iitm.ac.in/ and use **Book Search / Renewal** or **WEBOPAC**.\n\nSearch by **title, author, or subject** to find the book and its location.",
+      "files": []
+    },
+    {
+      "id": "p4a512f0f58",
+      "md": "**2.  Borrowing, Returning & Renewing**\n\n- Carry your **institute ID** when borrowing or returning books.\n- Check the **due date** for every book you borrow.\n- Use **Book Search / Renewal** to renew books when eligible.\n- Return books on time to avoid **overdue charges**.\n- For a **lost book**, contact the Circulation Desk regarding the replacement process.\n- Ask the Circulation Desk about **borrowing limits, reservations, and books that cannot be issued**.\n\n**3.  Book Bank**\n\nThe **Book Bank** provides textbooks that can be issued for a semester.\n\nFor availability, eligibility, registration, borrowing limits, and return dates, check with the **Book Bank/Circulation Desk**.\n\n**4.  E-books, Journals & Research Papers**\n\nUse the library website to access **E-books, E-journals, and E-databases** available through IITM subscriptions.\n\n** Off-Campus Access**\n\nFor access to library e-resources from outside campus, use:\n\nhttps://idp.iitm.ac.in/\n\nSign in using your **LDAP credentials** and follow the instructions for the required resource.\n\nDo not share your login credentials or use automated/systematic downloading.",
+      "files": []
+    },
+    {
+      "id": "p38746e6617",
+      "md": "**5.  If You Can't Find the Material**\n\nThe library provides:\n\n- **Inter-Library Loan** – obtaining material from another library\n- **Document Delivery** – requesting documents or research articles\n- **Online Book Indent** – requesting the library to acquire a book\n\nYou can also approach the library staff if a book listed in the catalogue cannot be found on the shelf.\n\n**6.  Contact**\n\n**Central Library:** Near Gajendra Circle\n\n**Borrowing, Returns & General Enquiries:**\n\n044-2257-5950\n\n**Librarian:**\n\nlibrarian@iitm.ac.in\n\n044-2257-4951",
+      "files": []
+    },
+    {
+      "id": "p2acd3a8a27",
+      "md": "** Official Links**\n\n**Library:**\n\nhttps://cenlib.iitm.ac.in/\n\n**Services:**\n\nhttps://cenlib.iitm.ac.in/services\n\n**Membership & Borrowing:**\n\nhttps://cenlib.iitm.ac.in/membership\n\n**Collections & Book Bank:**\n\nhttps://cenlib.iitm.ac.in/collections/\n\n**Off-Campus Access:**\n\nhttps://idp.iitm.ac.in/help.pdf",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

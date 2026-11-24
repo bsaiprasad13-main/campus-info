@@ -1,0 +1,52 @@
+{
+  "slug": "iss",
+  "title": "ISS (Institute Sports Secretary)",
+  "summary": "Sports Organising Committee, representatives, varsity teams and sporting clubs.",
+  "group": "clubs",
+  "tags": [
+    "iss",
+    "sports",
+    "soc",
+    "varsity",
+    "cycling club",
+    "frisbee"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p2e4e51f6df",
+      "md": "The **Institute Sports Secretary (ISS)** is responsible for promoting and managing sports activities at IIT Madras.\n\nWorking alongside the Physical Training Instructors (PTIs), the ISS oversees institute sports facilities, inter-hostel competitions, varsity teams, sporting clubs, and student-led sports initiatives.\n\nThis guide provides an overview of the student bodies that function under the Institute Sports Secretary.\n\n## Contents\n\nSports Organizing Committee (SOC)\n\nStudent Representatives\n\nVarsity Teams & Sporting Clubs",
+      "files": []
+    },
+    {
+      "id": "pfb193362c1",
+      "md": "## Sports Organizing Committee (SOC)\n\nThe **Sports Organizing Committee (SOC)** is the primary student body responsible for planning and executing sports events at IIT Madras.\n\nSOC organizes major tournaments such as:\n\nJimmy George\n\nSports Fest\n\nGF&KR\n\nAgrata\n\n## Key Departments\n\n### Finance, Administration & Sales\n\n- Sports budgeting\n\n- Equipment inventory management\n\n- Merchandise sales\n\n### Sponsorship & Publicity\n\n- Corporate sponsorships\n\n- Alumni outreach\n\n- Sports promotions\n\n- Public relations\n\n### Facilities, Hospitality & Outreach\n\n- Venue management\n\n- Event logistics\n\n- Guest hospitality\n\n- Outreach to participating colleges\n\n### Design & Ambience\n\n- Posters and banners\n\n- Team jerseys\n\n- Sports magazine\n\n- Event branding",
+      "files": []
+    },
+    {
+      "id": "p9cfe3b5776",
+      "md": "## Sports Organizing Committee (Continued)\n\n### Media\n\n- Match coverage\n\n- Photography & videography\n\n- IITM Sports YouTube channel\n\n- Player interviews\n\n- Promotional videos\n\n### Content\n\n- Sports magazines\n\n- Yearbooks\n\n- Record books\n\n- Blogs & podcasts\n\n### WebOps\n\n- IITM Sports website\n\n- Agrata portals\n\n- Sports grievance portal\n\n### Events\n\n- Campus sports events\n\n- Informal tournaments\n\n- Coordination with sporting clubs\n\n## Student Representatives\n\n## Women's Representative\n\nRepresents women athletes and promotes participation in sports through dedicated tournaments and initiatives.\n\n### Responsibilities\n\n- Women's Schroeter\n\n- Women's sports development\n\n- Inter-IIT support\n\n## PG Representative\n\nRepresents postgraduate students and promotes sports participation among research scholars.\n\n### Activities\n\n- PG leagues\n\n- Beginner sports camps\n\n- PG sporting initiatives",
+      "files": []
+    },
+    {
+      "id": "p7497c3db95",
+      "md": "## Varsity Teams & Sporting Clubs\n\n## Institute Varsity Teams\n\nInstitute teams represent IIT Madras in prestigious tournaments, including the **Inter-IIT Sports Meet**.\n\nMajor sports include:\n\n- Athletics\n\n- Badminton\n\n- Basketball\n\n- Chess\n\n- Cricket\n\n- Football\n\n- Hockey\n\n- Squash\n\n- Swimming\n\n- Table Tennis\n\n- Tennis\n\n- Volleyball\n\n- Water Polo\n\n- Weightlifting\n\nRegular selections and practice sessions are conducted to prepare these teams for competition.\n\n## Sporting Clubs\n\nSporting Clubs encourage recreational sports and allow students of all skill levels to participate.\n\nActivities include:\n\n- Beginner sessions\n\n- Weekend games\n\n- Recreational leagues\n\n- Skill development",
+      "files": []
+    },
+    {
+      "id": "pe04c9f51b9",
+      "md": "## Independent Sports Clubs\n\nApart from varsity teams, IIT Madras also has several independent sports clubs that promote recreational and adventure sports.\n\n### Clubs\n\nCycling Club\n\nFrisbee Club\n\nAdventure Club\n\nBridge Club\n\nGymnesia Club\n\nThese clubs organize workshops, beginner sessions, weekend activities, and community events throughout the year.\n\n## Sports at a Glance\n\n```text\nInstitute Sports Secretary (ISS)\n│\n├──  Sports Organizing Committee (SOC)\n│   ├── Finance, Administration & Sales\n│   ├── Sponsorship & Publicity\n│   ├── Facilities, Hospitality & Outreach\n│   ├── Design & Ambience\n│   ├── Media\n│   ├── Content\n│   ├── WebOps\n│   └── Events\n│\n├──  Student Representatives\n│   ├── Women's Representative\n│   └── PG Representative\n│\n└──  Sports Ecosystem\n    ├── Institute Varsity Teams\n    └── Sporting Clubs\n```\n\n**Did you know?**\n\nFrom **Inter-IIT Sports** and flagship tournaments like **Jimmy George** and **Agrata** to recreational sporting clubs and beginner camps, the Institute Sports teams provide opportunities for every student—whether you're a competitive athlete or simply looking to stay active and have fun on campus.",
+      "files": []
+    },
+    {
+      "id": "p75fd3f8e1b",
+      "md": "",
+      "files": [
+        "c043c99d0d"
+      ]
+    }
+  ],
+  "search_text": []
+}

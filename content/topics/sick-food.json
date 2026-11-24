@@ -1,0 +1,24 @@
+{
+  "slug": "sick-food",
+  "title": "Sick food",
+  "summary": "Get your mess meal delivered to your room when you're unwell (request on iKollege).",
+  "group": "hostel",
+  "tags": [
+    "sick food",
+    "unwell",
+    "fever",
+    "food delivery to room",
+    "ill"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p62e5a7e7ad",
+      "md": "Feeling unwell and unable to go to the mess?\n\nYou can request **Sick Food**, where your regular mess meal will be delivered to your hostel room.\n\n## Who can use it?\n\nHostel Students who are feeling sick and are unable to visit the mess.\n\n## What do you get?\n\n- Regular mess food\n- Delivered to your hostel room\n\n## How to Request\n\nSubmit your request through the official Sick Food portal:\n\nhttps://ikollege.iitm.ac.in/iitmhostel/sickFoodRequest\n**Tip:** If you're unable to submit the request yourself, you can ask a friend or your hostel's **Health & Hygiene Secretary** for assistance.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

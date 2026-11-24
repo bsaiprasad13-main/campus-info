@@ -1,0 +1,43 @@
+{
+  "slug": "cgpa-calculation",
+  "title": "CGPA: how it's calculated",
+  "summary": "The formula, grade points (S=10 … E=5, U), relative vs absolute grading.",
+  "group": "academics",
+  "tags": [
+    "cgpa formula",
+    "grade points",
+    "relative grading",
+    "s grade"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p05c6b05a4b",
+      "md": "IIT Madras follows a **10-point grading system** to calculate a student's **Cumulative Grade Point Average (CGPA)**.\n\nCGPA is calculated as the **weighted average of the grade points earned across all successfully completed courses**, taking into account the credits assigned to each course.\n\n### Formula\n\n**CGPA = Σ(Cᵢ × GPᵢ) / ΣCᵢ**\n\nWhere:\n\n- **Cᵢ** = Credits assigned to the course\n- **GPᵢ** = Grade Point earned in the course\n- **Σ** = Sum over all successfully completed courses across all semesters",
+      "files": []
+    },
+    {
+      "id": "pd470747eca",
+      "md": "## Grade Points\n\nThe corresponding grade points are:\n\n| Grade | Grade Point |\n|------|------------:|\n| S | 10 |\n| A | 9 |\n| B | 8 |\n| C | 7 |\n| D | 6 |\n| E | 5 |\n| U / W | 0 |\n\n- **U Grade** indicates that the student has **not passed the course**.\n- IIT Madras **does not award ranks or divisions** based on CGPA.",
+      "files": []
+    },
+    {
+      "id": "p486b9e3240",
+      "md": "## Relative vs Absolute Grading\n\nGrades at IIT Madras are awarded using either **Relative Grading** or **Absolute Grading**, depending on the course instructor.\n\n## Relative Grading\n\nIn relative grading:\n\n- Grades are based on your performance **relative to the rest of the class**.\n- Typically, the **top 5–10%** of the class receive an **S Grade**.\n- Other grades are determined using the class average and standard deviation.\n\n## Absolute Grading\n\nIn absolute grading:\n\n- Grades are awarded based on **predefined score thresholds**.\n- For example, an **S Grade** may require a score of **90% or above**.\n\nThe grading method for a course is decided by the **course instructor**.",
+      "files": []
+    },
+    {
+      "id": "pfc6c752589",
+      "md": "## Academic Requirements\n\nStudents must maintain a **minimum CGPA of 5.0**.\n\nFalling below this threshold or repeatedly failing courses may lead to:\n\n- Academic Probation\n- Termination from the programme\n\nStudents who wish to pursue a **Dual Degree** must have a **minimum CGPA of 8.0**.",
+      "files": []
+    },
+    {
+      "id": "p135bf5562c",
+      "md": "## Why Does CGPA Matter?\n\nThe importance of CGPA depends on your academic and career goals.\n\nIt is commonly used as an initial screening criterion for:\n\n- Placements and internships at companies such as Microsoft and Google.\n- Admissions to higher education and research institutions, including universities such as Stanford and institutes like the Max Planck Institutes in Germany.\n\nA strong CGPA helps keep more academic and career opportunities open.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

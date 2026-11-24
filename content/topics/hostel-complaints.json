@@ -1,0 +1,25 @@
+{
+  "slug": "hostel-complaints",
+  "title": "Hostel complaints and repairs",
+  "summary": "Civil and electrical maintenance numbers and Wi-Fi/LAN helpdesk emails.",
+  "group": "hostel",
+  "tags": [
+    "complaint",
+    "maintenance",
+    "electrical",
+    "civil",
+    "repair",
+    "fan not working"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p495dda76c3",
+      "md": "## Hostel Zone Complaints\n\n**Civil maintenance:** 044 2257 8186\n\n**Electrical maintenance:** 044 2257 8187\n\n**WiFi / LAN:**\n\n* [helpdeskcc@iitm.ac.in](mailto:helpdeskcc@iitm.ac.in)\n* [helpdesknetworks@iitm.ac.in](mailto:helpdesknetworks@iitm.ac.in)\n\nYou can also raise hostel complaints through the **iKollege portal**.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

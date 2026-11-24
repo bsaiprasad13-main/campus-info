@@ -1,0 +1,45 @@
+{
+  "slug": "course-registration",
+  "title": "Course registration",
+  "summary": "Registration on Workflow, credit limits, SEAT electives, enrolment, add/drop, whom to contact.",
+  "group": "academics",
+  "tags": [
+    "course registration",
+    "workflow",
+    "seat",
+    "electives",
+    "add drop",
+    "faculty advisor"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pf55d021706",
+      "md": "**How Course Registration Works at IITM**\n\nEvery semester, you need to register for the courses you want to take. The entire process happens through the **Workflow** portal:\n\nworkflow.iitm.ac.in/student\n\nThere are **4 main steps**:\n\n**1. Registration (before the semester)**\n\n- Register online through Workflow using your **LDAP login**\n- You can change your course choices until the **registration deadline**\n- Your **Faculty Advisor (FA)** then reviews and approves your registration",
+      "files": []
+    },
+    {
+      "id": "pb3c79934dc",
+      "md": "** Credit Limit**\n\nFrom the **5th semester onwards**, your maximum credit limit depends on your **CGPA**:\n\n- **CGPA 8.5+** → Maximum **75 credits**\n- **CGPA 8.0–8.5** → Maximum **70 credits**\n- **CGPA below 8.0** → Maximum **66 credits**\n\nYour **Faculty Advisor can lower your credit limit, but cannot increase it**.\n\nThe credit limit applies for the **whole semester**.\n\nSo, when choosing your courses, make sure your total credits stay within the limit applicable to you.",
+      "files": []
+    },
+    {
+      "id": "p6c51f24b7a",
+      "md": "**2. SEAT (Electives)**\n\n**SEAT = Student Elective Allocation Tool**\n\nSEAT is the system that **allots elective seats based on the preferences you enter during registration**.\n\nDuring registration, you enter your preferences for the electives you want to take.\n\n**Priority:**\nStudents with **0 P grades** get priority first, followed by students with **1 P grade**, then **2 P grades**, and so on.\n\n- If you don't enter any elective preferences, you **won't be allotted any elective**\n- SEAT results are sent to you by **email from Workflow**",
+      "files": []
+    },
+    {
+      "id": "pf2107333a6",
+      "md": "**3. Enrolment (start of semester)**\n\nFor **BTech students**:\n\n- If you've **paid your fees**, you are enrolled automatically once your attendance is marked on **Digii**\n- There is **nothing you need to do manually** for enrolment",
+      "files": []
+    },
+    {
+      "id": "p48f4bd279b",
+      "md": "**4. Add/Drop (first few weeks)**\n\nIf you want to change your courses after the semester starts, Add/Drop is done through the **same Workflow portal**.\n\n- **BTech/BS/DD students** get the first couple of days before everyone else\n- The **Add window closes first**\n- The **Drop window opens a bit later**\n- The **drop deadline is never extended**\n- Your **credit limit still applies** when adding courses\n- Workflow can become very slow during Add/Drop week, so **don't wait until the last day**\n**Questions?**\n\n**Course-related queries:**\nhelpdeskcourses@iitm.ac.in **only**\n\n**Technical registration issues:**\nRaise a Workflow ticket under **\"Course Registration\"**\n\nor contact:\nhelpdeskworkflow@iitm.ac.in",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

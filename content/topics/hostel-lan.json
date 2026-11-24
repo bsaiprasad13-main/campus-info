@@ -1,0 +1,30 @@
+{
+  "slug": "hostel-lan",
+  "title": "Hostel LAN and internet",
+  "summary": "Step-by-step LAN setup, IP ranges, cc.iitm.ac.in login, proxy fix, whom to email.",
+  "group": "hostel",
+  "tags": [
+    "lan",
+    "internet",
+    "wifi not working",
+    "cc login",
+    "ip address",
+    "net kaise chalaye"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p25ea3ca1a6",
+      "md": "Every hostel room has a LAN port that provides access to the institute network and the internet.\n\n## Step 1: Connect to the LAN\n\n- Connect the LAN cable from the wall socket to your laptop or desktop.\n- Open **Command Prompt** (Windows) or **Terminal** (Linux).\n\nRun:\n\n**Windows**\n```bash\nipconfig\n```\n\n**Linux**\n```bash\nifconfig\n```\n\nCheck your **IPv4 Address**.\n\nYou should receive an address like:\n\n- `10.17.xxx.xxx` (Academic)\n- `10.21.xxx.xxx` (Academic)\n- `10.22.xxx.xxx` (Hostel)\n- `10.23.xxx.xxx` (Residence)\n\nIf it shows **Media disconnected**, try another LAN cable.\n\n## Step 2: Test the Network\n\nRun:\n\n```bash\nping cc.iitm.ac.in\n```\n\nIf you receive replies similar to:\n\n```text\n64 bytes from ...\n```\n\nyour network connection is working.\n\nIf not:\n\n- Set **DNS** to **Automatic**\n- Try again\n\n## Step 3: Disable IPv6 (Windows)\n\n1. Press **Win + R**\n2. Type:\n\n```text\nncpa.cpl\n```\n\n3. Open **Ethernet Properties**\n4. Uncheck:\n\n```text\nInternet Protocol Version 6 (TCP/IPv6)\n```\n\n5. Click **OK**\n\n## Step 4: Enable Internet Access\n\nTo access websites outside IIT Madras (Google, YouTube, etc.):\n\n1. Visit **cc.iitm.ac.in**\n2. Login using your **LDAP credentials**\n3. Approve your current IP address\n\nMake sure the IP shown is your system IP:\n\n- `10.17.xxx.xxx`\n- `10.21.xxx.xxx`\n- `10.22.xxx.xxx`\n- `10.23.xxx.xxx`\n\n## Check Proxy Settings\n\nIf the portal shows an IP like:\n\n```text\n10.24.x.x\n```\n\nyour browser is using a proxy.\n\nRemove/disable the proxy, refresh the page, and approve your actual system IP.\n\n## Still Not Working?\n\nCollect the following details:\n\n- Hostel name\n- Room number\n- Mobile number\n- System MAC Address\n- Output of `ipconfig` / `ifconfig`\n- Output of `ping cc.iitm.ac.in`\n\nThen email:\n\n**helpdesknetworks@iitm.ac.in**\n\n## Find Your MAC Address\n\n**Windows**\n\n```bash\ngetmac -v\n```\n\nLook for the **Physical Address** of your Ethernet adapter.\n**Tip:** You need to log in to **cc.iitm.ac.in** and approve your IP whenever required to access the internet from the hostel LAN.",
+      "files": []
+    },
+    {
+      "id": "p1486e5ea41",
+      "md": "## website link:- https://cc.iitm.ac.in/network/instructiontoconnectlan.html",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "education-loans",
+  "title": "Education loans from banks",
+  "summary": "Banks on campus, PM-Vidyalaxmi, paying fees through a loan, and whom to ask.",
+  "group": "essentials",
+  "tags": [
+    "education loan",
+    "pm vidyalaxmi",
+    "bank loan",
+    "sbi",
+    "canara",
+    "fees"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pd5ebd5256c",
+      "md": "**Education Loans at IIT Madras**\n\nAn education loan is money you borrow to pay for your studies and repay later with interest.\n\n**Where can you get one?**\n\n- **Banks:** Government and private banks offer education loans. SBI and Canara Bank have branches on the IITM campus.\n- **PM-Vidyalaxmi:** This is the government portal for applying for education loans: https://pmvidyalaxmi.co.in/\n  - You can submit one common application to up to three banks.\n  - Students admitted to IITM on merit may be eligible for a loan without collateral or a guarantor under the applicable scheme.\n  - The bank still checks your application and decides whether to approve the loan.\n- **IITM financial support:** Scholarships, fee reductions and some interest-free loans may also be available. Check the latest scholarship/financial-aid notices rather than relying on old information.",
+      "files": []
+    },
+    {
+      "id": "pd88a60230e",
+      "md": "**Applying directly through a bank**\n\nYou can approach a bank directly to ask about its education loan process.\n\n1. Contact the bank and ask about its **education loan for IITM students**.\n2. Check the loan amount, interest rate, repayment terms, required documents and costs covered.\n3. Submit the bank's application and required documents.\n4. The bank verifies your details and decides whether to approve the loan.\n5. If approved, read the **loan sanction/offer letter** carefully before signing.\n6. Ask the bank how to request the loan amount for each semester and how the payment will be made to IITM.\n\n**Tip:** Even if you approach a bank directly, ask whether it requires you to apply through **PM-Vidyalaxmi** for your particular loan or scheme.",
+      "files": []
+    },
+    {
+      "id": "p01c532b3f1",
+      "md": "**Applying through PM-Vidyalaxmi**\n\n1. Go to **PM-Vidyalaxmi:** https://pmvidyalaxmi.co.in/\n2. Register and complete the **common education loan application**.\n3. Upload the required documents and select the bank(s) you want to apply to.\n4. Submit the application and use **Track Loan Application** to follow its status.\n5. If the bank asks for additional documents or information, provide them through the process requested.\n\n**You may need:** academic mark sheets, IITM admission proof, fee details, income proof, Aadhaar and other identity/address documents. The exact requirements can vary by scheme and bank.",
+      "files": []
+    },
+    {
+      "id": "p00cfdc522c",
+      "md": "**Paying IITM fees through an education loan**\n\nFor each semester:\n\n- Check the **latest IITM fee circular** for the amount and payment instructions.\n- Enter the required bank-payment details in IITM's **Integrated Fee Payment Portal (IFPP):** https://fees.iitm.ac.in/\n- The bank generally sends the institute-fee amount directly to IITM.\n- Keep your bank payment/transfer proof until the payment is reflected in your IITM fee record.\n\n**After your loan is approved**\n\nBefore signing, make sure you understand:\n\n- Interest rate\n- When interest starts\n- When repayment starts\n- EMI amount and repayment period\n- Any additional charges\n- Whether you are eligible for an interest subsidy\n\nInterest can continue to accumulate during your studies or the moratorium period, depending on your loan terms.",
+      "files": []
+    },
+    {
+      "id": "p4fe51ef105",
+      "md": "**Who can help?**\n\n- **Loan-related questions:** Contact the bank you selected.\n- **Bonafide certificate or academic documents:** Academic Courses Section — **helpdeskcourses@iitm.ac.in**\n- **Fee-payment issues:** Check IFPP and the latest IITM fee circular for the appropriate contact.\n- **PM-Vidyalaxmi issues:** Use the help/complaint option on the portal.\n\n**Important:** Always use the latest IITM fee circular, the bank's current loan terms and the official PM-Vidyalaxmi portal.\n\nNever share your **OTP or banking login details**.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

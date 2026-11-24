@@ -1,0 +1,23 @@
+{
+  "slug": "classroom-booking",
+  "title": "Classroom booking for events",
+  "summary": "How clubs book rooms in CRC, Raman and Ramanujan blocks: email, deadline, approvals.",
+  "group": "campus-life",
+  "tags": [
+    "room booking",
+    "classroom booking",
+    "event",
+    "helpdeskcourses"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pf77c590040",
+      "md": "Need to book a classroom in the **Classroom Complex, Raman Block, or Ramanujan Block** for an event?\n\nHere's the procedure.\n\n## Where to Send the Request\n\nSend your booking request **only via email** to:\n\n**helpdeskcourses@iitm.ac.in**\n\n**Subject:** `Room Booking`\n\nRequests sent through any other mode will **not be entertained**.\n\n## When to Apply\n\n- Submit the request **at least 1 working day in advance**.\n- The request must reach them **on or before 1:00 PM on the preceding working day**.\n- **Same-day bookings are not accepted.**\n- Bookings for **Saturdays, Sundays, and Institute holidays** must also be submitted **by 1:00 PM on the preceding working day**.\n\n>  Booking requests are considered based on **room availability**.\n\n## Approvals Required\n\nWhile sending the email, attach the required approvals **in PDF format**.\n\nFor events conducted by **Student Bodies / Clubs**, obtain approval from:\n\n- **Relevant Faculty Advisor**\n- **and/or Dean (Students)**\n\n## Official Source\n\nThe circular is also available on the **Academic Portal**:\n\nhttps://academic.iitm.ac.in/\n\nGo to:\n\n`Documents → Academic Services`",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

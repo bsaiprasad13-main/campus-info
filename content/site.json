@@ -1,0 +1,59 @@
+{
+  "name": "Campus Info",
+  "groups": [
+    {
+      "slug": "essentials",
+      "title": "Essentials",
+      "summary": "Emergency numbers, college websites, documents, the library, counselling, loans and campus programmes."
+    },
+    {
+      "slug": "academics",
+      "title": "Academics",
+      "summary": "Credits, CGPA, attendance, course registration, minors, IDDD, NPTEL and research."
+    },
+    {
+      "slug": "campus-life",
+      "title": "Campus life",
+      "summary": "Hospital, food, buses, sports, insurance, safety and going abroad."
+    },
+    {
+      "slug": "hostel",
+      "title": "Hostel",
+      "summary": "Facilities, the hostel council, LAN and Wi-Fi, sick food, complaints and security desks."
+    },
+    {
+      "slug": "scholarships",
+      "title": "Scholarships & loans",
+      "summary": "Institute, government, corporate and ACR Office scholarships, and interest-free loans."
+    },
+    {
+      "slug": "clubs",
+      "title": "Clubs & councils",
+      "summary": "Positions of responsibility, the student councils, Saarang, Shaastra and volunteering."
+    },
+    {
+      "slug": "inter-iit",
+      "title": "Inter IIT",
+      "summary": "The Inter IIT sports, tech and cultural meets, and how to get picked."
+    }
+  ],
+  "new_here": [
+    "college-websites",
+    "mess",
+    "attendance",
+    "cgpa-calculation",
+    "nso-nss-nca-ncc",
+    "scholarships"
+  ],
+  "emergency": [
+    {
+      "label": "Ambulance",
+      "number": "+91 44 2257 8888"
+    },
+    {
+      "label": "Security",
+      "number": "+91 44 2257 9999"
+    }
+  ],
+  "emergency_topic": "emergency-contacts"
+}

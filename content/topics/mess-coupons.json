@@ -1,0 +1,23 @@
+{
+  "slug": "mess-coupons",
+  "title": "Mess coupons",
+  "summary": "Who can buy mess coupons on iKollege, and coupons for parents via CCW.",
+  "group": "hostel",
+  "tags": [
+    "mess coupon",
+    "parents food",
+    "guest meal",
+    "ccw"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pd4ddc0c765",
+      "md": "## Mess Coupon System\n\nOnly students who **have not registered for a mess** can buy mess coupons for themselves.\n\n### If you haven't registered for a mess\n\n- Go to **iKollege → Online Mess Coupon**.\n- You can purchase a coupon for yourself.\n- Only a **limited selection of messes** may be available in iKollege.\n\n### If you have registered for a mess\n\n- You **cannot buy a mess coupon for yourself** through iKollege.\n\n### For parents / relatives\n\n- Mess coupons for parents or relatives **cannot be purchased through iKollege**.\n- Visit **CCW at least one day in advance** to request a coupon.\n- **Same-day coupons will not be issued.**",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

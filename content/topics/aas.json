@@ -1,0 +1,53 @@
+{
+  "slug": "aas",
+  "title": "AAS (Academic Affairs Secretary)",
+  "summary": "Placement & Internship Cell, CDC, DAMP mentoring, Finance, No Code, Case and BInC clubs.",
+  "group": "clubs",
+  "tags": [
+    "aas",
+    "placements",
+    "internships",
+    "cdc",
+    "damp",
+    "finance club",
+    "case club"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pd1e3b3090f",
+      "md": "The **Academic Affairs Secretary (AAS)** is the official representative of students enrolled in taught programmes at IIT Madras, including **B.Tech, Dual Degree, M.Tech, MA, MSc, and other coursework-based programmes**.\n\nThe AAS represents student views on curriculum, academics, course feedback, and educational policies while working with the institute to improve the academic experience. Along with the Research Affairs Secretary, the AAS also oversees key institute facilities such as the Library, PG Senapathy Computer Centre, and the Placement Office.\n\nThis guide provides an overview of the student bodies that function under the Academic Affairs Secretary.\n\n## Contents\n\nCareers, Internships & Placements\n\nAcademic Mentorship\n\nCareer-Based Clubs",
+      "files": []
+    },
+    {
+      "id": "p6fe2049d70",
+      "md": "## Careers, Internships & Placements\n\n## Placement & Internship Cell\n\nThe Placement & Internship Cell helps students secure internship and placement opportunities through the institute's official recruitment process.\n\n### Responsibilities\n\n- Industrial internships\n\n- Academic internships\n\n- Campus placements\n\n- Employer engagement\n\n- Recruitment coordination\n\n## Career Development Cell (CDC)\n\nThe Career Development Cell (CDC) supports students in preparing for diverse career paths through workshops, mentoring, and career guidance.\n\n### Focus Areas\n\n### Placement & Internship Preparation\n\n- Placement preparation sessions\n\n- Internship guidance\n\n- Resume building\n\n- Corporate workshops\n\n### Future Preparation\n\n- Higher studies guidance\n\n- Competitive exam preparation\n\n- Research opportunities\n\n- Career exploration\n\n### Mentorship\n\n- Department Academic Mentorship Program (DAMP)\n\n- Peer mentoring\n\n- Academic guidance\n\n- Career mentoring",
+      "files": []
+    },
+    {
+      "id": "pcb8d98253b",
+      "md": "## Academic Mentorship\n\n## Department Academic Mentorship Program (DAMP)\n\nDAMP is a peer mentoring initiative that supports students academically and professionally through department-level mentoring.\n\n### Academic Advisors help students with:\n\n- Course planning\n\n- Academic performance\n\n- Research opportunities\n\n- Profile building\n\n- Higher studies guidance\n\n- Career exploration\n\n- Balancing academics with extracurricular activities\n\nDAMP enables students to learn from experienced seniors who have already navigated similar academic paths.",
+      "files": []
+    },
+    {
+      "id": "pa614413748",
+      "md": "## Career-Based Clubs\n\nThe Academic Affairs Secretary and Career Development Cell jointly oversee four specialized clubs that help students develop skills across different career domains.\n\n## Finance Club\n\nA community for students interested in finance, investing, and quantitative analysis.\n\n### Activities\n\n- Finance workshops\n\n- Investment competitions\n\n- Quantitative projects\n\n- Investment Etc. Magazine\n\n## No Code Club\n\nHelps students build digital products using No-Code platforms, Generative AI, and Large Language Models (LLMs).\n\n### Activities\n\n- No-Code development\n\n- AI & LLM workshops\n\n- Product building\n\n- Portfolio development\n\n## Case Club\n\nDevelops problem-solving and analytical thinking through consulting, product management, and business case studies.\n\n### Activities\n\n- Case competitions\n\n- Consulting workshops\n\n- Product management sessions\n\n- Analytics projects",
+      "files": []
+    },
+    {
+      "id": "pa0517e3fae",
+      "md": "## Behavioural Insights Club (BInC)\n\nBInC explores the intersection of engineering, psychology, management, and behavioural science.\n\n### Activities\n\n- Behavioural science workshops\n\n- Social experiments\n\n- Research projects\n\n- Human decision-making studies\n\n- Interdisciplinary collaboration\n\n## Academic Affairs at a Glance\n\n```text\nAcademic Affairs Secretary (AAS)\n│\n├──  Career Development\n│   ├── Placement & Internship Cell\n│   └── Career Development Cell (CDC)\n│\n├──  Academic Support\n│   └── Department Academic Mentorship Program (DAMP)\n│\n└──  Career-Based Clubs\n    ├── Finance Club\n    ├── No Code Club\n    ├── Case Club\n    └── Behavioural Insights Club (BInC)\n```\n\n**Did you know?**\n\nWhether you're preparing for placements, exploring higher studies, building technical or business skills, or seeking academic guidance from seniors, the Academic Affairs teams provide resources and opportunities to help you succeed throughout your journey at IIT Madras.",
+      "files": []
+    },
+    {
+      "id": "p9ffed16ddd",
+      "md": "",
+      "files": [
+        "0da58414ee"
+      ]
+    }
+  ],
+  "search_text": []
+}

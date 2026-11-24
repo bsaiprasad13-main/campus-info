@@ -1,0 +1,16 @@
+--- page 1 ---
+S.NO List of IDDD Co-ordinator email ID
+1 Advanced Materials and Nanotechnology Dr. Bhallamudi Vidya Praveen, PH praveen.bhallamudi@iitm.ac.in
+2 Bio-Medical Engineering Dr. Sujatha N, AM nsujatha@iitm.ac.in
+3 Computational Engineering Dr. Prasad Patnaik, AM bsvp@iitm.ac.in
+4 Data Science Dr. B Ravindran, CS ravib@iitm.ac.in
+5 Energy Systems Dr. Krishna Vasudevan, EE krishna@ee.iitm.ac.in
+6 Robotics Dr. Asokan Thondiyath,ED asok@iitm.ac.in
+7 Quantum Science & Technology Dr. Prabha Mandayam, PH prabhamd@iitm.ac.in
+8 Complex Systems and Dynamics Dr. Sayan Gupta, PH sayan@iitm.ac.in
+9 Cyber Physical Systems Dr. Sridhar Kumar Narasimhan,CH sridharkrn@iitm.ac.in
+10 Electric Vehicles Dr. Shankar Ram CS (ED) shankarram@iitm.ac.in
+11 Tech MBA Dr. Usha Mohan, MS ushamohan@iitm.ac.in
+12 Quantitative Finance Dr. Krishna Prasanna P, MS pkp@iitm.ac.in
+13 Public Policy Dr. Muraleedharan V R, HS vrm@iitm.ac.in
+14 Atmospheric and Climate Sciences Dr. Sachin S. Gunthe, CE s.gunthe@iitm.ac.in

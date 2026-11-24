@@ -1,0 +1,23 @@
+{
+  "slug": "hostel-visitors",
+  "title": "Hostel visitor entry",
+  "summary": "Visiting other hostels between 9 PM and 9 AM and the visitor entry procedure.",
+  "group": "hostel",
+  "tags": [
+    "hostel entry",
+    "visitor",
+    "night entry",
+    "id card"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p8c0312e1b7",
+      "md": "** Hostel Visitor Entry**\n\nThere is **no Institute or OHM rule restricting entry between 9 PM and 9 AM** for:\n\n- Male students visiting other boys’ hostels\n- Female students visiting other girls’ hostels\n\nThis is allowed **provided the prescribed visitor entry procedure is followed**.\n\n**Visitor Entry Procedure:**\n\n1. Submit your **ID card** to the security guard.\n2. Get your details recorded in the **visitor logbook**.\n3. After completing these formalities, the security guard should allow entry through the **flap barrier**.\n\nPlease follow the procedure and use the facility responsibly.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "credits",
+  "title": "Credits",
+  "summary": "What credits are, 400–405 to graduate, credit limits by CGPA, unallotted and HSS credits.",
+  "group": "academics",
+  "tags": [
+    "credits",
+    "credit limit",
+    "graduation requirement",
+    "unallotted",
+    "hss"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p2198798eb1",
+      "md": "A **credit** is a measure of the academic workload associated with a course.\n\nEvery course you take—whether it is:\n\n- Core Courses\n- Laboratory Courses\n- Electives\n- Humanities Courses\n- Management Courses\n- Projects\n\ncarries a certain number of credits.\n\nAs you complete courses, these credits accumulate towards your graduation requirements.\n\nGraduation is determined **not by the number of years spent in the programme**, but by successfully completing the required number of credits prescribed in the curriculum.",
+      "files": []
+    },
+    {
+      "id": "pd74085c68f",
+      "md": "## Credit Requirements\n\nFor most **B.Tech programmes (2025 batch onwards)**, the graduation requirement is **400–405 credits**, depending on the department.\n\nExamples:\n\n- Computational Engineering & Mechanics — **400 Credits**\n- Aerospace Engineering — **405 Credits**\n\nA typical semester carries around **45–60 credits**, with the workload generally being higher during the initial years due to core courses and laboratory sessions.\n\n### Maximum Credit Limit (From Semester 5)\n\nThe maximum number of credits a student can register depends on their **CGPA**:\n\n| CGPA | Maximum Credits |\n|------|----------------:|\n| **8.5 and above** | 75 |\n| **8.0 – 8.5** | 70 |\n| **Below 8.0** | 66 |\n\nThis flexibility allows students to pursue opportunities such as electives, minors, honours, and dual degrees.",
+      "files": []
+    },
+    {
+      "id": "pa074fa3a2a",
+      "md": "## What are Unallotted Credits?\n\nMany curricula include a significant number of **Unallotted Credits**.\n\nThese credits are intentionally kept flexible and can be used for:\n\n- Department Electives\n- Free Electives\n- Minor Programmes\n- Interdisciplinary Studies\n- Additional Specialisation Courses\n- Exchange Programmes or Internships (subject to institute rules)\n\nThese credits allow students to personalise their degree based on their interests and career goals.",
+      "files": []
+    },
+    {
+      "id": "pd0cb79a4c7",
+      "md": "## Humanities & Management Courses\n\nIn addition to technical courses, every **B.Tech student** must complete **27 compulsory credits** of **Humanities and Management** courses.\n\nThese courses expose students to areas such as:\n\n- Economics\n- Psychology\n- Languages (German, French, Korean)\n- Communication\n- Management\n- Public Policy\n\nThey help students develop broader perspectives, critical thinking, and communication skills alongside their technical education.",
+      "files": []
+    },
+    {
+      "id": "pc00a79aa12",
+      "md": "## Credits in a Dual Degree\n\nA **Dual Degree** combines a **B.Tech** with an additional postgraduate degree.\n\nSince students complete the requirements for two degrees, the total credit requirement is higher.\n\nDepending on the programme, students are required to complete approximately **500–550 credits**.\n\nFor example:\n\n- **B.Tech + M.Tech in Biological Engineering** — **521 Credits**\n- **Corresponding B.Tech Programme** — **400 Credits**\n\nThe additional credits primarily come from:\n\n- Advanced Postgraduate Courses\n- Research Work\n- Thesis or Project Requirements\n- Higher-level Electives",
+      "files": []
+    },
+    {
+      "id": "p716791882b",
+      "md": "## Why are Credits Important?\n\nCredits ensure that every student completes the required coursework, laboratory training, projects, and electives necessary for their programme.\n\nThey determine:\n\n- Progress towards graduation\n- Eligibility for programmes such as Minors and Honours\n- The flexibility to explore areas beyond your core discipline\n\nIn simple terms, **credits are the academic currency of your degree**. Every course contributes credits, and you become eligible to graduate once you have accumulated the required total while satisfying all curriculum requirements.",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

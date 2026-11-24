@@ -1,0 +1,51 @@
+{
+  "slug": "hostel-council",
+  "title": "Hostel council",
+  "summary": "Hostel Student Body, GBM, council members and each secretary's duties.",
+  "group": "hostel",
+  "tags": [
+    "hostel council",
+    "gbm",
+    "warden",
+    "hostel secretary",
+    "constitution"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "pfa34295c93",
+      "md": "Every hostel at IIT Madras has its own **Hostel Council**, which represents the residents of that hostel and manages hostel-level activities, facilities, and student life.\n\nThe Hostel Council works closely with the **Hostel Student Body (HSB)**, the Warden, and the Assistant Warden to ensure the smooth functioning of the hostel.\n\n## Contents\n\nHostel Student Body (HSB)\n\nHostel Council\n\nHostel Secretaries\n\nHostel Governance",
+      "files": []
+    },
+    {
+      "id": "pbac52f05c4",
+      "md": "## Hostel Student Body (HSB)\n\nThe **Hostel Student Body (HSB)** consists of all residents of a hostel.\n\nIt plays an important role in hostel governance by discussing important issues and approving major hostel decisions.\n\n### Responsibilities\n\nDiscuss hostel-related issues\n\nDecide hostel policies\n\nApprove the hostel budget\n\nReview the performance of the Hostel Council\n\n## General Body Meeting (GBM)\n\nThe General Body Meeting is where hostel residents collectively discuss and decide important matters.\n\nDuring a GBM, students can:\n\n- Discuss hostel issues\n\n- Approve hostel policies\n\n- Pass the annual hostel budget\n\n- Review the work of the Hostel Council\n\nEvery hostel holds at least **one GBM each semester**, chaired by the Warden.",
+      "files": []
+    },
+    {
+      "id": "pc0fdf9b8a0",
+      "md": "## Hostel Council\n\nThe Hostel Council is responsible for implementing hostel policies and coordinating student activities within the hostel.\n\n### Members\n\nHostel Legislator\n\nGeneral Secretary\n\nSports Secretary\n\nLiterary Secretary\n\nSocial Secretary\n\nTechnical Affairs Secretary\n\nHealth & Hygiene Secretary\n\nThe Hostel Council regularly meets with the Warden to discuss improvements, student concerns, and hostel development.",
+      "files": []
+    },
+    {
+      "id": "p69efa99037",
+      "md": "## Hostel Secretaries\n\nEach Hostel Secretary looks after a specific aspect of hostel life.\n\n**General Secretary**\n- Hostel administration\n- Hostel maintenance\n- Security\n- Coordination of all hostel secretaries\n\n**Sports Secretary**\n- Sports equipment\n- Intra-hostel tournaments\n- Inter-hostel sports participation\n\n**Literary Secretary**\n- Hostel library\n- Books & newspapers\n- Literary activities\n\n**Social Secretary**\n- Festivals & social events\n- Cultural activities\n- Musical instruments\n- Audio/video facilities\n\n**Technical Affairs Secretary**\n- Technical events\n- Computers & equipment\n- Inter-hostel technical competitions\n\n**Health & Hygiene Secretary**\n- Hostel cleanliness\n- Water quality\n- Medical emergencies\n- Waste management\n- Garden maintenance\n- Mess-related issues",
+      "files": []
+    },
+    {
+      "id": "p99a43f5eda",
+      "md": "## Hostel Governance at a Glance\n\n```text\nHostel Student Body (HSB)\n│\n├── General Body Meeting\n│\n└── Hostel Council\n    │\n    ├── Hostel Legislator\n    ├── General Secretary\n    ├── Sports Secretary\n    ├── Literary Secretary\n    ├── Social Secretary\n    ├── Technical Affairs Secretary\n    └── Health & Hygiene Secretary\n```\n\n**Did you know?**\n\nUnlike institute-level student governance, **every hostel has its own elected Hostel Council** that manages day-to-day student life, organizes activities, addresses hostel concerns, and represents residents before the Warden and the institute.",
+      "files": []
+    },
+    {
+      "id": "p2674b75921",
+      "md": "",
+      "files": [
+        "9f1350954b"
+      ]
+    }
+  ],
+  "search_text": []
+}

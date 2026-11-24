@@ -1,0 +1,35 @@
+--- sheet Sheet1 ---
+*ACR Office Scholarships
+S.no | Code | Scholarship Name | Criteria
+1 | AMCM | Alumni Merit-cum-Means Scholarship | (i) Parental income between Rs. 1 lakh and Rs. 5 lakh per annum
+(ii) B. Tech. / Dual Degree / B S students are eligible.
+(iii) Up to four (4) years of tuition assistance will be covered.
+(iv) Should not be a recipient of any other scholarship.
+(v) Each student will receive support of Rs. 66,666 per year
+(vi) Beneficiaries need to maintain the minimum CGPA of 6.5 to continue eligibility for support.
+2 | ESS | Extended Support Scheme Endowment | (i) Parental income between Rs. 5 lakh and Rs. 8 lakhs per annum.
+(ii) Degree: B. Tech/Dual Degree/BS
+(iii) Up to four (4) years of tuition assistance will be covered.
+(iv) Should not be a recipient of any other scholarship.
+(vi) Beneficiaries need to maintain the minimum CGPA of 6.5 to continue eligibility for support.
+(vii) Each student will receive support of Rs. 2,00,000 per year
+3 | SLE 1 | Support for Living Expenses - PwD |  (i) Only students belonging to the PWD category are eligible to receive this scholarship with the below Rs. 8 lakhs income per annum
+ (ii) Degree: B.Tech/B.S./Dual Degree are only eligible
+ (iii) Should not be a recipient of any other scholarship. 
+ (iv) 1st, 2nd, 3rd and 4th year students are eligible for this Scholarship. 
+ (v) Subject to maintaining of a minimum CGPA of 5 for renewal.
+ (vi) Submission of valid disability certificate is mandatory to receive this schoalrship
+(vii) Each student will receive living support of Rs. 1,00,000 per year
+4 | SLE 2 | Support for Living Expenses - SC/ST |  (i) The student’s annual parental income should be up to Rs. 8 lakh per annum 
+ (ii) Degree: B.Tech/B.S./Dual Degree are only eligible
+ (iii) The scholarship renewal is subject to maintaining a minimum CGPA of 5 and submission of a valid annual income certificate every year. 
+ (iv)1st, 2nd, 3rd and 4th year students are eligible for this Scholarship. 
+ (v) Should not be a recipient of any other scholarship
+ (vi) Students from SC/ST category are only eligible
+ (vii) Each student will receive living support of Rs. 1,00,000 per year
+5 | SLE 3 | Support for Living Expenses - Below 1L |   (i) Parental income below Rs. 1 lakh per annum. 
+  (ii) Degree:B.Tech/B.S./Dual Degree are only eligible
+  (iii) Should not be a recipient of any other scholarship. 
+  (iv) 1st, 2nd, 3rd and 4th year students are eligible for this Scholarship. 
+  (v) Subject to maintaining of a minimum CGPA of 5 and submission of a valid Annual income certificate every year.
+ (vi) Each student will receive living support of Rs. 1,00,000 per year

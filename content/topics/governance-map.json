@@ -1,0 +1,31 @@
+{
+  "slug": "governance-map",
+  "title": "Student governance map",
+  "summary": "Mind map of every student governance body, plus the PoR Charter.",
+  "group": "clubs",
+  "tags": [
+    "student government",
+    "sgao",
+    "gymkhana",
+    "secretaries",
+    "por charter"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "paccc5349c6",
+      "md": "```text\nIIT MADRAS STUDENT GOVERNANCE\n│\n├──  Students' General Secretary (SGS)\n│   │\n│   ├──  Student Welfare\n│   │   ├── Saathi\n│   │   ├── Disaster Management Committee (DMC)\n│   │   └── IIT for Villages (iVIL)\n│   │\n│   ├──  Academic & Student Development\n│   │   ├── Pragati\n│   │   └── Extra Mural Lectures (EML)\n│   │\n│   ├──  Digital & Infrastructure\n│   │   ├── Institute Web Operations\n│   │   └── Campus Facilities Monitoring Committee (CFMC)\n│   │\n│   └──  Administration\n│       └── SGS Executive Committee\n│\n├──  Academic Affairs Secretary (AAS)\n│   │\n│   ├──  Career Development\n│   │   ├── Placement & Internship Cell\n│   │   └── Career Development Cell (CDC)\n│   │\n│   ├──  Career Clubs\n│   │   ├── Finance Club\n│   │   ├── Case Club\n│   │   ├── No Code Club\n│   │   └── Behavioural Insights Club (BInC)\n│   │\n│   └──  Administration\n│       └── AAS Executive Committee\n│\n├──  Research Affairs Secretary (RAS)\n│   │\n│   ├──  Career Development\n│   │   ├── Academic Placements\n│   │   └── CDC-Research\n│   │\n│   ├──  Research Outreach\n│   │   ├── Research Scholars Day (RSD)\n│   │   └── R-Connect\n│   │\n│   ├──  Scholar Support\n│   │   ├── Problem Solving Cell – Research\n│   │   └── Research Clubs (R-Clubs)\n│   │\n│   └──  Administration\n│       └── RAS Executive Team\n│\n├──  Cultural Affairs Secretary (CAS)\n│   │\n│   ├──  Festivals\n│   │   ├── Saarang\n│   │   └── Nova\n│   │\n│   ├──  Cultural Clubs\n│   │   └── Sangam\n│   │\n│   ├──  Media & Outreach\n│   │   ├── Insti Radio\n│   │   └── Cultural Outreach Committee (COC)\n│   │\n│   ├──  Competitions\n│   │   └── Cultural Contingent\n│   │   └── Inter-IIT Cultural Organising Team\n│   │\n│   └──  Administration\n│       └── Cultural Affairs Executive Committee\n│\n├──  Institute Sports Secretary (ISS)\n│   │\n│   ├──  Sports Administration\n│   │   ├── Sports Organising Committee (SOC)\n│   │   └── ISS Executive Committee\n│   │\n│   ├──  Student Representation\n│   │   ├── Women's Representative\n│   │   └── PG Representative\n│   │\n│   └──  Sports Ecosystem\n│       ├── Team Captains\n│       ├── Vice Captains\n│       └── Sporting Clubs\n│\n├──  Co-Curricular Affairs Secretary (CoCAS)\n│   │\n│   ├──  Centre for Innovation (CFI)\n│   ├──  NIRMAAN\n│   ├──  SHAASTRA\n│   ├──  Institute Technical Society (TechSoc)\n│   └──  Entrepreneurship Cell (E-Cell)\n│\n├──  International & Alumni Relations (IAR)\n│   │\n│   ├──  Alumni & Corporate Relations\n│   │   ├── Alumni Relations Cell (ARC)\n│   │   └── Corporate Relations Cell (CRC)\n│   │\n│   ├──  Branding\n│   │   ├── Chennai36\n│   │   ├── Institute Branding Cell (IBC)\n│   │   ├── IITM TV\n│   │   ├── Heritage Club\n│   │   └── Design & WebOps\n│   │\n│   └──  Global Engagement Council\n│\n├──  Hostel Affairs Secretary (HAS)\n│   │\n│   ├──  General Facilities\n│   │   └── Committee for Monitoring General Facilities of Students (CMGFS)\n│   │\n│   ├──  Dining\n│   │   └── Mess Monitoring and Controlling Committee (MMCC)\n│   │\n│   ├──  Sustainability\n│   │   └── Sustainability Committee\n│   │\n│   ├──  Communications\n│   │   └── Design & Media\n│   │\n│   └──  Administration\n│       └── Hostel Affairs Executive Committee\n│\n├──  Student Legislative Council (SLC)\n│   │\n│   ├──  SLC Secretariat\n│   └──  Public Policy Club (PPC)\n│\n├──  Student Election Commission (SEC)\n│\n├──  Student Ethics & Constitution Commission (SECC)\n│\n├──  Financial Accountability Committee (FAC)\n│\n└──  The Fifth Estate (T5E)\n```",
+      "files": []
+    },
+    {
+      "id": "pb0f98f6397",
+      "md": "",
+      "files": [
+        "98f08385eb"
+      ]
+    }
+  ],
+  "search_text": []
+}

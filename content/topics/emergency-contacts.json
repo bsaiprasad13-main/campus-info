@@ -1,0 +1,25 @@
+{
+  "slug": "emergency-contacts",
+  "title": "Emergency contacts",
+  "summary": "Security, ambulance, hospital, counselling and 24×7 tele-counselling numbers.",
+  "group": "essentials",
+  "tags": [
+    "emergency",
+    "phone numbers",
+    "security",
+    "ambulance",
+    "helpline",
+    "hospital number"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p579f73d9cb",
+      "md": "## Emergency Contact Numbers\n\n**General code:** +91 44 2257 XXXX\n\n**Security:** +91 44 2257 9999 / 8280\n\n**Ambulance:** +91 44 2257 8888 / 8333\n\n**Hospital reception:** +91 44 2257 8330\n\n**Wellness Centre (counselling):** +91 44 2257 8521 to 8524 / 8527 / 8540 · 94986 65021\n\n**YourDOST tele-counselling (24×7):** +91 44 4813 6222",
+      "files": []
+    }
+  ],
+  "search_text": []
+}

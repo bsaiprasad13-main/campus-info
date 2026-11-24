@@ -1,0 +1,62 @@
+{
+  "slug": "inter-iit-tech",
+  "title": "Inter IIT Tech Meet and Tech Guilds",
+  "summary": "The Tech Meet's events and domains, plus every Tech Guild and how to join.",
+  "group": "inter-iit",
+  "tags": [
+    "tech meet",
+    "tech guilds",
+    "inter iit tech",
+    "programming club",
+    "quant",
+    "cyber security"
+  ],
+  "freshers": false,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p233f2cd271",
+      "md": "The **Inter IIT Tech Meet** is the annual technical competition where students from all **23 IITs** come together to solve real-world engineering and technology challenges.\n\nIt serves as a platform for the brightest minds across the IIT ecosystem to innovate, collaborate, and build impactful solutions to problems that can affect millions of people.\n\n## What Happens at the Tech Meet?\n\nCompanies and organizations release challenging **problem statements**, and participating IITs form teams to work on them over a fixed preparation period.\n\nThe teams then present their solutions during the final **offline Inter IIT Tech Meet**, where they are evaluated by industry experts and professionals.\n\nThe competition bridges the gap between **academia and industry** by exposing students to real-world engineering challenges.\n\n## Previous Sponsors & Partners\n\nOver the years, several leading organizations have sponsored problem statements, including:\n\n- DRDO\n- ISRO\n- Adobe\n- WorldQuant\n- Jaguar Land Rover\n- Bosch\n- Silicon Labs\n\n## History\n\n- **First Edition:** 2012\n- The **12th Inter IIT Tech Meet** was hosted by **IIT Madras**.\n- Hosted nearly **2,000 students** from all **23 IITs**.\n- IIT Madras has consistently secured podium finishes across multiple events.\n- The **AI Contingent** from IIT Madras has achieved **podium finishes for three consecutive editions**.\n\n## Event Categories\n\nEvents are classified based on the preparation time required.\n\n### High Prep\n- Preparation: **6–8 weeks**\n- Large teams working on complex, multi-stage problems.\n- Highest point value in the competition.\n\n### Mid Prep\n- Preparation: **4–6 weeks**\n- Focused technical challenges requiring strong domain expertise.\n\n### Low Prep\n- Preparation: **6–10 days**\n- Fast-paced events that test technical skills under tight deadlines.\n\n### No Prep\n- Preparation: **24 hours**\n- Problem statements are revealed at the venue.\n- Participants build solutions within a single day.\n\n## Domains\n\nProblem statements span a wide range of emerging technologies, including:\n\n- Artificial Intelligence (AI)\n- Blockchain\n- Cybersecurity\n- Sustainability\n- Aeronautics\n- Quantitative Finance (Quant)\n- Entrepreneurship\n- Product Development\n\n...and many more cutting-edge domains.\n\n## How to Participate\n\nEvery year, IIT Madras selects student teams through **contingent recruitment and selection processes**.\n\nStudents from diverse technical backgrounds are encouraged to participate, making the Tech Meet an excellent opportunity to:\n\n- Solve real-world industry problems.\n- Collaborate with talented peers.\n- Represent IIT Madras at the national level.\n- Build technical, research, and product development skills.\n> **Whether you're passionate about AI, cybersecurity, product development, or entrepreneurship, the Inter IIT Tech Meet is one of the best opportunities to showcase your skills and represent IIT Madras on the national stage. **",
+      "files": []
+    },
+    {
+      "id": "p63d0cc71b4",
+      "md": "## What are Tech Guilds?\n\nTech Guilds are student communities where you can learn, build, compete, and represent the institute in prestigious national and international competitions, including the **Inter IIT Tech Meet**.\n\nWhether you're interested in coding, AI, robotics, finance, product management, cybersecurity, or even biotechnology, there's a guild for you.\n\n## What do you do in a Guild?\n\n- Learn from experienced seniors and peers\n- Attend regular training sessions and workshops\n- Work on real-world problem statements\n- Participate in national & international competitions\n- Represent the institute at the Inter IIT Tech Meet\n- Build technical, teamwork, and problem-solving skills\n\n### The Journey\n\n```\nRecruitment\n      ↓\nTraining & Sessions\n      ↓\nCompetitions\n      ↓\nInter IIT Tech Meet\n```",
+      "files": []
+    },
+    {
+      "id": "pf0eeeee861",
+      "md": "## Why Join a Tech Guild?\n\nJoining a guild is one of the best ways to learn beyond your coursework.\n\n### You'll get to\n\n- Learn skills not taught in regular courses\n- Learn directly from experienced seniors\n- Build real projects\n- Participate in prestigious competitions\n- Meet people with similar interests\n- Build a strong profile for internships and placements\n- Represent the institute at Inter IIT Tech Meet\n\n## 2025–26 Highlights\n\n180+ Competitions participated\n\n20+ National Finalists\n\n4 Top-10 International finishes\n\nMultiple Inter IIT medals across different guilds",
+      "files": []
+    },
+    {
+      "id": "p54e1d57fa0",
+      "md": "## Software & AI Guilds\n\n## Programming Club\n**Focus:** Competitive Programming, DSA, ICPC\n\nPerfect if you enjoy:\n- Algorithms\n- Coding contests\n- Interview preparation\n\n## Artificial Intelligence & Software Guild\n\n### AI Vertical\n- Machine Learning\n- NLP\n- Computer Vision\n- MLOps\n- Vision Language Models\n\n### Software Vertical\n- Full-stack Development\n- Backend Systems\n- APIs\n- Deployment\n\nPerfect if you're interested in AI, software engineering, hackathons, or research.\n\n## Cyber Security Guild\n\nFocus Areas:\n- Cryptography\n- Reverse Engineering\n- Binary Exploitation\n- Web Security\n- Hardware Security\n\nPerfect if ethical hacking and cybersecurity excite you.",
+      "files": []
+    },
+    {
+      "id": "p6c13aea2c8",
+      "md": "## Engineering & Science Guilds\n\n## Electronics & Robotics Guild\n- Robotics\n- Embedded Systems\n- Autonomous Systems\n- Hardware Projects\n\n## Aerial Guild\n- Drones\n- Flight Dynamics\n- Aerodynamics\n- UAV Systems\n\n## Physics & Astronomy Guild\n- Experimental Physics\n- Computational Physics\n- Astronomy\n- Physics Competitions\n\n## Biotech Guild\n- Genetics\n- Bioinformatics\n- Synthetic Biology\n- AI in Biology\n\n## Mathematics Guild\n- Competitive Mathematics\n- Olympiad-style Problem Solving\n- Mathematical Reasoning",
+      "files": []
+    },
+    {
+      "id": "p6ca5146de7",
+      "md": "## Product, Business & Quant Guilds\n\n## Product Guild\nLearn:\n- Product Management\n- UI/UX\n- MVP Development\n- Product Strategy\n\n## Case Guild\nFocus Areas:\n- Consulting\n- Business Strategy\n- Corporate Finance\n- Business Analytics\n\n## Quant Guild\nLearn about:\n- Quantitative Trading\n- Financial Markets\n- Trading Strategies\n- Market Simulations\n\n## Heuristics & Networks Guild\nTopics include:\n- Optimization\n- Graph Algorithms\n- Search Algorithms\n- Game Theory\n- Network Systems",
+      "files": []
+    },
+    {
+      "id": "p40da17ef1e",
+      "md": "## GameDev Guild\n\nLove games? Want to build one?\n\nThe GameDev Guild focuses on:\n\n- Game Development\n- Game Design\n- Game Jams\n- Programming\n- Art + Code Collaboration\n\nPerfect for students interested in game development, graphics, and interactive experiences.",
+      "files": []
+    },
+    {
+      "id": "p112b59f3d6",
+      "md": "",
+      "files": [
+        "75a89b6978"
+      ]
+    }
+  ],
+  "search_text": []
+}

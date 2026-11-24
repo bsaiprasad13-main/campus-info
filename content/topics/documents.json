@@ -1,0 +1,61 @@
+{
+  "slug": "documents",
+  "title": "Documents: calendar, rulebooks, lists",
+  "summary": "Files: scholarship details, IDDD and minors lists, academic calendar, council rulebooks, timetables, fee circular.",
+  "group": "essentials",
+  "tags": [
+    "documents",
+    "pdf",
+    "academic calendar",
+    "timetable",
+    "fee structure",
+    "rulebook",
+    "slots"
+  ],
+  "freshers": true,
+  "hidden": false,
+  "related": [],
+  "posts": [
+    {
+      "id": "p2d57ab2ee7",
+      "md": "",
+      "files": [
+        "cf5a7147ff",
+        "889f086fee",
+        "a0983ca705",
+        "5db82a9b03"
+      ]
+    },
+    {
+      "id": "p2f2db124c4",
+      "md": "",
+      "files": [
+        "c043c99d0d",
+        "9a8901e1a5",
+        "9018fb16b0",
+        "ba4da3d3a6",
+        "fad1be31e7",
+        "ec3a778249",
+        "0da58414ee",
+        "a28de65de8",
+        "67c2bdbb71"
+      ]
+    },
+    {
+      "id": "p2e25172ccc",
+      "md": "",
+      "files": [
+        "a6fc3950fe",
+        "78ef0f7a2c"
+      ]
+    },
+    {
+      "id": "p9004d1a04c",
+      "md": "",
+      "files": [
+        "c40c4b4a27"
+      ]
+    }
+  ],
+  "search_text": []
+}

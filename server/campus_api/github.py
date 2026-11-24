@@ -91,15 +91,23 @@ class GitHubStore:
         unique = list(dict.fromkeys(s for s in shas if s))
         for i in range(0, len(unique), 60):
             chunk = unique[i:i + 60]
-            parts = " ".join(f'b{n}: object(oid: "{s}") {{ ... on Blob {{ text }} }}' for n, s in enumerate(chunk))
+            parts = " ".join(f'b{n}: object(oid: "{s}") {{ ... on Blob {{ text isTruncated }} }}' for n, s in enumerate(chunk))
             data = self._graphql(f'query {{ repository(owner: "{self.owner}", name: "{self.name}") {{ {parts} }} }}')
             repo = data["repository"]
             for n, s in enumerate(chunk):
                 obj = repo.get(f"b{n}")
-                if obj is None or obj.get("text") is None:
-                    raise StoreError(f"Couldn't read file {s}")
-                out[s] = obj["text"]
+                if obj is None or obj.get("text") is None or obj.get("isTruncated"):
+                    out[s] = self._blob_text(s)      # big files come back cut short; read those one by one
+                else:
+                    out[s] = obj["text"]
         return out
+
+    def _blob_text(self, sha):
+        b = self._call("GET", f"/repos/{self.repo}/git/blobs/{sha}")
+        if not b:
+            raise StoreError(f"Couldn't read file {sha}")
+        import base64
+        return base64.b64decode(b["content"]).decode("utf-8")
 
     def log(self, branch, n=60):
         items = self._call("GET", f"/repos/{self.repo}/commits?sha={branch}&per_page={n}") or []

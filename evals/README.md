@@ -42,4 +42,4 @@ What changed between them, word by word: [CHANGES.md](CHANGES.md).
 Some things a script can't judge:
 
 - **On a phone:** open the link in a private window, add it to the home screen on Android and iPhone, turn on airplane mode and search "mess", tap the ambulance number and see the dialler open.
-- **Publish to live:** time a real publish until the change shows on the live site. A throwaway branch has no live site, so the end-to-end check can't time this.
+- **Publish to live (measured 24 Nov):** two real publishes from the admin went live 31 s after the click (GitHub Pages built each in 28 s). Pass: under three minutes. The same test found a bug: a reload in an open tab still showed the old version, because GitHub's CDN keeps files for 10 minutes. Data is now requested under a fresh address on every load.

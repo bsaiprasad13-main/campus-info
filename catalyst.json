@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "targets": ["campus_api"],
+    "ignore": [],
+    "source": "server"
+  }
+}

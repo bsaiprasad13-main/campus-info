@@ -24,6 +24,7 @@
     next: '<path d="m9 18 6-6-6-6"/>',
     home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
     install: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',
+    edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
     all: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
     essentials: '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
     academics: '<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
@@ -40,6 +41,7 @@
   const store = {
     get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+    del: (k) => { try { localStorage.removeItem(k); } catch (e) { /* private mode */ } },
   };
   const INSTALLED = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
   const IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -51,9 +53,13 @@
   let searchTimer = null;
   let lastLogged = "";
   let installEvent = null;
+  let installClosed = false; // × hides the install card until the page is loaded again
 
   // ---------- start ----------
   async function boot() {
+    themeSwitch();
+    store.del("ci.install.hide"); // an older version hid the install card for good; now × only lasts until a reload
+    if (INSTALLED) store.set("ci.installed", "1");
     try {
       DATA = await loadContent();
     } catch (e) {
@@ -113,6 +119,31 @@
     else setTimeout(fn, 600);
   }
 
+  // ---------- light and dark ----------
+  // index.html already set data-theme before the page painted. The button flips it and remembers the choice;
+  // until someone chooses, the site follows the phone's own setting, even if it changes while the page is open.
+  function themeSwitch() {
+    const btn = $("#theme");
+    const root = document.documentElement;
+    const system = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = (t) => {
+      root.dataset.theme = t;
+      const meta = $("#theme-color");
+      if (meta) meta.content = t === "dark" ? "#15130f" : "#fbf8f2";
+      if (btn) btn.setAttribute("aria-label", t === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    };
+    apply(root.dataset.theme === "dark" ? "dark" : "light");
+    if (btn) btn.addEventListener("click", () => {
+      const t = root.dataset.theme === "dark" ? "light" : "dark";
+      store.set("ci.theme", t);
+      apply(t);
+      track("theme", { to: t });
+    });
+    const follow = (e) => { if (!store.get("ci.theme")) apply(e.matches ? "dark" : "light"); };
+    if (system.addEventListener) system.addEventListener("change", follow);
+    else if (system.addListener) system.addListener(follow);
+  }
+
   // The nav row (phones) or the whole top bar (wider screens) stays on screen; letter headings stick under it.
   function stickyHeight() {
     const wide = window.matchMedia("(min-width: 760px)").matches;
@@ -169,8 +200,13 @@
   // ---------- footer ----------
   function footer() {
     $("#foot").innerHTML = `
-      <p class="made"><strong>Built and kept up to date by IITM students.</strong> Not an official institute website.</p>
-      <p class="links"><a href="#/about">What is this?</a><a href="${esc(CONFIG.ADMIN_PATH)}">For seniors: edit</a></p>
+      <section class="seniors" aria-label="For seniors">
+        <span class="sn-ic">${ic("edit")}</span>
+        <p class="sn-txt"><strong>For seniors</strong><span>Found something out of date? If you're on the editing team, you can fix it in a few minutes.</span></p>
+        <a class="sn-btn" href="${esc(CONFIG.ADMIN_PATH)}">Open the editor${ic("next")}</a>
+      </section>
+      <p class="fbrand"><svg viewBox="0 0 32 40" aria-hidden="true"><path d="M2 4a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v35l-14-8.5L2 39z" fill="var(--logo)"/></svg>Campus Info</p>
+      <p class="made">Built and kept up to date by IITM students. Not an official institute website.</p>
       <p class="upd">Content updated ${esc(niceDate(DATA.updated))}. <span class="offline" id="offline"></span></p>`;
   }
 
@@ -231,7 +267,7 @@
 
   // ---------- install: Android gets the real button; iPhones get the two steps ----------
   function installCard(query) {
-    if (INSTALLED || PREVIEW || query || store.get("ci.install.hide")) return "";
+    if (INSTALLED || PREVIEW || query || installClosed || store.get("ci.installed")) return "";
     return `
       <section class="install" id="install">
         <span class="ins-ic">${ic("install")}</span>
@@ -245,14 +281,14 @@
   function wireInstall() {
     const card = $("#install");
     if (!card) return;
-    $("#ins-x").onclick = () => { store.set("ci.install.hide", "1"); card.remove(); track("install_hide"); };
+    $("#ins-x").onclick = () => { installClosed = true; card.remove(); track("install_hide"); };
     $("#ins-btn").onclick = async () => {
       if (installEvent) {
         installEvent.prompt();
         const choice = await installEvent.userChoice;
         track("install", { outcome: choice.outcome });
         installEvent = null;
-        if (choice.outcome === "accepted") card.remove();
+        if (choice.outcome === "accepted") { store.set("ci.installed", "1"); card.remove(); }
         return;
       }
       const steps = $("#ins-steps");
@@ -265,8 +301,9 @@
   }
 
   function installWatch() {
-    window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvent = e; });
-    window.addEventListener("appinstalled", () => { const c = $("#install"); if (c) c.remove(); });
+    // Chrome only offers to install when the app isn't installed, so this also means "not installed (any more)".
+    window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvent = e; store.del("ci.installed"); });
+    window.addEventListener("appinstalled", () => { store.set("ci.installed", "1"); const c = $("#install"); if (c) c.remove(); });
   }
 
   // ---------- Topics: every topic A to Z, narrowed by area ----------
@@ -670,7 +707,6 @@
         </div>
         <p class="fine">No sign-in. Anonymous usage counts show us what people search for and can't find. Personal phone
           numbers are kept off this site; the numbers here are offices and official helplines.</p>
-        <p class="share"><a href="${esc(CONFIG.ADMIN_PATH)}">For seniors: edit Campus Info</a></p>
       </article>`, "What is this?", "about");
     window.scrollTo(0, 0);
   }

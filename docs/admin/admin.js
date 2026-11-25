@@ -324,7 +324,7 @@
     if (!CONFIG.GOOGLE_CLIENT_ID || !slot) return;
     const draw = () => {
       window.google.accounts.id.initialize({ client_id: CONFIG.GOOGLE_CLIENT_ID, callback: (r) => signIn(r.credential), ux_mode: "popup" });
-      window.google.accounts.id.renderButton(slot, { theme: "outline", size: "large", text: "signin_with", shape: "pill", width: 280 });
+      window.google.accounts.id.renderButton(slot, { theme: document.documentElement.dataset.theme === "dark" ? "filled_black" : "outline", size: "large", text: "signin_with", shape: "pill", width: 280 });
     };
     if (window.google && window.google.accounts) return draw();
     const s = document.createElement("script");
@@ -403,6 +403,17 @@
     if (m) { if (content === null) delete S.topics[m[1]]; else S.topics[m[1]] = content; }
   }
 
+  // Light or dark, shared with the site (same saved choice).
+  function switchTheme() {
+    const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem("ci.theme", t); } catch (e) { /* private mode */ }
+    document.documentElement.dataset.theme = t;
+    const meta = document.getElementById("theme-color");
+    if (meta) meta.content = t === "dark" ? "#15130f" : "#fbf8f2";
+    const b = $('[data-do="theme"]');
+    if (b) b.textContent = t === "dark" ? "Light mode" : "Dark mode";
+  }
+
   // ---------- the main screen ----------
   function shell() {
     const practice = backend.kind === "practice";
@@ -424,6 +435,7 @@
         <button type="button" data-do="admins">Admins</button>
         <button type="button" data-do="edits">Recent edits</button>
         <button type="button" data-do="discard">Discard unpublished changes</button>
+        <button type="button" data-do="theme">${document.documentElement.dataset.theme === "dark" ? "Light mode" : "Dark mode"}</button>
         <button type="button" data-do="signout">${practice ? "Leave the practice copy" : "Sign out"}</button>
         <p class="muted small">Signed in as ${S.who.label}</p>
       </nav>
@@ -447,7 +459,7 @@
       const b = e.target.closest("[data-do]");
       if (!b) return;
       $("#menu").hidden = true;
-      ({ history: historyDialog, admins: adminsDialog, edits: editsDialog, discard: discardChanges, signout: signOut })[b.dataset.do]();
+      ({ history: historyDialog, admins: adminsDialog, edits: editsDialog, discard: discardChanges, theme: switchTheme, signout: signOut })[b.dataset.do]();
     };
     $("#filter").oninput = drawList;
     $("#new").onclick = newTopic;

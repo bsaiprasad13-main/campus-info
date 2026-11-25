@@ -12,10 +12,18 @@
     h1 { font-size: 32px; letter-spacing: -.02em; margin: 0 0 10px; }
     p { color: #4b4f5c; }
     a.go { display: inline-block; margin-top: 8px; padding: 9px 18px; border-radius: 999px; background: #1d2230; color: #fff; text-decoration: none; font-weight: 650; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #15130f; color: #f3efe6; } p { color: #cfc8b8; } a.go { background: #ffd84d; color: #1d2230; }
-    }
+    [data-theme="dark"] body { background: #15130f; color: #f3efe6; }
+    [data-theme="dark"] p { color: #cfc8b8; }
+    [data-theme="dark"] a.go { background: #ffd84d; color: #1d2230; }
   </style>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("ci.theme"); } catch (e) { /* private mode */ }
+      if (t !== "light" && t !== "dark") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
 </head>
 <body>
   <main>

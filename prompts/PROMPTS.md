@@ -186,3 +186,33 @@ Topics page, and the logo is a plain bookmark.
   list, so the letters stay small but are easy to hit.
 - **What is this?:** five short paragraphs, written like the Free Rooms Read Me. The same text opens the README.
 - **Admin:** same screens and buttons; rounded, in the site's colours, with Publish as the one dark button.
+
+## Prompt 10: Both light and dark, and three fixes
+
+You've been designing in light mode, but plenty of people, me included, keep their computer in dark mode. Keep both,
+with a switch to move between them, and pick colours so the things that should stand out stand out in both. Go
+through every screen in both modes and fix whatever looks different or breaks, so it's one website either way.
+
+When I close the install card with ×, it should only go away until the next reload, not for good. It shouldn't show at
+all to someone who has already installed the app.
+
+"What is this?" is in the header and again in the footer. Keep one.
+
+And see if the footer can be better, especially the "For seniors: edit" link, which should look like something you'd
+want to press.
+
+### What Prompt 10 changed
+
+- **A light/dark switch** next to "What is this?" (and "Dark mode" in the admin's More menu). It remembers the
+  choice; until someone chooses, the site follows the phone's own setting. A tiny script picks the theme before the
+  page draws, so dark mode never flashes white.
+- **Fixed in dark mode:** every area had turned the same brown, and now keeps its own colour. The headline's yellow
+  marker turned brown on dark paper, so in dark the phrases are yellow words on a faint marker. Emergency is a clearer
+  red. The rail's letter bubble was light-on-light, and the Google sign-in button was a white block (now Google's dark
+  button). Links in topics read as text with an underline in both themes.
+- **Also fixed:** on a wide screen the area pills scrolled sideways and cut off the first few; they now wrap.
+- **Install card:** × hides it until the next reload. Once the app is installed it doesn't show.
+- **One "What is this?"**, in the header. The footer lost its copy, and the "What is this?" page lost its repeat of the
+  editor link.
+- **Footer:** a "For seniors" card with an "Open the editor" button, then the bookmark, who makes Campus Info, and
+  when it was last updated.

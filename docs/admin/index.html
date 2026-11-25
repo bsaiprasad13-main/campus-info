@@ -6,7 +6,17 @@
   <meta name="robots" content="noindex">
   <title>Campus Info · admin</title>
   <link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#1f2a44">
+  <meta name="theme-color" content="#fbf8f2" id="theme-color">
+  <script>
+    // The same light or dark as the site: the reader's choice, else the phone's setting.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("ci.theme"); } catch (e) { /* private mode */ }
+      if (t !== "light" && t !== "dark") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+      if (t === "dark") document.getElementById("theme-color").setAttribute("content", "#15130f");
+    })();
+  </script>
   <script>
     // Always load the newest admin code: GitHub Pages lets browsers keep files for 10 minutes.
     (function () {

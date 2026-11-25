@@ -1,5 +1,8 @@
 /* Campus Info. Cream paper, navy ink, the yellow of the bookmark, and a soft colour for each area.
-   Icons are inline SVG; no web fonts, no images. */
+   Icons are inline SVG; no web fonts, no images.
+   Two themes from one set of names. A small script in index.html sets data-theme before the page paints: the
+   reader's own choice if they made one, otherwise their phone's setting. The rule in both themes: the main action
+   is navy on light paper and yellow on dark paper; every area keeps its own colour. */
 :root {
   --paper: #fbf8f2;
   --ink: #1d2230;
@@ -17,15 +20,44 @@
   --hl: rgba(255, 216, 77, .6);
   --mark: #ffe45c;
   --mark-ink: #111111;
+  --link-line: rgba(29, 34, 48, .45);
+  --bubble: #1d2230;
+  --bubble-ink: #ffd84d;
   --sos: #c4321f;
   --sos-bg: #fde6e2;
   --sos-ink: #8f2316;
   --sos-on: #ffffff;
+  --shadow: 0 1px 0 #ebe4d6, 0 6px 18px -12px rgba(60, 40, 0, .35);
   --focus: #1a4dff;
   --stick: 52px;
   color-scheme: light;
 }
-/* each area has its own soft colour */
+:root[data-theme="dark"] {
+  --paper: #15130f;
+  --ink: #f3efe6;
+  --soft: #cfc8b8;
+  --muted: #9c9483;
+  --rule: #2e2a22;
+  --box: #1e1b16;
+  --accent: #ffd84d;
+  --accent-ink: #1d2230;
+  --accent-soft: #3a3115;
+  --accent-text: #ffe590;
+  --pill: #1e1b16;
+  --pill-line: #3a352c;
+  --hl: rgba(255, 216, 77, .38);
+  --link-line: rgba(255, 216, 77, .7);
+  --bubble: #ffd84d;
+  --bubble-ink: #1d2230;
+  --sos: #ff7b6b;
+  --sos-bg: #4a1e18;
+  --sos-ink: #ffb8ad;
+  --sos-on: #2a0d09;
+  --shadow: 0 1px 0 #2e2a22, 0 8px 20px -14px rgba(0, 0, 0, .8);
+  --focus: #8fb0ff;
+  color-scheme: dark;
+}
+/* each area has its own colour, in both themes */
 [data-g="essentials"]   { --g-bg: #fde4e1; --g-ink: #962a1f; }
 [data-g="academics"]    { --g-bg: #e2e9ff; --g-ink: #2b47a3; }
 [data-g="campus-life"]  { --g-bg: #dcf1e2; --g-ink: #1d6a39; }
@@ -34,16 +66,14 @@
 [data-g="clubs"]        { --g-bg: #ffe5d3; --g-ink: #9c440e; }
 [data-g="inter-iit"]    { --g-bg: #daf0f5; --g-ink: #11637a; }
 [data-g="all"]          { --g-bg: #ffffff; --g-ink: #1d2230; }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #15130f; --ink: #f3efe6; --soft: #cfc8b8; --muted: #9c9483; --rule: #2e2a22; --box: #1d1a15;
-    --accent: #ffd84d; --accent-ink: #1d2230; --accent-soft: #3a3115; --accent-text: #ffe590;
-    --pill: #1d1a15; --pill-line: #34302a; --hl: rgba(255, 216, 77, .3);
-    --sos: #ff7b6b; --sos-bg: #3a1c17; --sos-ink: #ffb4a8; --sos-on: #2a0d09; --focus: #8fb0ff; color-scheme: dark;
-  }
-  :root:not([data-theme="light"]) [data-g] { --g-bg: #26221a; --g-ink: #f3efe6; }
-}
+[data-theme="dark"] [data-g="essentials"]   { --g-bg: #3b1f1b; --g-ink: #ffb3a7; }
+[data-theme="dark"] [data-g="academics"]    { --g-bg: #1f2747; --g-ink: #b9c7ff; }
+[data-theme="dark"] [data-g="campus-life"]  { --g-bg: #173324; --g-ink: #9fdfb4; }
+[data-theme="dark"] [data-g="hostel"]       { --g-bg: #2d2240; --g-ink: #d7befa; }
+[data-theme="dark"] [data-g="scholarships"] { --g-bg: #3a3115; --g-ink: #ffe08a; }
+[data-theme="dark"] [data-g="clubs"]        { --g-bg: #3a2517; --g-ink: #ffc59f; }
+[data-theme="dark"] [data-g="inter-iit"]    { --g-bg: #14323a; --g-ink: #a6e2ef; }
+[data-theme="dark"] [data-g="all"]          { --g-bg: #1e1b16; --g-ink: #f3efe6; }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -71,10 +101,10 @@ button { font: inherit; color: inherit; }
 /* Phones: the brand row scrolls away and the nav row stays. Wider screens: one row, nav at the top right. */
 .masthead { display: contents; }
 .top {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  display: flex; align-items: center; gap: 8px;
   max-width: 680px; margin: 0 auto; padding: 14px 16px 10px;
 }
-.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; min-width: 0; }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; min-width: 0; margin-right: auto; }
 .logo { width: 26px; height: 33px; flex: none; }
 .words { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
 .name { font-weight: 800; font-size: 19px; letter-spacing: -.01em; }
@@ -86,6 +116,15 @@ button { font: inherit; color: inherit; }
 }
 .whatis .ic { width: 16px; height: 16px; }
 .whatis:hover, .whatis[aria-current] { border-color: var(--accent); color: var(--ink); }
+/* light / dark: shows the moon on light paper and the sun on dark */
+.theme {
+  display: grid; place-items: center; flex: none; width: 34px; height: 34px; padding: 0; cursor: pointer;
+  border-radius: 50%; color: var(--soft); background: var(--pill); border: 1.5px solid var(--pill-line);
+}
+.theme:hover { border-color: var(--accent); color: var(--ink); }
+.theme .ic { width: 17px; height: 17px; }
+.theme .sun, [data-theme="dark"] .theme .moon { display: none; }
+[data-theme="dark"] .theme .sun { display: block; }
 .nav {
   position: sticky; top: 0; z-index: 20;
   display: flex; justify-content: space-between; gap: 4px;
@@ -111,6 +150,7 @@ button { font: inherit; color: inherit; }
   .top { display: contents; }
   .nav { position: static; order: 1; margin-left: auto; padding: 0; border: 0; background: none; }
   .whatis { order: 2; }
+  .theme { order: 3; }
 }
 
 /* ---------- page column ---------- */
@@ -138,6 +178,11 @@ main:focus { outline: none; }
   color: var(--ink); font-weight: 650; padding: 0 2px;
   background: linear-gradient(transparent 58%, var(--hl) 58%);
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+/* On dark paper a strong yellow band turns brown, so the highlight becomes yellow words on a faint marker.
+   No underline: underlined words look like links. */
+[data-theme="dark"] .hl, [data-theme="dark"] .readme strong {
+  color: #ffd84d; background: linear-gradient(transparent 55%, rgba(255, 216, 77, .14) 55%);
 }
 
 /* install: one line, one button */
@@ -172,7 +217,7 @@ main:focus { outline: none; }
   width: 100%; font: inherit; font-size: 17px; color: var(--ink);
   background: var(--box); border: 1.5px solid var(--pill-line); border-radius: 14px;
   padding: 13px 46px 13px 46px; -webkit-appearance: none; appearance: none;
-  box-shadow: 0 1px 0 var(--rule), 0 6px 18px -12px rgba(60, 40, 0, .35);
+  box-shadow: var(--shadow);
   transition: border-color .15s, box-shadow .15s;
 }
 .find input::placeholder { color: var(--muted); }
@@ -236,6 +281,8 @@ h2 { font-size: 20px; letter-spacing: -.01em; margin: 28px 0 8px; }
 .groups a[data-g="all"] { border-color: var(--pill-line); }
 .groups a:hover { border-color: var(--g-ink); }
 .groups a.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+/* wide screens have room for every area: wrap instead of hiding some off the side */
+@media (min-width: 760px) { .groups { flex-wrap: wrap; overflow: visible; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; } }
 
 /* A to Z: each letter's heading stays at the top while you're in it */
 .index { margin-top: 4px; }
@@ -266,7 +313,7 @@ h2 { font-size: 20px; letter-spacing: -.01em; margin: 28px 0 8px; }
 @media (min-width: 760px) { .rail { right: calc(50% - 390px); } }
 .bubble {
   position: fixed; right: 46px; z-index: 30; width: 60px; height: 60px; border-radius: 50%;
-  display: grid; place-items: center; background: var(--ink); color: var(--logo);
+  display: grid; place-items: center; background: var(--bubble); color: var(--bubble-ink);
   font-size: 30px; font-weight: 800; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .5); pointer-events: none;
 }
 @media (min-width: 760px) { .bubble { right: calc(50% - 350px); } }
@@ -314,7 +361,8 @@ h2 { font-size: 20px; letter-spacing: -.01em; margin: 28px 0 8px; }
 .posts pre { background: var(--box); padding: 12px; overflow-x: auto; font-size: 14px; line-height: 1.45; border-radius: 10px; }
 .posts pre code { background: none; padding: 0; }
 .posts img { max-width: 100%; height: auto; border-radius: 10px; }
-.posts a { color: var(--accent-text); }
+/* links read as text with a clear underline: navy on light paper, yellow on dark */
+.posts a { color: inherit; text-decoration-color: var(--link-line); text-decoration-thickness: 1.5px; }
 .posts a.tel { font-weight: 650; white-space: nowrap; }
 mark.hit { scroll-margin: 120px; }
 .table { overflow-x: auto; margin: 0 0 14px; }
@@ -383,12 +431,28 @@ mark.hit { scroll-margin: 120px; }
 .readme a { color: inherit; }
 .fine { font-size: 14px; color: var(--muted); margin-top: 20px; }
 
-/* ---------- footer ---------- */
-.foot { border-top: 1px solid var(--rule); padding-top: 16px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
-.foot p { margin: 0 0 10px; }
-.foot strong { color: var(--ink); font-weight: 650; }
-.foot .links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-.foot .links a { color: var(--soft); }
+/* ---------- footer: one card for seniors, then who makes it ---------- */
+.foot { border-top: 1px solid var(--rule); padding-top: 22px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
+.foot p { margin: 0 0 8px; }
+.seniors {
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px 14px;
+  margin: 0 0 22px; padding: 14px 16px; border-radius: 16px; background: var(--accent-soft);
+}
+.sn-ic { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--box); color: var(--ink); }
+.sn-ic .ic { width: 19px; height: 19px; }
+.foot .sn-txt { margin: 0; display: flex; flex-direction: column; line-height: 1.4; min-width: 0; }
+.sn-txt strong { color: var(--ink); font-size: 15.5px; }
+.sn-txt span { color: var(--soft); font-size: 14px; }
+.sn-btn {
+  grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px 8px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14.5px;
+  background: var(--accent); color: var(--accent-ink);
+}
+.sn-btn .ic { width: 16px; height: 16px; }
+@media (min-width: 560px) { .seniors { grid-template-columns: auto 1fr auto; } .sn-btn { grid-column: auto; } }
+.foot .fbrand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 800; font-size: 15px; }
+.fbrand svg { width: 13px; height: 17px; flex: none; }
+.foot .made { color: var(--soft); }
 .foot .upd { font-size: 13px; }
 
 @media (max-width: 380px) {
@@ -397,5 +461,5 @@ mark.hit { scroll-margin: 120px; }
   .tag { font-size: 12.5px; }
 }
 @media print {
-  .nav, .whatis, .rail, .bubble, .find, .install, .groups, .useful, .share, .foot .links { display: none; }
+  .nav, .whatis, .theme, .rail, .bubble, .find, .install, .groups, .useful, .share, .seniors { display: none; }
 }

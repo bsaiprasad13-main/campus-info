@@ -312,7 +312,7 @@ ideas, asked for soft colour, fewer features and two versions side by side.*
 
 > I agree with most of this. The site works, but it reads like a printed page, and the things that make an app feel easy to use are missing: icons, a clear search box, a real logo, buttons that look tappable. Here's how I'd change it, with my recommendation for each.
 >
-> ## 1. Name, logo, tagline
+> **1. Name, logo, tagline**
 >
 > **Logo:** the yellow "ci" square is too small and plain to read as a logo. Options:
 > - **A.** A bookmark shape with "ci" cut into it ("the page you keep coming back to").
@@ -329,7 +329,7 @@ ideas, asked for soft colour, fewer features and two versions side by side.*
 >
 > **My pick: "Everything a senior would tell you."** It says the value, who's behind it, and why to trust it, in six words.
 >
-> ## 2. The college name
+> **2. The college name**
 >
 > You're right to worry. The risk isn't saying "IIT Madras"; it's looking like an official institute site.
 > - **Remove** "IIT Madras" from the top right.

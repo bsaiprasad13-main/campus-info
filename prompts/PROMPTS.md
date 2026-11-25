@@ -1,8 +1,8 @@
 # The prompts Campus Info was built from
 
 Campus Info was built with Claude Code from these prompts, in this order. Prompts 1 to 6 were written before any
-code. Prompt 7 came in just before the build started. What changed after the first scorecard, and why, is in
-[evals/CHANGES.md](../evals/CHANGES.md).
+code. Prompt 7 came in just before the build started. Prompts 8 to 10 came after it went live, from using it.
+What changed after the first scorecard, and why, is in [evals/CHANGES.md](../evals/CHANGES.md).
 
 ## Prompt 1: Who it's for, and the content
 

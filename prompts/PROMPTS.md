@@ -1,17 +1,31 @@
 # The prompts Campus Info was built from, and what came back
 
-Campus Info was built with Claude Code from these prompts, in this order. Prompts 1 to 6 were written before any
-code. Prompt 7 came in just before the build started. Prompts 8 to 10 came after it went live, from using it.
+**How these were written.** I didn't type Prompts 1 to 6. On 24 Nov I set the brief in a planning chat with Claude:
+first- and second-years as the main users, the college's content with nobody's personal details in it, no chatbot,
+a website students can install, an admin with a way in for reviewers, a public repo only I can push to, and a layout
+that isn't the usual template. I answered its questions and asked it to write the build prompts. Prompts 1 to 6 are
+what it wrote, exactly as used. It showed them to me first, and nothing was built until I sent Prompt 7. Prompts 7
+to 10 are my own messages, word for word. I dictate most of what I type, so the grammar is rough. The planning chat
+itself isn't included.
+
+| | What it covers | Written by |
+|---|---|---|
+| Prompts 1 to 6 | The build brief: who it's for and the content, the checks, what students see, the admin, access for reviewers, shipping | Claude, from my brief, before any code |
+| Prompt 7 | Go ahead, and make the value obvious | me |
+| Prompt 8 | Make it attractive, with fewer features | me |
+| Prompt 9 | Split the home page, and show people where they are | me |
+| Prompt 10 | Light and dark, and three fixes | me |
+
 What changed after the first scorecard, and why, is in [evals/CHANGES.md](../evals/CHANGES.md).
 
-Under each prompt is what Claude said back, in its own words. Prompts 1 to 7 went in together and were built in one
-run, so the short notes Claude wrote along the way sit under the prompt they belong to, and its report at the end,
-with what followed, sits under Prompt 7. Prompts 8 to 10 were each a short back-and-forth: each one puts together
-what I asked over a message or two, and my answers in between are in square brackets.
+Under each prompt is what Claude said back. Prompts 1 to 7 were built in one run, so Claude's short notes along the
+way sit under the prompt they belong to, and its report at the end, with what followed, sits under Prompt 7.
+Prompts 8 to 10 were back-and-forths: my messages and Claude's replies take turns, and my short answers in between
+are in square brackets.
 
-The quotes are cut but never reworded. "[…]" marks a cut inside a quote, and under Prompts 1 to 6 only the notes
-with a result or a decision in them are shown. What's left out: account setup steps, file paths on my laptop,
-reminders of what was still mine to do, and a few side remarks.
+The quotes are cut but never reworded. "[…]" marks a cut, and under Prompts 1 to 6 only the notes with a result or a
+decision in them are shown. Left out: account setup steps, file paths on my laptop, reminders of what was still mine
+to do, one short exchange about the logo, and a few side remarks.
 
 ---
 
@@ -234,9 +248,9 @@ Then open the link in a private window. Add it to the home screen on an Android 
 
 ## Prompt 7: Make the value obvious
 
-Make sure the structuring of the website is good, and the value should be clearly visible to the person who is
-coming to the website. Don't just follow what is best. Think about what is required, and make sure the value is
-conveyed properly and clearly to whoever is opening the website. If you have any ideas, include them.
+**My message, as I sent it:**
+
+Now you can proceed, let's keep a new Google form, and the GitHub repo also should be new. Make sure the structuring of the website is good, and the value should be clearly visible to the person who is coming to the website. Just don't follow what is best. Think about what is required, and make sure the value is conveyed properly and clearly to whoever is opening the website. That's it from my side, and if you have any ideas, you can include that.
 
 ### Claude's report at the end of the build
 
@@ -300,15 +314,17 @@ conveyed properly and clearly to whoever is opening the website. If you have any
 
 ## Prompt 8: Make it something you'd want to open
 
-It works, but it isn't attractive. There's no search icon, no logo and no tagline, and the buttons don't look like
-buttons. Take "IIT Madras" off the top right; we shouldn't lean on the college's name, so say in the footer who
-builds it instead. Add some colour, but soft, not heavy. And don't add features to make up for it: fewer things,
-each one worth having. Show me two versions side by side before you touch the real site.
+**My first message, as I sent it:**
 
-### Claude's replies
+Do you think we can make any changes to the existing one? It's not very attractive. The website is not attractive, first of all. I see that there are no icons:
 
-*Two messages went into this prompt. The first asked for ideas before anything changed; the second, after Claude's
-ideas, asked for soft colour, fewer features and two versions side by side.*
+* There is no search icon.  
+* There is no logo.  
+* There is no tagline.
+
+ I thought to put a tagline, maybe one that conveys more. It is a tagline for the app: what's the motive of the app? Maybe we can remove IIT Madras at the top right and keep a knowledge base of our college kind of thing, because using the college name will be a kind of problem. If keeping the college name alone creates a problem, we can say that it has been built and maintained by the student society. We can keep that line in the bottom section or at the bottom of the footer section. The buttons are not intuitive or not looking attractive, which is what I felt. Are there any other chances to make the UI usage any smoother, or are we planning to include unnecessary things? Are we explaining or including unnecessary things on the website? What do you feel? I don't want you to go and make the changes directly. Let's do the brainstorming and think about what changes we can make.
+
+**Claude:**
 
 > I agree with most of this. The site works, but it reads like a printed page, and the things that make an app feel easy to use are missing: icons, a clear search box, a real logo, buttons that look tappable. Here's how I'd change it, with my recommendation for each.
 >
@@ -336,7 +352,7 @@ ideas, asked for soft colour, fewer features and two versions side by side.*
 > - **Keep the college named once in the page text**, otherwise a visitor can't tell which campus this is for. For example: "for IIT Madras students".
 > - **Footer:** "Built and kept up to date by IITM students. Not an official institute website." That's honest and protects you.
 >
-> […]
+> One correction: I wouldn't say "a student society" unless one exists and has agreed. If someone asks which society, there's no good answer. "IITM students" is true.
 >
 > **3. Buttons and the search box**
 >
@@ -377,7 +393,15 @@ ideas, asked for soft colour, fewer features and two versions side by side.*
 >
 > If it's easier to decide by looking, I can build a separate mock-up page in the preview with two versions side by side. It wouldn't touch the live site. Changes to the real site wait for your "Now you can proceed".
 
-*[Then my second message.]*
+**My second message:**
+
+Yeah, do whatever is best and whatever you think is good to go. You can come up with the two versions side by side, or you can build a mockup page. I see the changes and see what we can do.
+
+Also, one more thing: maybe you can do some coloring to the website, which looks nice. It should be simple, with not heavy colors and not heavy structuring. The flow should be simple, not coming up with a lot of features or a lot of additions, to make the user journey simple.
+
+Don't think like that. Adding more features creates a lot of confusion for the users. Maybe we can come up with fewer features which have high value to keep, and that's what I want to convey to you.
+
+**Claude:**
 
 > I've built the mock-up in the browser pane: three phones side by side, all working. You can scroll, search and tap inside each one. The buttons along the top switch all three phones to the same screen: home, a topic, a topic with phone numbers, a search, a search we don't cover, and a group.
 >
@@ -434,34 +458,51 @@ ideas, asked for soft colour, fewer features and two versions side by side.*
 
 ## Prompt 9: Split the home page, and show people where they are
 
-Give it a nav bar: Home, Topics, Emergency, and the feedback form. Put it where a nav bar usually goes, at the top
-right. Not everything has to sit on the home page; split it up.
+**My message, as I sent it:**
 
-The home page opens with "A place for you to…" and then: "Find out what you need to know, where you need to go, what
-you can explore and whom you can reach out to at IIT Madras." Highlight the phrases that matter. Drop the tags with
-"76 topics" and "numbers tap to call"; students don't care, and that kind of explanation belongs on the About page.
-Put the option to install it as an app there instead, and say it works offline. Then the search bar. "New here? Start
-with these" is fine; suggest changes only if they help.
+There are a lot of changes I want to make. I'll tell them one by one.  
+1\. I thought to come up with a nav bar that basically has the home section, emergency contacts, and other things that we have listed in a horizontal way on the homepage. Include a Google Form link on that because the nav bar helps to navigate easily between the sections. We don't need to keep everything on the homepage and we can split that information or split those sections.  
+2\. Regarding the heading and subheading part, for the heading I thought to keep "A Place for you to?"  
+and the sub heading is like "Find out what you need to know, where you need to go, what you can explore and whom you can reach out to at IIT Madras." Highlighting the important phrases or important line or words. If you come from top to bottom, we shifted the emergencies context to the navbar. One more thing: I thought to remove the CI text in the logo and keep that bookmark kind of thing, or maybe we can keep a book icon there.
 
-The emergency strip moves into the nav. The A to Z list gets its own page, reached from the nav. No topic counts
-anywhere.
+After, we change the headings and subheadings and we can remove the buttons or the highlighted things, which are the 76 topics, numbers, and tap to call. It's not needed. Also I have seen this kind of explanation in the About Us/About section.
 
-The search should take you to where the information actually is. And every page should show the path to it, so you
-know how deep you are and can climb back up yourself.
+The student doesn't care about all this. In that place you can keep the option to install it as an app and mention that it works offline.
 
-Look at how Free Rooms is put together and take what fits; don't copy it. Write the "What is this?" the way its Read
-Me is written: what Campus Info is, who it helps most, what's in it, and why it's worth opening. Keep it short.
+I want you to go through the project of Free Rooms, where I want you to look into how I structure the website and take some inputs, not directly, and implement it into this campus info. You may get an idea on how to structure.
 
-The logo loses the "ci". Just the bookmark.
+Coming to campus info, after keeping that section, maybe below you can keep a search bar which directs to different sections and shows different kinds of information. It redirects to where the information is in that app. Also make sure you show the clear path of where the user is currently, so that the user will have an idea of how deep he came to the app and where the information lies. It helps the user to come back easily to that section manually.
 
-The letters down the side are a good idea, but they're small, and nothing shows which section you're in. Don't just
-make them bigger; find a better way.
+As we discussed we should keep a navbar. Maybe we can keep that on top of the installation of the app or maybe we can keep that in the campus info section, in the top-right corner, where the default navbar will be. After that, the search bar. The "New here" and "Start with this" are looking good. I think there are not many changes we should make there. Maybe you can suggest if we have to make any changes, add anything, or remove anything. Whatever important information has to stay on the homepage should be there. We can shift this whole information, or the whole section of everything A to Z, to the navbar and we can create another section apart from the homepage and place it there. No need to mention that 76 topics. No one cares how many topics, and it's there. I want you to go through the readme section of free rooms and come up with that kind of explanation in a simple way about:
 
-The admin looks like a default page and its buttons are sharp. Round them and make it look as good as the site.
+* what Campus Info is  
+* to whom it helps more  
+* what it actually has  
+* what value it has
 
-Keep the whole thing simple. More features don't make it easier to use; they make it harder to see what it's for.
+ That's what users expect from it: what type of knowledge they gain from Campus Info, how they can use it in their life, and whatever. I'm just giving some random inputs to you. No need to follow everything, or no need to keep everything as I said.
 
-### Claude's replies
+Also, on the admin page, the layout is very default. There is no good-looking layout, and the buttons were very sharp. Maybe we can add some roundness to those buttons and make it look nice.
+
+Avoid explaining a lot of things. Focus on the core thing: what we shouldn't miss explaining and what we should. How the product should show the value to the user and convey everything in a simple way, not to confuse the user .
+
+As we think that adding more features simplifies the user and eases the journey, there is one important factor: more features confuse the user more, and he may not find the value of the product. Try to keep that in mind while building things, and do the editing and make the whole website, including the admin page, look nice.
+
+And also, one more thing is that the sequence of the letters on the right side: the idea is good. I don't want to remove that idea.
+
+The thing is that the letters are very small, and there is no increase in the text when the user is there in that section. Suppose he is in the hedge section: the hedge is not increasing its letter size, and it's not highlighting that much. Maybe we can use that kind of idea of highlighting that text, and it's increasing its size whenever the user is there in that section. Also, maybe we can have a scrolling thing in that sequence of letters or whatever.
+
+Basically, the problem is that that text is small, so don't come up with the solution of increasing the text, which creates a lot of problems. Maybe you can have a scrolling thing, highlighting, magnifying the text, or magnifying the current letter. Or maybe you can come up with some different idea. What do you think will be the best in segregating and finding the information easily for the user? I basically like that sequence of text, but it's very small, and that's fine. Maybe if there is no other better alternative
+
+ .
+
+I have given a lot of information. I want you to go through every line and every piece of information, understand the context, and come up with some good reasoning. Don't give generic AI answers. It should be very natural.
+
+First of all, the flow should be very good, and the content should be very natural. I want you to also focus on not leaving the content in between the prompts, so every word and every line is important. There could be some vocabulary or grammar mistakes, so I want you to understand the whole context and come up with the response.
+
+Ask doubts if I'm missing anything to convey to you, and get more clarity for you to build the things.
+
+**Claude:**
 
 > I went through Free Rooms (its code and the live app on a phone) and the admin page, and read your message line by line. Below is how I'd shape the changes and why. Three decisions are yours; they're in the questions at the end.
 >
@@ -478,7 +519,7 @@ Keep the whole thing simple. More features don't make it easier to use; they mak
 > **Nav: Home · Topics · Emergency · Feedback** (Feedback is your Google Form). On a laptop it sits at the top right, as you described. On a phone, four words don't fit beside the logo, so I'd give them their own row under it (question 1).
 >
 > **Home, top to bottom:**
-> 1. **A place for you to…** then "find out *what you need to know*, *where you need to go*, *what you can explore* and *whom you can reach out to* at IIT Madras." The four phrases get a soft yellow marker underline, the same yellow that marks your words in search. […]
+> 1. **A place for you to…** then "find out *what you need to know*, *where you need to go*, *what you can explore* and *whom you can reach out to* at IIT Madras." The four phrases get a soft yellow marker underline, the same yellow that marks your words in search. I read your "?" as "…", because the second line finishes the sentence. Tell me if you meant the question mark.
 > 2. **An install card** in place of the three tags: "Install Campus Info. Opens like an app and works offline." On Android the button installs it. iPhones don't allow a website to show that button, so there it shows the two steps instead (Share, then Add to Home Screen). The card hides inside the installed app and has a × to close it.
 > 3. **The search bar.**
 > 4. **"New here? Start with these."**
@@ -500,7 +541,7 @@ Keep the whole thing simple. More features don't make it easier to use; they mak
 >
 > **The letter rail**
 >
-> […] Agreed that bigger letters aren't the answer. Only 16 letters are in use, so they all fit on screen; a scrolling rail would just hide some of them. Instead:
+> I read "the hedge section" as the H section. Agreed that bigger letters aren't the answer. Only 16 letters are in use, so they all fit on screen; a scrolling rail would just hide some of them. Instead:
 > - **Current letter lights up:** as you scroll, the current letter is highlighted and enlarged (H while you're in H). The rest stay small.
 > - **Slide to jump:** slide your thumb down the rail and a big letter bubble follows it while the list jumps along. Android's contacts app works this way: the letters stay small, but you never have to hit one exactly.
 > - **Pinned heading:** the letter heading stays pinned at the top while you're in that section.
@@ -592,19 +633,15 @@ Keep the whole thing simple. More features don't make it easier to use; they mak
 
 ## Prompt 10: Both light and dark, and three fixes
 
-You've been designing in light mode, but plenty of people, me included, keep their computer in dark mode. Keep both,
-with a switch to move between them, and pick colours so the things that should stand out stand out in both. Go
-through every screen in both modes and fix whatever looks different or breaks, so it's one website either way.
+**My message, as I sent it:**
 
-When I close the install card with ×, it should only go away until the next reload, not for good. It shouldn't show at
-all to someone who has already installed the app.
+the thing is that you are designing it in the bright mode, but I also see it in dark mode. My PC somewhat prefers dark mode. By this, we have an idea: we should also keep a bright mode and a dark mode, and choose colors to highlight all the things. We should see if there could be any changes we see in different modes and correct those mistakes or changes in visual or in formatting. Basically, what I am telling is: let's keep a toggle or something to switch between dark mode and bright mode. Do the corrections where the things look very different in these two different modes, and make it a unified website in both modes.  
+Also, when I click that X mark in the app, when I reload it, it's not coming fresh, and the installation button is invisible. I couldn't see it. I think it should come again when I reload the website, and it shouldn't show. If the person has downloaded it, it should show until and unless the user clicks the X mark. If he reloads the website, the installation section should come again and appear again.  
+And also, I think you have used the "What is this" section twice: in the top section and in the footer section. Maybe you do that correction.
 
-"What is this?" is in the header and again in the footer. Keep one.
+And if possible, in the footer section, maybe you can do some editing or additions, or enhance the "for seniors" edit link to make it look nice.
 
-And see if the footer can be better, especially the "For seniors: edit" link, which should look like something you'd
-want to press.
-
-### Claude's replies
+**Claude:**
 
 > All four changes are done and checked on my machine. Nothing is live yet. I sent you light and dark screenshots of each main screen side by side, and the browser pane has the local copy open.
 >

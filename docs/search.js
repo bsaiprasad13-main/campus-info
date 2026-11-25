@@ -49,6 +49,14 @@
     ["passed out", "ambulance emergency"],
     ["self harm", "counselling emergency"],
   ];
+  // Words that mean someone may need help now. A search with one of these, or with a phrase above, is never told
+  // "Nothing on this yet": its best match is shown as the answer, with its Call button. At 2 a.m. a wrong
+  // "nothing here" costs far more than one extra number on screen. Ranking doesn't change. See evals/CHANGES.md.
+  const URGENT = new Set((
+    "faint fainted fainting unconscious collapsed collapse accident injured injury bleeding fracture burn burnt " +
+    "suicide suicidal selfharm panic anxiety anxious stressed depressed depression lonely homesick " +
+    "harass harassing harassed harassment stalking stalker ambulance emergency doctor fever"
+  ).split(" ").map(stem));
 
   const FIELD = { title: 8, tags: 5, summary: 3.5, headings: 2.5, group: 1.2, files: 1.5, body: 1, linked: 0.5, filetext: 0.4 };
   const STRONG = new Set(["title", "tags", "summary", "headings", "group"]);
@@ -211,12 +219,14 @@
   function search(index, query, opts) {
     opts = opts || {};
     let q0 = norm(query);
-    for (const [phrase, means] of PHRASES) if (q0.includes(phrase)) q0 += " " + means;
+    let urgent = false;
+    for (const [phrase, means] of PHRASES) if (q0.includes(phrase)) { q0 += " " + means; urgent = true; }
     const raw = words(q0);
+    if (raw.some((w) => URGENT.has(stem(w)))) urgent = true;
     let qs = raw.filter((w) => !STOP.has(w)).map(stem);
     if (!qs.length) qs = raw.map(stem); // a query made only of small words: use them anyway
     qs = [...new Set(qs)];
-    if (!qs.length) return { query, words: [], results: [], mentions: [], covered: false };
+    if (!qs.length) return { query, words: [], results: [], mentions: [], covered: false, urgent: false };
 
     const per = qs.map((q) => ({ q, terms: expand(index, q) }));
     // A word that matches nothing at all is as informative as the rarest word there is.
@@ -271,14 +281,14 @@
     const results = out.filter((r) => r.strong).slice(0, opts.limit || 20);
     const mentions = out.filter((r) => !r.strong).slice(0, opts.mentions || 10);
     const top = results[0];
-    const covered = !!top && top.coverage >= COVERED_AT;
+    const covered = !!top && (top.coverage >= COVERED_AT || urgent);
     // Highlight every form a query word matched ("change" also marks "changing").
     const allTerms = [...new Set(per.flatMap((p) => [...p.terms.keys()]))];
     for (const r of [...results, ...mentions]) {
       r.snippet = snippet(index.docs[r.doc], r.matched);
       r.matched = allTerms;
     }
-    return { query, words: qs, results, mentions, covered };
+    return { query, words: qs, results, mentions, covered, urgent };
   }
 
   // ---------- showing why something matched ----------

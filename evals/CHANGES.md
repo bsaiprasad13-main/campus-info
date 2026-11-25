@@ -44,6 +44,34 @@ After the fixes we wrote 25 new questions (`cases/fresh.json`) and didn't tune o
 | "accident near hostel" | landed on Hostel council | added `accident, injured, injury, bleeding, fracture, burn, burnt` → ambulance, emergency, hospital. This one is now tuned, so the fresh set can't vouch for it any more. |
 | "jee mains result" | answered with Merit scholarships (they mention JEE ranks and results) | left alone. A stricter "covered" rule would start hiding real answers. Noted as a known gap. |
 
+## Admin end to end (24 Nov)
+
+The first run on the real repo failed before any edit: GitHub cuts off files over about 500 KB when it sends many
+at once, and the search file is 650 KB. The server now fetches big files one at a time. The next run passed 13 of 13
+steps (`results/final.md`).
+
+## Found on 26 Nov, by trying the live app the way a reviewer would
+
+Typing "friend fainted in hostel" into the live app put the right topic first, but the page opened with "Nothing on
+this yet", and the Call button only shows when a result counts as the answer. The 2 a.m. check looked only at the
+order of results, so it said 10/10 while three of the ten searches looked like this.
+
+| Change | Why |
+|---|---|
+| **The check:** a 2 a.m. search now also has to be shown as the answer, not under "Nothing on this yet" | That's what a scared student actually sees. With the stricter check, the set scored **7/10** (`results/stricter-check.md`). |
+| **Code:** a search with an emergency word or phrase is never told "Nothing on this yet". Its best match is shown as the answer, with its Call button. Ranking doesn't change. The words: `faint, fainted, fainting, unconscious, collapsed, collapse, accident, injured, injury, bleeding, fracture, burn, burnt, suicide, suicidal, selfharm, panic, anxiety, anxious, stressed, depressed, depression, lonely, homesick, harass, harassing, harassed, harassment, stalking, stalker, ambulance, emergency, doctor, fever`, plus the phrases already in search ("talk to someone", "someone to talk", "panic attack", "passed out", "self harm") | At 2 a.m., a wrong "nothing here" costs far more than one extra number on screen. |
+| **Result** | 2 a.m. set **10/10** under the stricter check. "Nothing on this yet" still 12/12 (`results/urgent-fix.md`). |
+
+The fresh questions, under the stricter check: urgent 3/5 before the change, 4/5 after. "security guard number
+hostel" still opens with "Nothing on this yet", with the right topic first. We left it: adding "security" to the
+emergency words would also catch "security deposit", and tuning on the fresh set would stop it from telling us
+anything.
+
+Everyday search now also reports right answers that sit under "Nothing on this yet": 4 of 70 ("minimum cgpa to not
+get kicked out", "hostel me wifi kaise lagaye", "places to take parents", "sholarship income limit"). A looser rule
+would fix these, but it would also start answering questions we don't cover. Real searches after launch should
+decide; the app already counts every search that finds nothing.
+
 ## Left as they are
 
 - **Outside links:** 4 of 73 didn't open during the check. They are the Digi Mess app (402), one Vidal Health page (404), saarang.org (no answer), and `192.168.0.1`, which is a router's own address inside the Wi-Fi router guide and only works on that router's network. The first three are other people's sites; a senior should look at them, not a script.

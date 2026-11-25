@@ -77,22 +77,26 @@ function searchChecks(app, built) {
     return { r, slugs: [...r.results, ...r.mentions].map((x) => x.slug) };
   };
 
-  // The 2 a.m. set: right topic first, and it has a number to tap.
+  // The 2 a.m. set: right topic first, shown as the answer (not under "Nothing on this yet", which also hides
+  // the Call button), and it has a number to tap. Until 26 Nov this only checked the order; see CHANGES.md.
   const urgent = cases("urgent").map((c) => {
-    const { slugs } = ranked(c.q);
+    const { r, slugs } = ranked(c.q);
     const first = slugs[0];
     const phones = first ? app.markdown.contacts(bySlug[first].posts.map((p) => p.md).join("\n\n")).phones : [];
-    const ok = c.expect.includes(first) && phones.length > 0;
-    return { q: c.q, ok, first: first || "(nothing)", phones: phones.length, expect: c.expect };
+    const ok = c.expect.includes(first) && phones.length > 0 && r.covered;
+    return { q: c.q, ok, first: first || "(nothing)", phones: phones.length, expect: c.expect, shown: r.covered };
   });
   const urgentOk = urgent.filter((x) => x.ok).length;
 
   // Everyday search: first and top three.
   const every = cases("everyday").map((c) => {
-    const { slugs } = ranked(c.q);
+    const { r, slugs } = ranked(c.q);
     const pos = slugs.findIndex((s) => c.expect.includes(s));
-    return { q: c.q, style: c.style, first: pos === 0, top3: pos >= 0 && pos < 3, got: slugs.slice(0, 3), expect: c.expect };
+    return { q: c.q, style: c.style, first: pos === 0, top3: pos >= 0 && pos < 3, got: slugs.slice(0, 3), expect: c.expect,
+      hidden: pos === 0 && !r.covered };
   });
+  // Right topic first, but the page still opens with "Nothing on this yet". Reported, not part of pass or fail.
+  const hidden = every.filter((x) => x.hidden);
   const n = every.length;
   const first = every.filter((x) => x.first).length;
   const top3 = every.filter((x) => x.top3).length;
@@ -124,10 +128,11 @@ function searchChecks(app, built) {
     }
     let uok = 0;
     for (const c of f.urgent) {
-      const { slugs } = ranked(c.q);
+      const { r, slugs } = ranked(c.q);
       const first = slugs[0];
       const phones = first ? app.markdown.contacts(bySlug[first].posts.map((p) => p.md).join("\n\n")).phones : [];
-      if (c.expect.includes(first) && phones.length) uok++; else notes.push(`urgent "${c.q}" → ${first || "(nothing)"}`);
+      if (c.expect.includes(first) && phones.length && r.covered) uok++;
+      else notes.push(`urgent "${c.q}" → ${first || "(nothing)"}${r.covered ? "" : ", under \"Nothing on this yet\""}`);
     }
     let nok = 0;
     for (const c of f.not_covered) {
@@ -141,11 +146,14 @@ function searchChecks(app, built) {
   return [
     ...fresh,
     { name: "2 a.m. set", pass: urgentOk === urgent.length, summary: `${urgentOk}/${urgent.length}`,
-      details: urgent.filter((x) => !x.ok).map((x) => `"${x.q}" → first: ${x.first} (${x.phones} numbers), wanted ${x.expect.join(" or ")}`) },
+      details: urgent.filter((x) => !x.ok).map((x) => `"${x.q}" → first: ${x.first} (${x.phones} numbers)${x.shown ? "" : ", under \"Nothing on this yet\""}, wanted ${x.expect.join(" or ")}`) },
     { name: "Everyday search", pass: first / n >= 0.8 && top3 / n >= 0.95,
-      summary: `first ${pct(first, n)}% · top 3 ${pct(top3, n)}%`,
-      extra: { first, top3, n, styles },
-      details: every.filter((x) => !x.first).map((x) => `${x.top3 ? "top3" : "MISS"} "${x.q}" → ${x.got.join(", ") || "(nothing)"}; wanted ${x.expect.join(" or ")}`) },
+      summary: `first ${pct(first, n)}% · top 3 ${pct(top3, n)}%` + (hidden.length ? ` · ${hidden.length} right but under "Nothing on this yet"` : ""),
+      extra: { first, top3, n, styles, hidden: hidden.length },
+      details: [
+        ...every.filter((x) => !x.first).map((x) => `${x.top3 ? "top3" : "MISS"} "${x.q}" → ${x.got.join(", ") || "(nothing)"}; wanted ${x.expect.join(" or ")}`),
+        ...hidden.map((x) => `right first, but under "Nothing on this yet": "${x.q}" → ${x.got[0]}`),
+      ] },
     { name: "Nothing on this yet", pass: ncOk >= nc.length - 1, summary: `${ncOk}/${nc.length}`,
       details: nc.filter((x) => !x.ok).map((x) => `"${x.q}" was answered with ${x.shown.join(", ")}`) },
   ];

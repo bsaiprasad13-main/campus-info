@@ -18,6 +18,15 @@ Written and kept up to date by **IITM students**, from official sources. Not an 
 - **The site:** https://bsaiprasad13-main.github.io/campus-info/
 - **The admin:** https://bsaiprasad13-main.github.io/campus-info/admin/. Reviewing this? Press **Try the admin**: no sign-in, a practice copy that stays in your browser.
 
+## Two minutes: five things to try
+
+1. Search **friend fainted in hostel**. The hospital comes first, with a Call button for the ambulance.
+2. Search **mess change kab tak**, typed the way students type.
+3. Search **gre coaching**. It isn't covered, and the app says so, with a link to ask the seniors for it.
+4. Tap **Emergency** in the nav: every emergency number, one tap to call.
+5. Open the admin, press **Try the admin**, edit a topic and publish it. Then go back to the old version from
+   **More → Published versions**.
+
 ## What's where
 
 | Folder | What it is |

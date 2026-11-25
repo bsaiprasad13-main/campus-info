@@ -27,7 +27,7 @@ Written and kept up to date by **IITM students**, from official sources. Not an 
 | `content/` | The content: one JSON file per topic, the home page settings, details of each file. The admin edits these. |
 | `server/campus_api/` | The admin server, a Zoho Catalyst function in Python. It checks the Google sign-in, holds the GitHub key and writes to this repo. |
 | `evals/` | The checks, the questions they use, and every scorecard. Start with [evals/README.md](evals/README.md). |
-| `prompts/` | [The prompts](prompts/PROMPTS.md) Campus Info was built from. |
+| `prompts/` | [The prompts](prompts/PROMPTS.md) Campus Info was built from, with Claude's replies. |
 | `tools/` | Build the site data, draw the icons, run everything on a laptop. |
 | `tests/` | Tests for the admin server. |
 

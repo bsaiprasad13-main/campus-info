@@ -1,5 +1,5 @@
 /* Campus Info: the pages students see. Plain JavaScript, no build step.
-   Routes:  #/  home and index · #/group/<slug> · #/find/<words> · #/topic/<slug> · #/about */
+   Routes:  #/ home · #/find/<words> · #/topics · #/topics/<area> · #/topic/<slug>[?q=<words>] · #/emergency · #/about */
 (function () {
   "use strict";
 
@@ -12,6 +12,7 @@
   const M = window.CampusMarkdown;
   const S = window.CampusSearch;
   const $ = (sel, el) => (el || document).querySelector(sel);
+  const $$ = (sel, el) => [...(el || document).querySelectorAll(sel)];
   const esc = M.esc;
   const ICONS = {
     search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
@@ -20,8 +21,9 @@
     mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
     up: '<path d="M7 10v12"/><path d="M15 5.9 14 10h5.8a2 2 0 0 1 1.9 2.6l-2.3 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.8a2 2 0 0 0 1.8-1.1L12 2a3.1 3.1 0 0 1 3 3.9z"/>',
     share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/>',
-    back: '<path d="m15 18-6-6 6-6"/>',
-    down: '<path d="m6 9 6 6 6-6"/>',
+    next: '<path d="m9 18 6-6-6-6"/>',
+    home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
+    install: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',
     all: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
     essentials: '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
     academics: '<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
@@ -39,6 +41,8 @@
     get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
   };
+  const INSTALLED = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
   let DATA = null;
   let INDEX = null;
@@ -46,6 +50,7 @@
   let CONTACTS = {};
   let searchTimer = null;
   let lastLogged = "";
+  let installEvent = null;
 
   // ---------- start ----------
   async function boot() {
@@ -59,14 +64,18 @@
     for (const t of DATA.topics) CONTACTS[t.slug] = M.contacts(t.posts.map((p) => p.md).join("\n\n"));
     INDEX = S.buildIndex(DATA, {});
     if (PREVIEW) previewBar();
-    strip();
+    const fb = $("#nav-feedback");
+    if (CONFIG.FEEDBACK_URL) fb.href = feedbackLink("General");
+    else fb.remove();
     footer();
+    stickyHeight();
+    window.addEventListener("resize", stickyHeight);
     window.addEventListener("hashchange", route);
     route();
     whenIdle(loadSearchText);
     analytics();
     serviceWorker();
-    installPrompt();
+    installWatch();
     document.addEventListener("click", trackClicks);
   }
 
@@ -104,11 +113,22 @@
     else setTimeout(fn, 600);
   }
 
+  // The nav row (phones) or the whole top bar (wider screens) stays on screen; letter headings stick under it.
+  function stickyHeight() {
+    const wide = window.matchMedia("(min-width: 760px)").matches;
+    const el = wide ? $(".masthead") : $(".nav");
+    document.documentElement.style.setProperty("--stick", (el ? el.offsetHeight : 0) + "px");
+  }
+  const stickPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--stick")) || 0;
+
   // ---------- routing ----------
   function parseHash() {
-    const h = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
-    const [kind, ...rest] = h.split("/");
-    return { kind: kind || "home", arg: rest.join("/") };
+    const raw = location.hash.replace(/^#\/?/, "");
+    const cut = raw.indexOf("?");
+    let path = cut < 0 ? raw : raw.slice(0, cut);
+    try { path = decodeURIComponent(path); } catch (e) { /* a stray % in a typed address */ }
+    const [kind, ...rest] = path.split("/");
+    return { kind: kind || "home", arg: rest.join("/"), q: new URLSearchParams(cut < 0 ? "" : raw.slice(cut + 1)).get("q") || "" };
   }
 
   function currentQuery() {
@@ -117,46 +137,46 @@
   }
 
   function route() {
-    const { kind, arg } = parseHash();
-    if (kind === "topic" && BY_SLUG[arg]) return topicPage(BY_SLUG[arg]);
+    const { kind, arg, q } = parseHash();
+    if (kind === "topic" && BY_SLUG[arg]) return arg === DATA.emergency_topic ? emergencyPage(q) : topicPage(BY_SLUG[arg], q);
+    if (kind === "emergency") return emergencyPage("");
     if (kind === "about") return aboutPage();
-    if (kind === "group") return homePage({ group: arg });
-    if (kind === "find") return homePage({ query: arg });
-    return homePage({});
+    if (kind === "topics" || kind === "group") return topicsPage(arg);
+    if (kind === "find") return homePage(arg);
+    return homePage("");
   }
 
-  function setPage(html, title) {
-    const main = $("#main");
-    main.innerHTML = html;
+  // section: which nav item this page belongs to.
+  function setPage(html, title, section) {
+    rail(null);
+    $("#main").innerHTML = html;
     document.title = title ? `${title} · Campus Info` : "Campus Info · Everything a senior would tell you";
+    for (const a of $$("[data-nav]")) {
+      if (a.dataset.nav === section) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    }
     pageView();
   }
 
-  // ---------- emergency strip and footer ----------
-  function strip() {
-    const nums = (DATA.emergency || []).map((e) =>
-      `<a href="tel:${esc(telOf(e.number))}" data-contact="call" data-topic="strip">${ic("phone")}<span>${esc(e.label)}</span> ${esc(shortNumber(e.number))}</a>`
-    ).join("");
-    const all = DATA.emergency_topic ? `<a class="all" href="#/topic/${esc(DATA.emergency_topic)}">More</a>` : "";
-    $("#strip").innerHTML = `<span class="label">Emergency</span>${nums}${all}`;
+  // Where you are: ⌂ › Topics › Hostel › Mess coupons. Every step but the last is a link back up.
+  function crumbs(parts) {
+    const steps = parts.map((p, i) => i === parts.length - 1
+      ? `<li aria-current="page"><span>${esc(p.label)}</span></li>`
+      : `<li><a href="${esc(p.href)}">${esc(p.label)}</a></li>`);
+    return `<nav class="crumbs" aria-label="You are here"><ol><li><a href="#/" class="home" aria-label="Home">${ic("home")}</a></li>${steps.join("")}</ol></nav>`;
+  }
+
+  // ---------- footer ----------
+  function footer() {
+    $("#foot").innerHTML = `
+      <p class="made"><strong>Built and kept up to date by IITM students.</strong> Not an official institute website.</p>
+      <p class="links"><a href="#/about">What is this?</a><a href="${esc(CONFIG.ADMIN_PATH)}">For seniors: edit</a></p>
+      <p class="upd">Content updated ${esc(niceDate(DATA.updated))}. <span class="offline" id="offline"></span></p>`;
   }
 
   function telOf(n) {
     const d = String(n).replace(/\D/g, "");
     return d.length === 12 && d.startsWith("91") ? "+" + d : d.length === 10 ? "+91" + d : "+" + d;
-  }
-
-  function shortNumber(n) {
-    return String(n).replace(/^\+91[\s-]?44[\s-]?/, "").replace(/^\+91[\s-]?/, "");
-  }
-
-  function footer() {
-    const fb = CONFIG.FEEDBACK_URL ? `<a href="${esc(feedbackLink("General"))}" target="_blank" rel="noopener" data-feedback="footer">Tell us what's missing</a>` : "";
-    $("#foot").innerHTML = `
-      <p class="made"><strong>Built and kept up to date by IITM students.</strong> Not an official institute website.</p>
-      <p class="links">${fb}<a href="#/about">About</a><a href="${esc(CONFIG.ADMIN_PATH)}">For seniors: edit</a><button type="button" class="install" hidden>Install the app</button></p>
-      <p class="upd">Content updated ${esc(niceDate(DATA.updated))}.</p>
-      <p class="offline" id="offline"></p>`;
   }
 
   function niceDate(iso) {
@@ -173,20 +193,15 @@
     document.body.prepend(bar);
   }
 
-  // ---------- home: value, search, groups, New here?, index ----------
-  function homePage({ group, query }) {
-    const g = group && (DATA.groups || []).find((x) => x.slug === group);
-    const counts = stats();
-    const hello = g || query ? "" : `
-      <section class="hello">
-        <h1>What IIT Madras offers you, and whom to ask.</h1>
-        <p class="lede">Mess, hostel, money, academics, health and clubs. Written by students from official sources.</p>
-        <p class="facts"><span>${counts.topics} topics</span><span>Numbers tap to call</span><span>Works offline</span></p>
-      </section>`;
-    const groups = (DATA.groups || []).map((x) =>
-      `<a href="#/group/${esc(x.slug)}" data-g="${esc(x.slug)}"${x.slug === group ? ' class="on" aria-current="page"' : ""}>${ic(x.slug)}${esc(x.title)}</a>`).join("");
+  // ---------- home: what this is, install, search, New here? ----------
+  function homePage(query) {
     setPage(`
-      ${hello}
+      <section class="hello"${query ? " hidden" : ""}>
+        <h1>A place for you to…</h1>
+        <p class="lede">Find out <span class="hl">what you need to know</span>, <span class="hl">where you need to go</span>,
+          <span class="hl">what you can explore</span> and <span class="hl">whom you can reach out to</span> at IIT Madras.</p>
+      </section>
+      ${installCard(query)}
       <form class="find" role="search" id="find">
         <label for="q" class="vh">Search Campus Info</label>
         ${ic("search", "lens")}
@@ -194,53 +209,90 @@
           autocapitalize="off" spellcheck="false" enterkeyhint="search" value="${esc(query || "")}">
         <button type="button" class="clear" id="clear" aria-label="Clear search"${query ? "" : " hidden"}>${ic("x")}</button>
       </form>
-      <nav class="groups" aria-label="Groups"><a href="#/" data-g="all"${!group ? ' class="on"' : ""}>${ic("all")}All</a>${groups}</nav>
       <div id="results" aria-live="polite"></div>
-      <div id="browse"></div>`, g ? g.title : query ? `“${query}”` : "");
-    const on = $(".groups a.on");
-    if (on) on.parentElement.scrollLeft = on.offsetLeft - 16; // the chosen group is always in view
+      <div id="browse"${query ? " hidden" : ""}>${newHere()}</div>`, query ? `“${query}”` : "", "home");
     const input = $("#q");
     input.addEventListener("input", () => onType(input.value));
     $("#find").addEventListener("submit", (e) => { e.preventDefault(); input.blur(); logSearch(input.value, true); });
     $("#clear").addEventListener("click", () => { location.hash = "#/"; setTimeout(() => $("#q") && $("#q").focus(), 0); });
-    if (query) {
-      showResults(query);
-    } else {
-      browse(g);
-    }
+    wireInstall();
+    if (query) showResults(query);
     restoreScroll();
   }
 
-  function stats() {
-    const seen = new Set();
-    for (const c of Object.values(CONTACTS)) {
-      for (const p of c.phones) seen.add(p.tel);
-      for (const e of c.emails) seen.add(e.email.toLowerCase());
-    }
-    return { topics: DATA.topics.length, documents: Object.keys(DATA.files || {}).length, contacts: seen.size };
-  }
-
-  function browse(group) {
-    const topics = group ? DATA.topics.filter((t) => t.group === group.slug) : DATA.topics;
-    const newHere = !group && DATA.new_here && DATA.new_here.length ? `
+  function newHere() {
+    const list = (DATA.new_here || []).filter((s) => BY_SLUG[s]);
+    return list.length ? `
       <section class="newhere">
         <h2>New here? Start with these</h2>
-        <ol class="entries">${DATA.new_here.filter((s) => BY_SLUG[s]).map((s) => entry(BY_SLUG[s], { group: false })).join("")}</ol>
+        <ol class="entries">${list.map((s) => entry(BY_SLUG[s], {})).join("")}</ol>
       </section>` : "";
-    const head = group
-      ? `<h2>${esc(group.title)} <span class="count">${topics.length} topics</span></h2><p class="gsum">${esc(group.summary || "")}</p>`
-      : `<h2>Everything, A to Z <span class="count">${topics.length} topics</span></h2>`;
-    const letters = {};
-    for (const t of topics) {
-      const L = letterOf(t.title);
-      (letters[L] = letters[L] || []).push(t);
-    }
-    const order = Object.keys(letters).sort((a, b) => (a === "#") - (b === "#") || a.localeCompare(b));
-    $("#browse").innerHTML = `${newHere}
-      <section class="index">${head}
-        ${order.map((L) => `<h3 class="letter" id="letter-${L}">${L}</h3><ul class="entries">${letters[L].map((t) => entry(t, { group: !group })).join("")}</ul>`).join("")}
+  }
+
+  // ---------- install: Android gets the real button; iPhones get the two steps ----------
+  function installCard(query) {
+    if (INSTALLED || PREVIEW || query || store.get("ci.install.hide")) return "";
+    return `
+      <section class="install" id="install">
+        <span class="ins-ic">${ic("install")}</span>
+        <p class="ins-txt"><strong>Install Campus Info</strong><span>Opens like an app and works offline.</span></p>
+        <button type="button" class="ins-btn" id="ins-btn">Install</button>
+        <button type="button" class="ins-x" id="ins-x" aria-label="Hide this">${ic("x")}</button>
+        <p class="ins-steps" id="ins-steps" hidden></p>
       </section>`;
+  }
+
+  function wireInstall() {
+    const card = $("#install");
+    if (!card) return;
+    $("#ins-x").onclick = () => { store.set("ci.install.hide", "1"); card.remove(); track("install_hide"); };
+    $("#ins-btn").onclick = async () => {
+      if (installEvent) {
+        installEvent.prompt();
+        const choice = await installEvent.userChoice;
+        track("install", { outcome: choice.outcome });
+        installEvent = null;
+        if (choice.outcome === "accepted") card.remove();
+        return;
+      }
+      const steps = $("#ins-steps");
+      steps.innerHTML = IOS
+        ? `On iPhone: tap ${ic("share")} <b>Share</b> at the bottom of Safari, then <b>Add to Home Screen</b>.`
+        : `Open your browser's menu and choose <b>Install app</b> or <b>Add to Home screen</b>.`;
+      steps.hidden = false;
+      track("install_help", { ios: IOS ? "yes" : "no" });
+    };
+  }
+
+  function installWatch() {
+    window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvent = e; });
+    window.addEventListener("appinstalled", () => { const c = $("#install"); if (c) c.remove(); });
+  }
+
+  // ---------- Topics: every topic A to Z, narrowed by area ----------
+  function topicsPage(slug) {
+    const g = slug && (DATA.groups || []).find((x) => x.slug === slug);
+    const topics = g ? DATA.topics.filter((t) => t.group === g.slug) : DATA.topics;
+    const pills = (DATA.groups || []).map((x) =>
+      `<a href="#/topics/${esc(x.slug)}" data-g="${esc(x.slug)}"${g && x.slug === g.slug ? ' class="on" aria-current="page"' : ""}>${ic(x.slug)}${esc(x.title)}</a>`).join("");
+    const letters = {};
+    for (const t of topics) (letters[letterOf(t.title)] = letters[letterOf(t.title)] || []).push(t);
+    const order = Object.keys(letters).sort((a, b) => (a === "#") - (b === "#") || a.localeCompare(b));
+    setPage(`
+      <section class="page">
+        ${crumbs(g ? [{ label: "Topics", href: "#/topics" }, { label: g.title }] : [{ label: "Topics" }])}
+        <h1>${g ? esc(g.title) : "All topics"}</h1>
+        ${g && g.summary ? `<p class="lede">${esc(g.summary)}</p>` : ""}
+        <nav class="groups" aria-label="Areas"><a href="#/topics" data-g="all"${g ? "" : ' class="on" aria-current="page"'}>${ic("all")}All</a>${pills}</nav>
+        <div class="index">${order.map((L) => `
+          <section class="sec" id="letter-${L}"><h2 class="letter">${L}</h2>
+            <ul class="entries">${letters[L].map((t) => entry(t, { group: !g })).join("")}</ul></section>`).join("")}
+        </div>
+      </section>`, g ? g.title : "Topics", "topics");
+    const on = $(".groups a.on");
+    if (on) on.parentElement.scrollLeft = on.offsetLeft - 16; // the chosen area is always in view
     rail(order);
+    restoreScroll();
   }
 
   function letterOf(title) {
@@ -248,15 +300,32 @@
     return /[A-Z]/.test(c) ? c : "#";
   }
 
+  // One row in any list. With a search: the matched words marked, where in the topic they are, and the link
+  // carries the words so the topic opens at that spot.
   function entry(t, opts) {
     const g = opts.group ? `<span class="g" data-g="${esc(t.group)}">${esc(groupTitle(t.group))}</span>` : "";
     const title = opts.matched ? S.highlight(t.title, opts.matched) : esc(t.title);
     let line = opts.matched ? S.highlight(t.summary, opts.matched) : esc(t.summary);
     if (opts.snippet) {
-      const from = opts.snippet.from ? `<span class="from">in ${esc(opts.snippet.from)}:</span> ` : "";
-      line = from + S.highlight(opts.snippet.text, opts.matched);
+      const where = opts.snippet.from || sectionOf(t, opts.matched);
+      line = (where ? `<span class="from">in ${esc(where)}:</span> ` : "") + S.highlight(opts.snippet.text.replace(/^[-*•]\s+/, ""), opts.matched);
     }
-    return `<li><a href="#/topic/${esc(t.slug)}"><span class="t">${title}</span>${g}<span class="s">${line}</span></a></li>`;
+    const href = `#/topic/${encodeURIComponent(t.slug)}${opts.q ? "?q=" + encodeURIComponent(opts.q) : ""}`;
+    return `<li><a href="${esc(href)}"><span class="t">${title}</span>${g}<span class="s">${line}</span></a>${opts.call || ""}</li>`;
+  }
+
+  // The heading of the part of a topic where the words turn up ("Rebates"), if there is one.
+  function sectionOf(t, matched) {
+    const want = new Set(matched || []);
+    for (const p of t.posts) {
+      let head = "";
+      for (const line of String(p.md).split("\n")) {
+        const h = line.match(/^#{1,6}\s+(.+)$/);
+        if (h) head = h[1].replace(/[*_`]/g, "").trim();
+        if (S.terms(line).some((w) => want.has(w))) return head && head !== t.title ? head : "";
+      }
+    }
+    return "";
   }
 
   function groupTitle(slug) {
@@ -264,48 +333,94 @@
     return g ? g.title : "";
   }
 
-  let railWatch = null;
+  // ---------- the letters down the right edge ----------
+  // While you scroll, the letter you're in lights up. Slide a thumb along them and a big letter follows it
+  // while the list jumps, so the letters can stay small without being hard to hit.
+  let spyFrame = 0;
+  let bubbleTimer = 0;
+  function onSpyScroll() { if (!spyFrame) spyFrame = requestAnimationFrame(spy); }
+  function spy() {
+    spyFrame = 0;
+    const el = $("#rail");
+    if (!el || el.hidden) return;
+    // Shown only once the area pills have scrolled out from under it, and while the list is on screen.
+    const top = el.getBoundingClientRect().top;
+    const pills = $(".groups");
+    const index = $(".index");
+    el.classList.toggle("show", (!pills || pills.getBoundingClientRect().bottom < top) && !!index && index.getBoundingClientRect().bottom > top + 40);
+    const line = stickPx() + 6;
+    let cur = "";
+    for (const s of $$(".index .sec")) {
+      if (s.getBoundingClientRect().top <= line) cur = s.id.slice(7);
+      else break;
+    }
+    if (!cur) { const first = $(".index .sec"); cur = first ? first.id.slice(7) : ""; }
+    for (const b of el.children) b.classList.toggle("on", b.dataset.letter === cur);
+  }
+
   function rail(order) {
     const el = $("#rail");
-    if (railWatch) { railWatch.disconnect(); railWatch = null; }
+    window.removeEventListener("scroll", onSpyScroll);
     el.classList.remove("show");
     if (!order || order.length < 6) { el.hidden = true; el.innerHTML = ""; return; }
-    el.innerHTML = order.map((L) => `<a href="#letter-${L}" data-letter="${L}">${L}</a>`).join("");
+    el.innerHTML = order.map((L) => `<button type="button" tabindex="-1" data-letter="${L}">${L}</button>`).join("");
     el.hidden = false;
-    // The letters only appear once the reader is in the index, so they never cover the text above it.
-    const index = $(".index");
-    if (index && "IntersectionObserver" in window) {
-      railWatch = new IntersectionObserver((list) => el.classList.toggle("show", list[0].isIntersecting), { rootMargin: "-45% 0px -45% 0px" });
-      railWatch.observe(index);
-    } else {
-      el.classList.add("show");
-    }
-    el.onclick = (e) => {
-      const a = e.target.closest("a[data-letter]");
-      if (!a) return;
-      e.preventDefault();
-      const target = document.getElementById("letter-" + a.dataset.letter);
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.addEventListener("scroll", onSpyScroll, { passive: true });
+    spy();
+
+    let held = false;
+    let last = "";
+    const jump = (b, y) => {
+      if (!b) return;
+      const L = b.dataset.letter;
+      if (L !== last) {
+        const sec = document.getElementById("letter-" + L);
+        if (sec) window.scrollTo(0, sec.getBoundingClientRect().top + window.scrollY - stickPx());
+        last = L;
+      }
+      bubble(L, y);
     };
+    const under = (y) => {
+      const r = el.getBoundingClientRect();
+      const t = document.elementFromPoint(r.left + r.width / 2, Math.min(Math.max(y, r.top + 2), r.bottom - 2));
+      return t && t.closest ? t.closest("#rail button[data-letter]") : null;
+    };
+    el.onpointerdown = (e) => {
+      const b = e.target.closest("button[data-letter]");
+      if (!b) return;
+      e.preventDefault();
+      held = true;
+      last = "";
+      try { el.setPointerCapture(e.pointerId); } catch (err) { /* older browsers */ }
+      jump(b, e.clientY);
+    };
+    el.onpointermove = (e) => { if (held) jump(under(e.clientY), e.clientY); };
+    el.onpointerup = el.onpointercancel = () => {
+      held = false;
+      clearTimeout(bubbleTimer);
+      bubbleTimer = setTimeout(() => { $("#bubble").hidden = true; }, 450);
+    };
+  }
+
+  function bubble(L, y) {
+    const b = $("#bubble");
+    clearTimeout(bubbleTimer);
+    b.textContent = L;
+    b.style.top = Math.max(stickPx() + 8, y - 30) + "px";
+    b.hidden = false;
   }
 
   // ---------- search ----------
   function onType(value) {
     const q = value.trim();
     $("#clear").hidden = !q;
-    const browseEl = $("#browse");
-    const hello = $(".hello");
+    const hide = !!q;
+    for (const sel of [".hello", "#install", "#browse"]) { const el = $(sel); if (el) el.hidden = hide; }
     if (!q) {
       $("#results").innerHTML = "";
-      if (!browseEl.innerHTML) browse(null);
-      browseEl.hidden = false;
-      if (hello) hello.hidden = false;
       history.replaceState(null, "", "#/");
       return;
     }
-    if (hello) hello.hidden = true;
-    browseEl.hidden = true;
-    $("#rail").hidden = true;
     history.replaceState(null, "", "#/find/" + encodeURIComponent(q));
     showResults(q);
     clearTimeout(searchTimer);
@@ -318,19 +433,41 @@
     if (!el) return;
     const browseEl = $("#browse");
     if (browseEl) browseEl.hidden = true;
-    $("#rail").hidden = true;
+    const area = areaFor(q);
+    const areaRow = area ? `
+      <a class="area-hit" href="#/topics/${esc(area.slug)}" data-g="${esc(area.slug)}">${ic(area.slug)}<span>Everything in <strong>${esc(area.title)}</strong></span>${ic("next", "go")}</a>` : "";
     const none = r.covered ? "" : `
       <div class="none">
         <p><mark>Nothing on this yet.</mark> Tell us what you were looking for and a senior will add it.</p>
         ${CONFIG.FEEDBACK_URL ? `<p><a class="ask" href="${esc(feedbackLink(q))}" target="_blank" rel="noopener" data-feedback="search">Ask for “${esc(q)}”</a></p>` : ""}
       </div>`;
-    const list = (items) => items.map((x) => entry(BY_SLUG[x.slug], { group: true, matched: x.matched, snippet: x.snippet })).join("");
+    const row = (x, call) => entry(BY_SLUG[x.slug], { group: true, matched: x.matched, snippet: x.snippet, q, call });
     const results = r.results.length
-      ? `${r.covered ? "" : `<p class="divider">Closest matches</p>`}<ul class="entries hits">${list(r.results, false)}</ul>` : "";
+      ? `${r.covered ? "" : `<p class="divider">Closest matches</p>`}<ul class="entries hits">${r.results.map((x, i) => row(x, i === 0 && r.covered ? callFor(x) : "")).join("")}</ul>` : "";
     const mentions = r.mentions.length
-      ? `<p class="divider">Mentioned inside</p><ul class="entries hits deep">${list(r.mentions, true)}</ul>` : "";
-    el.innerHTML = none + results + mentions;
+      ? `<p class="divider">Mentioned inside</p><ul class="entries hits deep">${r.mentions.map((x) => row(x, "")).join("")}</ul>` : "";
+    el.innerHTML = areaRow + none + results + mentions;
     el.dataset.covered = r.covered ? "yes" : "no";
+  }
+
+  // Typing an area's name ("hostel", "scholarships") offers the whole area first.
+  function areaFor(q) {
+    const want = S.terms(q).filter((w) => !S.STOP.has(w));
+    if (!want.length || want.length > 3) return null;
+    return (DATA.groups || []).find((g) => {
+      const have = new Set(S.terms(g.title + " " + g.slug.replace(/-/g, " ")));
+      return want.every((w) => have.has(w));
+    }) || null;
+  }
+
+  // If the best answer has a phone number, it's one tap away in the results ("ambulance" → Call Ambulance).
+  function callFor(x) {
+    const c = CONTACTS[x.slug];
+    if (!c || !c.phones.length) return "";
+    const want = new Set(x.matched);
+    const named = (p) => p.label && !/^[\d\s+()/-]+$/.test(p.label);
+    const p = c.phones.find((ph) => named(ph) && S.terms(ph.label).some((w) => want.has(w))) || c.phones[0];
+    return `<a class="callrow" href="tel:${esc(p.tel)}" data-contact="call" data-topic="${esc(x.slug)}">${ic("phone")}<span>Call${named(p) ? " " + esc(p.label) : ""}</span><b>${esc(p.display)}</b></a>`;
   }
 
   function logSearch(q, submitted) {
@@ -347,40 +484,46 @@
   }
 
   // ---------- a topic ----------
-  function topicPage(t) {
-    rail(null);
-    const c = CONTACTS[t.slug];
-    const posts = t.posts.map((p) => `
-      <section class="post">${M.render(p.md)}${files(p.files)}</section>`).join("");
-    // One row per label ("Wellness Centre"), with all of its numbers and emails stacked on the right.
+  // One row per label ("Wellness Centre"), with all of its numbers and emails as buttons.
+  function contactRows(slug, skip) {
+    const c = CONTACTS[slug];
     const rows = [];
     const rowFor = (label) => {
-      if (/^[\d\s+()\/-]+$/.test(label)) label = ""; // a "label" that is only the number says nothing
+      if (/^[\d\s+()/-]+$/.test(label)) label = ""; // a "label" that is only the number says nothing
       let r = rows.find((x) => x.label === label);
       if (!r) rows.push((r = { label, links: [] }));
       return r;
     };
-    for (const p of c.phones) rowFor(p.label || "Phone").links.push(`<a href="tel:${esc(p.tel)}" class="num" data-contact="call" data-topic="${esc(t.slug)}">${ic("phone")}${esc(p.display)}</a>`);
-    for (const e of c.emails) rowFor(e.label || "Email").links.push(`<a href="mailto:${esc(e.email)}" class="mail" data-contact="mail" data-topic="${esc(t.slug)}">${ic("mail")}${esc(e.email)}</a>`);
-    const phones = rows.map((r) => r.label ? `<li><span class="who">${esc(r.label)}</span><span class="how">${r.links.join("")}</span></li>` : `<li class="solo"><span class="how">${r.links.join("")}</span></li>`).join("");
-    const emails = "";
-    // A short list goes right under the title; a long one (it is the topic itself) stays at the end.
+    for (const p of c.phones) {
+      if (skip && skip.has(p.tel)) continue;
+      rowFor(p.label || "Phone").links.push(`<a href="tel:${esc(p.tel)}" class="num" data-contact="call" data-topic="${esc(slug)}">${ic("phone")}${esc(p.display)}</a>`);
+    }
+    for (const e of c.emails) rowFor(e.label || "Email").links.push(`<a href="mailto:${esc(e.email)}" class="mail" data-contact="mail" data-topic="${esc(slug)}">${ic("mail")}${esc(e.email)}</a>`);
+    return rows;
+  }
+
+  const rowsHtml = (rows) => rows.map((r) => r.label
+    ? `<li><span class="who">${esc(r.label)}</span><span class="how">${r.links.join("")}</span></li>`
+    : `<li class="solo"><span class="how">${r.links.join("")}</span></li>`).join("");
+
+  function topicPage(t, q) {
+    const posts = t.posts.map((p) => `
+      <section class="post">${M.render(p.md)}${files(p.files)}</section>`).join("");
+    const rows = contactRows(t.slug);
+    // A short list goes right under the title; a long one (then it is the topic itself) stays at the end.
     const onTop = rows.length && rows.length <= 5;
-    const contacts = phones || emails ? `
+    const contacts = rows.length ? `
       <section class="contacts${onTop ? " ontop" : ""}" id="whom">
         <h2>Whom to ask</h2>
-        <ul>${phones}${emails}</ul>
+        <ul>${rowsHtml(rows)}</ul>
       </section>` : "";
-    const more = related(t).map((x) => entry(x, { group: false })).join("");
-    let inApp = false;
-    try { inApp = !!sessionStorage.getItem("ci.inapp"); } catch (e) { /* ignore */ }
-    const back = inApp ? "Back" : "Index";
+    const more = related(t).map((x) => entry(x, {})).join("");
     setPage(`
       <article class="topic">
-        <p class="crumbs"><a href="#/" class="back" id="back">${ic("back")}${back}</a><a href="#/group/${esc(t.group)}" class="kicker" data-g="${esc(t.group)}">${ic(t.group)}${esc(groupTitle(t.group))}</a></p>
+        ${crumbs([{ label: "Topics", href: "#/topics" }, { label: groupTitle(t.group), href: "#/topics/" + t.group }, { label: t.title }])}
         <h1>${esc(t.title)}</h1>
         <p class="lede">${esc(t.summary)}</p>
-        ${onTop ? contacts : rows.length ? `<p class="jump"><a href="#whom" id="jump">${ic("phone")}${rows.length} contacts below ${ic("down")}</a></p>` : ""}
+        ${onTop ? contacts : rows.length ? `<p class="jump"><a href="#whom" id="jump">${ic("phone")}Whom to ask: ${rows.length} contacts, at the end</a></p>` : ""}
         <div class="posts">${posts}</div>
         ${onTop ? "" : contacts}
         <section class="useful" id="useful">
@@ -389,14 +532,10 @@
         </section>
         ${more ? `<section class="more"><h2>Also in ${esc(groupTitle(t.group))}</h2><ul class="entries">${more}</ul></section>` : ""}
         <p class="share"><button type="button" id="share">${ic("share")}Share this page</button></p>
-      </article>`, t.title);
-    window.scrollTo(0, 0);
+      </article>`, t.title, "topics");
     track("view_topic", { topic: t.slug });
     const jump = $("#jump");
     if (jump) jump.addEventListener("click", (e) => { e.preventDefault(); $("#whom").scrollIntoView({ behavior: "smooth" }); });
-    $("#back").addEventListener("click", (e) => {
-      if (inApp) { e.preventDefault(); history.back(); }
-    });
     $("#useful").addEventListener("click", (e) => {
       const b = e.target.closest("button[data-useful]");
       if (!b) return;
@@ -406,14 +545,57 @@
       $("#useful").innerHTML = `<p>Thanks.${ask}</p>`;
     });
     $("#share").addEventListener("click", async () => {
-      const url = location.href.split("?")[0];
+      const url = location.origin + location.pathname + "#/topic/" + t.slug;
       track("share", { topic: t.slug });
       if (navigator.share) {
         try { await navigator.share({ title: t.title + " · Campus Info", url }); } catch (e) { /* closed */ }
       } else {
-        try { await navigator.clipboard.writeText(url); $("#share").textContent = "Link copied"; } catch (e) { prompt("Copy this link", url); }
+        try { await navigator.clipboard.writeText(url); $("#share").lastChild.textContent = "Link copied"; } catch (e) { prompt("Copy this link", url); }
       }
     });
+    landOn(q, t);
+  }
+
+  // Opened from a search: mark the words in the topic and scroll to the first place they appear.
+  function landOn(q, t) {
+    if (!q) { window.scrollTo(0, 0); return; }
+    const r = S.search(INDEX, q, { limit: 80, mentions: 80 });
+    const x = r.results.concat(r.mentions).find((y) => y.slug === t.slug);
+    const want = new Set(x ? x.matched : r.words);
+    let first = null;
+    let upTop = false;
+    for (const root of $$(".topic h1, .topic > .lede, .posts, .contacts")) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      for (const n of nodes) {
+        if (n.parentElement.closest("mark, svg")) continue;
+        const parts = n.nodeValue.split(/([A-Za-z0-9À-ɏ][A-Za-z0-9À-ɏ'’.-]*)/);
+        if (parts.length < 2) continue;
+        let hit = false;
+        const frag = document.createDocumentFragment();
+        parts.forEach((part, i) => {
+          if (i % 2 && S.words(part).map(S.stem).some((w) => want.has(w))) {
+            const m = document.createElement("mark");
+            m.className = "hit";
+            m.textContent = part;
+            frag.appendChild(m);
+            if (!first) { first = m; upTop = !root.matches(".posts, .contacts"); }
+            hit = true;
+          } else if (part) {
+            frag.appendChild(document.createTextNode(part));
+          }
+        });
+        if (hit) n.parentNode.replaceChild(frag, n);
+      }
+    }
+    // Only inside an attached document: point at that document.
+    if (!first && x && x.snippet && x.snippet.from) {
+      const doc = $$(".docs a[data-file]").find((a) => a.dataset.file === x.snippet.from);
+      if (doc) { doc.closest("li").classList.add("hit-doc"); first = doc; }
+    }
+    if (!first || upTop) { window.scrollTo(0, 0); return; }
+    requestAnimationFrame(() => first.scrollIntoView({ block: "center" }));
   }
 
   function files(ids) {
@@ -443,38 +625,56 @@
     return out.slice(0, 3);
   }
 
-  // ---------- about ----------
+  // ---------- emergency: big Call buttons first, then every number, then where to read more ----------
+  function emergencyPage(q) {
+    const t = DATA.emergency_topic && BY_SLUG[DATA.emergency_topic];
+    const first = (DATA.emergency || []).map((e) => `
+      <li><a class="sos-call" href="tel:${esc(telOf(e.number))}" data-contact="call" data-topic="emergency">
+        <span class="sos-ic">${ic("phone")}</span><span class="sos-l">${esc(e.label)}</span><span class="sos-n">${esc(e.number)}</span></a></li>`).join("");
+    const posts = t ? t.posts.map((p) => `<section class="post">${M.render(p.md)}${files(p.files)}</section>`).join("") : "";
+    const helpful = ["hospital", "counselling", "hostel-security-desks", "posh-ccash"].concat(t ? t.related || [] : [])
+      .filter((s, i, all) => BY_SLUG[s] && s !== (t && t.slug) && all.indexOf(s) === i).slice(0, 4);
+    setPage(`
+      <article class="topic emergency">
+        ${crumbs([{ label: "Emergency" }])}
+        <h1>Emergency</h1>
+        <p class="lede">Tap a number to call.</p>
+        ${first ? `<ul class="sos-list">${first}</ul>` : ""}
+        ${posts ? `<section class="all-numbers"><h2>All emergency numbers</h2><div class="posts">${posts}</div></section>` : ""}
+        ${helpful.length ? `<section class="more"><h2>Also useful</h2><ul class="entries">${helpful.map((s) => entry(BY_SLUG[s], {})).join("")}</ul></section>` : ""}
+      </article>`, "Emergency", "emergency");
+    track("view_topic", { topic: "emergency" });
+    if (t) landOn(q, t);
+    else window.scrollTo(0, 0);
+  }
+
+  // ---------- what is this ----------
   function aboutPage() {
-    rail(null);
-    const c = stats();
-    const fb = CONFIG.FEEDBACK_URL ? `<a href="${esc(feedbackLink("General"))}" target="_blank" rel="noopener" data-feedback="about">tell us</a>` : "tell a senior";
+    const tell = CONFIG.FEEDBACK_URL
+      ? `<a href="${esc(feedbackLink("General"))}" target="_blank" rel="noopener" data-feedback="about"><strong>Tell us.</strong></a>` : "<strong>Tell a senior.</strong>";
     setPage(`
       <article class="topic about">
-        <p class="crumbs"><a href="#/" class="back">${ic("back")}Index</a></p>
-        <h1>About Campus Info</h1>
-        <p class="lede">One place for what IIT Madras offers students and whom to ask about it, so nobody has to find out
-        in their fourth year that a scholarship, a counsellor or a research programme was there all along.</p>
-        <h2>What's in it</h2>
-        <p>${c.topics} topics on academics, the hostel and mess, money, health, clubs and Inter IIT, with ${c.documents}
-        official documents and ${c.contacts} phone numbers and emails. Each topic shows whom to ask, and every number
-        taps to call.</p>
-        <h2>Who writes it</h2>
-        <p>IITM students, from official sources and their own experience. It is not an official institute website. Seniors keep it current through an admin page;
-        a change goes live within a few minutes of being published. Content updated ${esc(niceDate(DATA.updated))}.</p>
-        <h2>Something wrong or missing?</h2>
-        <p>Please ${fb}. If a search finds nothing, the page offers a link that sends your search to the seniors.</p>
-        <h2>Privacy</h2>
-        <p>No accounts, no sign-in. Anonymous usage counts (Google Analytics) show what people search for and can't find.
-        Personal phone numbers are kept off this site; the numbers here are offices and official helplines.</p>
-        <h2>On your phone</h2>
-        <p>Android: open the browser menu and choose <em>Install app</em> or <em>Add to Home screen</em>.
-        iPhone: tap Share, then <em>Add to Home Screen</em>. After one visit it works without internet.</p>
+        ${crumbs([{ label: "What is this?" }])}
+        <h1>What is this?</h1>
+        <div class="readme">
+          <p>Campus Info answers the questions every IITM student ends up asking: how the mess works, how CGPA is counted,
+            which scholarship fits you, and <strong>whom to call</strong> when something goes wrong.</p>
+          <p>It helps <strong>first- and second-years</strong> most, and anyone who has asked a senior “whom do I even ask about this?”</p>
+          <p>Inside: <strong>academics, hostel and mess, scholarships and loans, health, clubs and Inter IIT</strong>, with the
+            official documents and office numbers that go with them.</p>
+          <p>Search the way you'd ask a friend, or browse by area. It <strong>works offline</strong>, so it's there even when
+            the hostel Wi-Fi isn't.</p>
+          <p>Written and kept up to date by <strong>IITM students</strong>, from official sources. Not an official institute
+            website. Something missing or wrong? ${tell}</p>
+        </div>
+        <p class="fine">No sign-in. Anonymous usage counts show us what people search for and can't find. Personal phone
+          numbers are kept off this site; the numbers here are offices and official helplines.</p>
         <p class="share"><a href="${esc(CONFIG.ADMIN_PATH)}">For seniors: edit Campus Info</a></p>
-      </article>`, "About");
+      </article>`, "What is this?", "about");
     window.scrollTo(0, 0);
   }
 
-  // ---------- scroll memory (so Back returns to the same place in the index) ----------
+  // ---------- scroll memory (so going back returns to the same place in a list) ----------
   window.addEventListener("scroll", () => {
     try { sessionStorage.setItem("ci.scroll." + location.hash, String(window.scrollY)); } catch (e) { /* ignore */ }
   }, { passive: true });
@@ -484,8 +684,6 @@
     try { y = Number(sessionStorage.getItem("ci.scroll." + location.hash) || 0); } catch (e) { /* ignore */ }
     window.scrollTo(0, y);
   }
-
-  window.addEventListener("hashchange", () => { try { sessionStorage.setItem("ci.inapp", "1"); } catch (e) { /* ignore */ } });
 
   // ---------- analytics ----------
   function analytics() {
@@ -523,7 +721,7 @@
 
   function currentTopic() {
     const { kind, arg } = parseHash();
-    return kind === "topic" ? arg : "";
+    return kind === "topic" ? arg : kind;
   }
 
   // Files uploaded in "Try the admin" live only in this browser (IndexedDB), never on the site.
@@ -539,31 +737,13 @@
     };
   }
 
-  // ---------- offline and install ----------
+  // ---------- offline ----------
   function serviceWorker() {
     if (!("serviceWorker" in navigator) || PREVIEW) return;
     navigator.serviceWorker.register("service-worker.js").then(() => navigator.serviceWorker.ready).then(() => {
       const el = $("#offline");
-      if (el) el.textContent = "Saved on this device: it opens even without internet.";
+      if (el) el.textContent = "Saved on this device, so it opens without internet.";
     }).catch(() => { /* not available here */ });
-  }
-
-  function installPrompt() {
-    let deferred = null;
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferred = e;
-      const b = $(".install");
-      if (b) b.hidden = false;
-    });
-    document.addEventListener("click", async (e) => {
-      if (!e.target.closest(".install") || !deferred) return;
-      deferred.prompt();
-      const choice = await deferred.userChoice;
-      track("install", { outcome: choice.outcome });
-      deferred = null;
-      e.target.hidden = true;
-    });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

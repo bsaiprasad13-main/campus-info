@@ -1,8 +1,19 @@
 # Campus Info
 
-What IIT Madras offers you, and whom to ask. 76 topics on academics, the hostel and mess, scholarships, health,
-clubs and Inter IIT, written by IITM students from official sources and their own experience. Search in your own
-words, tap any number to call it, and keep using it offline.
+Everything a senior would tell you.
+
+Campus Info answers the questions every IITM student ends up asking: how the mess works, how CGPA is counted, which
+scholarship fits you, and **whom to call** when something goes wrong.
+
+It helps **first- and second-years** most, and anyone who has asked a senior "whom do I even ask about this?"
+
+Inside: **academics, hostel and mess, scholarships and loans, health, clubs and Inter IIT**, with the official
+documents and office numbers that go with them.
+
+Search the way you'd ask a friend, or browse by area. It **works offline**, so it's there even when the hostel Wi-Fi
+isn't.
+
+Written and kept up to date by **IITM students**, from official sources. Not an official institute website.
 
 - **The site:** https://bsaiprasad13-main.github.io/campus-info/
 - **The admin:** https://bsaiprasad13-main.github.io/campus-info/admin/. Reviewing this? Press **Try the admin**: no sign-in, a practice copy that stays in your browser.

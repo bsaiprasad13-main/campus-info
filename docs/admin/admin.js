@@ -301,7 +301,7 @@
   function signInScreen(message) {
     root().innerHTML = h`
       <main class="signin">
-        <p class="brand"><span class="logo">ci</span> Campus Info <span class="muted">admin</span></p>
+        <p class="brand"><span class="logo" aria-hidden="true"></span> Campus Info <span class="muted">admin</span></p>
         <h1>Keep Campus Info up to date.</h1>
         <p class="lede">Seniors on the admin list edit topics here. Every change saves on its own to a draft; students see it once someone publishes.</p>
         <div id="gbtn" class="gbtn"></div>
@@ -324,7 +324,7 @@
     if (!CONFIG.GOOGLE_CLIENT_ID || !slot) return;
     const draw = () => {
       window.google.accounts.id.initialize({ client_id: CONFIG.GOOGLE_CLIENT_ID, callback: (r) => signIn(r.credential), ux_mode: "popup" });
-      window.google.accounts.id.renderButton(slot, { theme: "outline", size: "large", text: "signin_with", shape: "rectangular", width: 280 });
+      window.google.accounts.id.renderButton(slot, { theme: "outline", size: "large", text: "signin_with", shape: "pill", width: 280 });
     };
     if (window.google && window.google.accounts) return draw();
     const s = document.createElement("script");
@@ -411,7 +411,7 @@
     root().innerHTML = h`
       ${practice ? raw(`<div class="practice">Practice copy. Nothing you do here reaches the real site. <button type="button" id="restart">Start over</button></div>`) : ""}
       <header class="bar">
-        <a class="brand" href="../" title="Open Campus Info"><span class="logo">ci</span><span class="hide-s">Campus Info</span> <span class="muted">admin</span></a>
+        <a class="brand" href="../" title="Open Campus Info"><span class="logo" aria-hidden="true"></span><span class="hide-s">Campus Info</span> <span class="muted">admin</span></a>
         <span class="status" id="status" aria-live="polite"></span>
         <span class="actions">
           <button type="button" id="preview">Preview</button>
@@ -754,12 +754,12 @@
     $("#editor").innerHTML = h`
       <p class="back-s"><button type="button" class="link" id="tolist">← All topics</button></p>
       <h2>Emergency numbers</h2>
-      <p class="muted">The strip at the top of every page. Keep it to two or three; the full list is the topic it links to.</p>
+      <p class="muted">Shown first on the Emergency page, as big Call buttons. Keep it to two or three; the rest of that page comes from the topic below.</p>
       <ol class="rows" id="sos">${(site.emergency || []).map((e, i) => h`<li data-i="${i}"><span class="drag">⋮⋮</span>
         <input data-k="label" value="${e.label}" aria-label="Name" maxlength="30"><input data-k="number" value="${e.number}" aria-label="Number" maxlength="24" inputmode="tel">
         <button type="button" class="link" data-act="del">Remove</button></li>`)}</ol>
       ${(site.emergency || []).length < 4 ? raw(`<p><button type="button" id="sos-add">Add a number</button></p>`) : ""}
-      <label>“More” links to<select id="sos-topic">${Object.values(S.topics).sort((a, b) => sortKey(a.title).localeCompare(sortKey(b.title)))
+      <label>The rest of the Emergency page comes from<select id="sos-topic">${Object.values(S.topics).sort((a, b) => sortKey(a.title).localeCompare(sortKey(b.title)))
         .map((t) => h`<option value="${t.slug}" ${t.slug === site.emergency_topic ? "selected" : ""}>${t.title}</option>`)}</select></label>
       <h2>New here? Start with these</h2>
       <p class="muted">Up to six topics, in the order a fresher should read them.</p>

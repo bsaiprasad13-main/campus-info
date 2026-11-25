@@ -137,3 +137,52 @@ Two looks were built as a separate mock-up, next to the live site, on the same c
 - The three big numbers became three small tags, and the intro is one line.
 - Nothing new was added. Ideas like "recently opened" and per-topic jump lists were dropped as not worth the extra
   things to learn.
+
+## Prompt 9: Split the home page, and show people where they are
+
+Give it a nav bar: Home, Topics, Emergency, and the feedback form. Put it where a nav bar usually goes, at the top
+right. Not everything has to sit on the home page; split it up.
+
+The home page opens with "A place for you to…" and then: "Find out what you need to know, where you need to go, what
+you can explore and whom you can reach out to at IIT Madras." Highlight the phrases that matter. Drop the tags with
+"76 topics" and "numbers tap to call"; students don't care, and that kind of explanation belongs on the About page.
+Put the option to install it as an app there instead, and say it works offline. Then the search bar. "New here? Start
+with these" is fine; suggest changes only if they help.
+
+The emergency strip moves into the nav. The A to Z list gets its own page, reached from the nav. No topic counts
+anywhere.
+
+The search should take you to where the information actually is. And every page should show the path to it, so you
+know how deep you are and can climb back up yourself.
+
+Look at how Free Rooms is put together and take what fits; don't copy it. Write the "What is this?" the way its Read
+Me is written: what Campus Info is, who it helps most, what's in it, and why it's worth opening. Keep it short.
+
+The logo loses the "ci". Just the bookmark.
+
+The letters down the side are a good idea, but they're small, and nothing shows which section you're in. Don't just
+make them bigger; find a better way.
+
+The admin looks like a default page and its buttons are sharp. Round them and make it look as good as the site.
+
+Keep the whole thing simple. More features don't make it easier to use; they make it harder to see what it's for.
+
+### What Prompt 9 changed
+
+Three choices were settled before building: on a phone the nav gets its own row under the logo, the areas live on the
+Topics page, and the logo is a plain bookmark.
+
+- **Nav:** Home · Topics · Emergency · Feedback. Top right on a laptop; on a phone, a row under the logo that stays on
+  screen. Emergency is the one red item, so the ambulance number is still one tap from any page.
+- **Home:** the new headline with the four phrases marked, an install card (Android installs; iPhones get the two
+  steps), the search bar, and "New here?", now ordered by when a fresher needs each thing.
+- **Topics:** the A to Z list, with the areas as pills at the top. Each letter's heading stays pinned while you're in it.
+- **Emergency:** big Call buttons for the numbers seniors pick, then every emergency number.
+- **Where you are:** a trail on every page, like ⌂ › Topics › Hostel › Mess coupons.
+- **Search lands on the answer:** each result says where in the topic the words are; opening it scrolls to that line
+  with the words marked. An area's name offers the whole area, and if the best answer has a phone number, its Call
+  button is right in the results.
+- **The letter rail:** the letter you're in lights up. Sliding a thumb along the rail shows a big letter and jumps the
+  list, so the letters stay small but are easy to hit.
+- **What is this?:** five short paragraphs, written like the Free Rooms Read Me. The same text opens the README.
+- **Admin:** same screens and buttons; rounded, in the site's colours, with Publish as the one dark button.

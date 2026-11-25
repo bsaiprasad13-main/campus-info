@@ -1,0 +1,111 @@
+{
+  "at": "2026-11-25T00:14:58.080Z",
+  "today": "2026-11-25",
+  "results": [
+    {
+      "name": "Fresh questions",
+      "pass": null,
+      "summary": "everyday 15/15 first · urgent 5/5 · nothing-yet 4/5",
+      "details": [
+        "not covered \"jee mains result\" was answered with scholarships-merit-based, avanti-fellows"
+      ]
+    },
+    {
+      "name": "2 a.m. set",
+      "pass": true,
+      "summary": "10/10",
+      "details": []
+    },
+    {
+      "name": "Everyday search",
+      "pass": true,
+      "summary": "first 96% · top 3 99%",
+      "extra": {
+        "first": 67,
+        "top3": 69,
+        "n": 70,
+        "styles": {
+          "hinglish": {
+            "n": 7,
+            "first": 7
+          },
+          "typo": {
+            "n": 5,
+            "first": 4
+          },
+          "plain": {
+            "n": 46,
+            "first": 44
+          },
+          "short form": {
+            "n": 12,
+            "first": 12
+          }
+        }
+      },
+      "details": [
+        "top3 \"minor in data science\" → dual-degree-iddd, minor-degree, attendance; wanted minor-degree",
+        "MISS \"where to eat outside mess\" → mess, mess-coupons, sick-food; wanted restaurants or late-night-food",
+        "top3 \"ikolege login\" → hostel-lan, college-websites, hospital; wanted college-websites"
+      ]
+    },
+    {
+      "name": "Nothing on this yet",
+      "pass": true,
+      "summary": "12/12",
+      "details": []
+    },
+    {
+      "name": "Privacy",
+      "pass": true,
+      "summary": "0 hits",
+      "details": []
+    },
+    {
+      "name": "Freshness",
+      "pass": true,
+      "summary": "0 stale",
+      "details": []
+    },
+    {
+      "name": "Links and files",
+      "pass": true,
+      "summary": "0 broken · 73 outside links (not tried)",
+      "details": []
+    },
+    {
+      "name": "Slow network",
+      "pass": true,
+      "summary": "home 105 KB · offline 253 KB",
+      "details": [],
+      "extra": {
+        "home": [
+          "index.html",
+          "data/content.json",
+          "markdown.js",
+          "search.js",
+          "app.js",
+          "app.css"
+        ],
+        "offline": [
+          "index.html",
+          "app.css",
+          "app.js",
+          "search.js",
+          "markdown.js",
+          "manifest.webmanifest",
+          "icons/icon.svg",
+          "icons/icon-192.png",
+          "data/content.json",
+          "data/search.json"
+        ]
+      }
+    },
+    {
+      "name": "Admin end to end",
+      "pass": null,
+      "summary": "not run (add --admin)",
+      "details": []
+    }
+  ]
+}

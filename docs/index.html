@@ -35,6 +35,9 @@
   <main id="main" tabindex="-1">
     <p class="loading">Loading…</p>
   </main>
+  <!-- An older offline copy of app.js still writes the emergency strip here; keeping the empty slot means a phone
+       that mixes old and new files on a slow connection still opens instead of stopping at "Loading…". -->
+  <div id="strip" hidden></div>
   <div class="rail" id="rail" aria-hidden="true" hidden></div>
   <div class="bubble" id="bubble" aria-hidden="true" hidden></div>
   <footer class="foot" id="foot"></footer>

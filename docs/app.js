@@ -65,8 +65,8 @@
     INDEX = S.buildIndex(DATA, {});
     if (PREVIEW) previewBar();
     const fb = $("#nav-feedback");
-    if (CONFIG.FEEDBACK_URL) fb.href = feedbackLink("General");
-    else fb.remove();
+    if (fb && CONFIG.FEEDBACK_URL) fb.href = feedbackLink("General");
+    else if (fb) fb.remove();
     footer();
     stickyHeight();
     window.addEventListener("resize", stickyHeight);
@@ -398,12 +398,13 @@
     el.onpointerup = el.onpointercancel = () => {
       held = false;
       clearTimeout(bubbleTimer);
-      bubbleTimer = setTimeout(() => { $("#bubble").hidden = true; }, 450);
+      bubbleTimer = setTimeout(() => { const b = $("#bubble"); if (b) b.hidden = true; }, 450);
     };
   }
 
   function bubble(L, y) {
     const b = $("#bubble");
+    if (!b) return;
     clearTimeout(bubbleTimer);
     b.textContent = L;
     b.style.top = Math.max(stickPx() + 8, y - 30) + "px";

@@ -11,6 +11,23 @@ node evals/run.mjs --admin      # also runs the admin end to end on throwaway Gi
 
 Each run prints a scorecard and saves the details in `results/` (`latest.md`, plus a JSON file per run).
 
+## Why these checks
+
+Each check guards against one way Campus Info could fail a student:
+
+| What could go wrong for a student | The check |
+|---|---|
+| They can't find something because they don't know its official name | Everyday search |
+| At 2 a.m. the app slows them down instead of giving them a number to call | 2 a.m. set |
+| The app pretends to know and sends them the wrong way | Nothing on this yet |
+| A page doesn't tell them what a senior would: what they get, how to get in, when, whom to ask | Senior test |
+| A student's personal number ends up on a public site | Privacy |
+| They act on a deadline that has already passed | Freshness |
+| A link or a file is dead | Links and files |
+| It's too heavy for hostel Wi-Fi or mobile data | Slow network |
+| Seniors can't keep it right, or one edit breaks it | Admin end to end |
+| It passes all of the above and still doesn't help a real junior | [The user test](USER-TEST.md), then the numbers after launch |
+
 ## The checks
 
 | Check | What it asks | Pass |
@@ -18,6 +35,7 @@ Each run prints a scorecard and saves the details in `results/` (`latest.md`, pl
 | **2 a.m. set** | Ten things a scared student types ("ambulance", "friend fainted in hostel", "panic attack"). Is the first result the right topic, shown as the answer (not under "Nothing on this yet"), with a number to tap? | 10 of 10 |
 | **Everyday search** | 70 searches typed the way students type: Hinglish ("cgpa kaise calculate"), typos ("libary open 24 hrs"), short forms ("ccw coupon for parents"). Also reports right answers that still open with "Nothing on this yet". | right topic first for 80%, in the top three for 95% |
 | **Nothing on this yet** | 12 questions we don't cover ("gre coaching", "last year placement packages"). Does the app say so, instead of passing off a loosely related topic as the answer? | 11 of 12 |
+| **Senior test** | The 32 pages about something a student can join, apply for, compete in or get ([the list](cases/opportunities.json)). Does each page say what you get, how to get in, when, and whom to ask (a phone number or email)? Only what the page shows counts. | baseline now; target: all 32 |
 | **Privacy** | Every bit of text, including what's pulled out of PDFs: no personal mobile numbers, no roll-number emails, none of the removed names. | 0 hits |
 | **Freshness** | No date that has passed but still reads as coming up ("apply by 30 September"). | 0 |
 | **Links and files** | Every link inside the app goes somewhere and every file is there. Outside links are tried with `--online` and listed for a person to look at. | 0 broken |
@@ -44,12 +62,21 @@ count only the order of results.
 The admin end to end failed its first run on the real repo (GitHub cuts off big files) and passed 13 of 13 steps
 after the fix, on 24 Nov. What changed between runs, and why, word by word: [CHANGES.md](CHANGES.md).
 
+**Senior test, first run (26 Nov), the baseline:** all four answers on 4 of the 32 pages. "What you get" is on 26,
+"how to get in" on 21, "when" on 24, and "whom to ask" on only 5. The pages that miss something are listed in
+[results/senior-baseline.md](results/senior-baseline.md); they are the editors' to-do list. Of all the checks, this
+one is closest to the problem, and it's the one furthest from passing.
+
 ## What's checked, and what's still a guess
 
 **Checked:**
 - Search, against 117 questions: the 2 a.m. set, everyday, "Nothing on this yet" and the fresh set.
+- Whether the 32 opportunity pages tell a junior what a senior would (the senior test).
 - Privacy, freshness, links and size, on every run.
 - The admin, end to end on the real repo, and two real publishes that went live 31 seconds after the click.
+
+**Not tested with students yet:** [the user test](USER-TEST.md) is written: five juniors, ten minutes each, five
+tasks taken from the problem, and what they think of the app afterwards. Its pass bars were set before any session.
 
 **Still a guess until students use it:**
 - **How students type.** The questions follow the examples in Prompt 2, but none of them is a logged search from a

@@ -139,7 +139,7 @@ function searchChecks(app, built) {
       const { r, slugs } = ranked(c.q);
       if (r.covered === false) nok++; else notes.push(`not covered "${c.q}" was answered with ${slugs.slice(0, 2).join(", ")}`);
     }
-    fresh.push({ name: "Fresh questions", pass: null,
+    fresh.push({ name: "Fresh questions", pass: null, info: true,
       summary: `everyday ${ok}/${n2} first · urgent ${uok}/${f.urgent.length} · nothing-yet ${nok}/${f.not_covered.length}`, details: notes });
   }
 
@@ -157,6 +157,44 @@ function searchChecks(app, built) {
     { name: "Nothing on this yet", pass: ncOk >= nc.length - 1, summary: `${ncOk}/${nc.length}`,
       details: nc.filter((x) => !x.ok).map((x) => `"${x.q}" was answered with ${x.shown.join(", ")}`) },
   ];
+}
+
+// ---------- the senior test ----------
+// Pages about something a student can join, apply for, compete in or get (cases/opportunities.json). Does each
+// page answer what a junior would ask a senior? Only what the page shows counts, not text that search alone reads.
+const SENIOR = {
+  get: /\b(benefits?|what('s| is) in it for|you('ll| will)? (get|learn|gain|earn|win)|why (join|participate|do|should|take)|stipend|amount of|₹|rs\.? ?\d|lakh|per (month|year|annum|semester)|waiver|reimburse\w*|certificate|awards?|prizes?|grants?|exposure|hands-on|skills?)\b/i,
+  how: /\b(how to (join|apply|register|participate|claim|represent|request|get|become|enrol|take part)|apply(ing)?|application|register(ed|ing)?|registration|selection|selected|recruit\w*|eligib\w*|criteria|try-?outs?|trials?|join(ing)?|enrol\w*|sign up|interview)\b/i,
+  when: /\b(deadline|last date|semester|every year|each year|annual(ly)?|once a (year|month|week)|window|summer|winter)\b/i,
+  month: /\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept?|Oct|Nov|Dec)\b/,
+};
+
+function seniorCheck(app, built) {
+  const name = "Senior test";
+  if (app.error || !built) return { name, pass: false, summary: app.error || "no built data yet", details: [] };
+  const pages = readJSON(join(ROOT, "evals", "cases", "opportunities.json")).pages;
+  const bySlug = Object.fromEntries(built.content.topics.map((t) => [t.slug, t]));
+  const rows = pages.map(({ slug }) => {
+    const t = bySlug[slug];
+    if (!t) return { slug, missing: ["the page itself"] };
+    const md = t.posts.map((p) => p.md).join("\n\n");
+    const text = `${t.title}\n${t.summary}\n${md}`;
+    const c = app.markdown.contacts(md);
+    const has = {
+      "what you get": SENIOR.get.test(text),
+      "how to get in": SENIOR.how.test(text),
+      "when": SENIOR.when.test(text) || SENIOR.month.test(text),
+      "whom to ask": c.phones.length + c.emails.length > 0,
+    };
+    return { slug, missing: Object.keys(has).filter((k) => !has[k]) };
+  });
+  const n = rows.length;
+  const count = (k) => rows.filter((r) => !r.missing.includes(k)).length;
+  const all = rows.filter((r) => !r.missing.length).length;
+  return { name, pass: null, info: true,
+    summary: `all four on ${all}/${n} pages · get ${count("what you get")} · how ${count("how to get in")} · when ${count("when")} · whom ${count("whom to ask")}`,
+    details: rows.filter((r) => r.missing.length).map((r) => `${r.slug}: no ${r.missing.join(", no ")}`),
+    extra: { rows } };
 }
 
 // ---------- privacy ----------
@@ -351,6 +389,7 @@ const app = loadAppCode();
 const src = loadSource();
 const results = [
   ...searchChecks(app, built),
+  seniorCheck(app, built),
   privacyCheck(src),
   freshnessCheck(src),
   await linksCheck(built),
@@ -362,11 +401,11 @@ const stamp = started.toISOString().replace(/[-:]/g, "").slice(0, 15);
 const head = `Campus Info checks · ${started.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}`;
 console.log(head);
 for (const r of results) {
-  const mark = r.pass === null ? (r.name === "Fresh questions" ? "info" : "skip") : r.pass ? "PASS" : "FAIL";
+  const mark = r.pass === null ? (r.info ? "info" : "skip") : r.pass ? "PASS" : "FAIL";
   console.log(`${mark}  ${r.name.padEnd(20)} ${r.summary}`);
 }
 const failed = results.filter((r) => r.pass === false);
-for (const r of [...failed, ...results.filter((x) => x.name === "Fresh questions")]) {
+for (const r of [...failed, ...results.filter((x) => x.info)]) {
   if (!r.details.length) continue;
   console.log(`\n${r.name}:`);
   for (const d of r.details.slice(0, 12)) console.log(`  - ${d}`);
@@ -377,7 +416,7 @@ mkdirSync(join(ROOT, "evals", "results"), { recursive: true });
 writeFileSync(join(ROOT, "evals", "results", `run-${stamp}.json`), JSON.stringify({ at: started.toISOString(), today: TODAY.toISOString().slice(0, 10), results }, null, 2) + "\n");
 const md = [`# ${head}`, ""];
 for (const r of results) {
-  md.push(`## ${r.pass === null ? "skip" : r.pass ? "PASS" : "FAIL"} · ${r.name}: ${r.summary}`, "");
+  md.push(`## ${r.pass === null ? (r.info ? "info" : "skip") : r.pass ? "PASS" : "FAIL"} · ${r.name}: ${r.summary}`, "");
   if (r.extra && r.extra.styles) {
     md.push("| style | first | of |", "|---|---|---|");
     for (const [s, v] of Object.entries(r.extra.styles)) md.push(`| ${s} | ${v.first} | ${v.n} |`);

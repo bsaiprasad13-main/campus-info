@@ -72,6 +72,23 @@ get kicked out", "hostel me wifi kaise lagaye", "places to take parents", "shola
 would fix these, but it would also start answering questions we don't cover. Real searches after launch should
 decide; the app already counts every search that finds nothing.
 
+## Added on 26 Nov: the senior test, and what it found
+
+The search checks show that a student reaches the right page. They don't show whether the page then tells the
+student what a senior would. The senior test asks that of the 32 pages about something a student can join, apply
+for, compete in or get: what do I get, how do I get in, when, and whom do I ask?
+
+First run (`results/senior-baseline.md`): all four on **4 of 32** pages.
+
+| What it found | What we'll do |
+|---|---|
+| Only 5 of 32 pages give a phone number or an email to ask. Most councils, fests, teams and scholarship pages name an office or a website at most. | Add official contacts, office and club addresses only, never personal numbers, so the privacy check still holds. |
+| Shaastra, Saarang, PoR, SGS, CoCAS, LitSoc and Schroeter don't say how to get in. | Seniors who've been through them write that part. |
+| The Avanti Fellows page shows only a link. Its useful text (what you get, the timeline, the selection) is read by search but never shown on the page. | Show that text on the page itself. |
+
+We set no pass bar yet; this run is the baseline. The target is all 32 pages, and we won't make up a contact to get
+there.
+
 ## Left as they are
 
 - **Outside links:** 4 of 73 didn't open during the check. They are the Digi Mess app (402), one Vidal Health page (404), saarang.org (no answer), and `192.168.0.1`, which is a router's own address inside the Wi-Fi router guide and only works on that router's network. The first three are other people's sites; a senior should look at them, not a script.

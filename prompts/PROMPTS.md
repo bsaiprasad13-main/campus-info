@@ -502,6 +502,8 @@ First of all, the flow should be very good, and the content should be very natur
 
 Ask doubts if I'm missing anything to convey to you, and get more clarity for you to build the things.
 
+*[Free Rooms is a small web app I built earlier for IIT Madras students. It shows which classrooms are empty between classes. I pointed Claude to it only as a reference for layout.]*
+
 **Claude:**
 
 > I went through Free Rooms (its code and the live app on a phone) and the admin page, and read your message line by line. Below is how I'd shape the changes and why. Three decisions are yours; they're in the questions at the end.
